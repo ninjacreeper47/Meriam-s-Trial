@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvyh1vflmrb8"]
+
+[ext_resource type="Script" path="res://experiment.gd" id="1_ubn6d"]
+
+[node name="Experiment" type="GridContainer" groups=["Experiments"]]
+offset_right = 656.0
+offset_bottom = 519.0
+columns = 5
+script = ExtResource("1_ubn6d")

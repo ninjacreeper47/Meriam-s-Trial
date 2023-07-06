@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvya4rcawkcxg"]
+
+[ext_resource type="Script" path="res://ResearchTableau.gd" id="1_k6xm6"]
+[ext_resource type="PackedScene" uid="uid://dvyh1vflmrb8" path="res://experiment.tscn" id="2_ptu6t"]
+
+[node name="Main" type="Node2D"]
+
+[node name="ResearchTableau" type="GridContainer" parent="."]
+offset_right = 1316.0
+offset_bottom = 131.0
+scale = Vector2(0.876, 0.876)
+columns = 8
+script = ExtResource("1_k6xm6")
+exposed_count = 16
+
+[node name="Experiment" parent="." instance=ExtResource("2_ptu6t")]
+offset_left = 9.0
+offset_top = 360.0
+offset_right = 665.0
+offset_bottom = 879.0
+
+[node name="Experiment2" parent="." instance=ExtResource("2_ptu6t")]
+offset_left = 773.0
+offset_top = 357.0
+offset_right = 1429.0
+offset_bottom = 876.0

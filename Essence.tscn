@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://baom7038jho5x"]
+
+[ext_resource type="Texture2D" uid="uid://bmu7fqa58bacl" path="res://Assets/dice-six-faces-6.svg" id="1_d5bev"]
+[ext_resource type="Texture2D" uid="uid://b1yko1opmf6h1" path="res://icon.svg" id="1_i2bnb"]
+[ext_resource type="Script" path="res://Essence.gd" id="3_4j6pw"]
+
+[node name="Essence" type="TextureButton"]
+offset_right = 128.0
+offset_bottom = 128.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("1_d5bev")
+texture_hover = ExtResource("1_i2bnb")
+script = ExtResource("3_4j6pw")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
