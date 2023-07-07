@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bm64f1i3smn5o"]
+
+[ext_resource type="Script" path="res://ex_status.gd" id="1_86mdy"]
+
+[node name="ExStatus" type="Label"]
+offset_left = 128.0
+offset_top = 334.0
+offset_right = 207.0
+offset_bottom = 360.0
+scale = Vector2(2, 2)
+text = "1:  💤Inactive "
+script = ExtResource("1_86mdy")

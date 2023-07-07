@@ -5,6 +5,9 @@ var active_experiments  = 0
 var experiment_nodes = ["placeholder"]
 var essence_counts = {}
 var selected_experiment
+
+signal meta_breached
+signal alchemic_state_changed
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -25,7 +28,8 @@ func _process(delta):
 		selected_experiment = experiment_nodes[4]
 	if Input.is_action_just_pressed("SelectEx5"):
 		selected_experiment = experiment_nodes[5]
-	
+
+
 func _check_meta():
 	if active_experiments < 3:
 		return true
@@ -37,6 +41,7 @@ func _check_meta():
 			if count == innercount:
 				continue
 			if(essence_counts[count] == essence_counts[innercount]):
+				meta_breached.emit()
 				return false
 	#meta-kudu
 	var sum = 0
@@ -44,5 +49,6 @@ func _check_meta():
 		sum += essence_counts[count]
 	for count in essence_counts:
 		if(sum - essence_counts[count] < essence_counts[count]):
+			meta_breached.emit()
 			return false
 	return true

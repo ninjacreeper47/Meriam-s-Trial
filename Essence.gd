@@ -8,7 +8,9 @@ var value_iconpath = "res://Assets/dice-six-faces-%s.svg"
 
 @onready var experiment_list = get_tree().get_nodes_in_group("Experiments") 
 var assigned_experiment 
-#Selection Varibles
+
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -51,4 +53,5 @@ func _on_pressed():
 	alchemy.selected_experiment._add_essence(value,my_type)
 	assigned_experiment = alchemy.selected_experiment
 	reparent(alchemy.selected_experiment)
+	alchemy.alchemic_state_changed.emit()
 	
