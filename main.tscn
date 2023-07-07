@@ -5,22 +5,50 @@
 
 [node name="Main" type="Node2D"]
 
-[node name="ResearchTableau" type="GridContainer" parent="."]
-offset_right = 1316.0
-offset_bottom = 131.0
-scale = Vector2(0.876, 0.876)
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1600.0
+offset_bottom = 896.0
+
+[node name="ResearchTableau" type="GridContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -621.0
+offset_right = 801.0
+offset_bottom = 265.0
+grow_horizontal = 2
+scale = Vector2(0.5, 0.5)
 columns = 8
 script = ExtResource("1_k6xm6")
 exposed_count = 16
 
-[node name="Experiment" parent="." instance=ExtResource("2_ptu6t")]
-offset_left = 9.0
-offset_top = 360.0
-offset_right = 665.0
-offset_bottom = 879.0
+[node name="Experiment1" parent="." instance=ExtResource("2_ptu6t")]
+offset_top = 384.0
+offset_bottom = 903.0
 
 [node name="Experiment2" parent="." instance=ExtResource("2_ptu6t")]
-offset_left = 773.0
-offset_top = 357.0
-offset_right = 1429.0
-offset_bottom = 876.0
+offset_left = 320.0
+offset_top = 384.0
+offset_right = 976.0
+offset_bottom = 903.0
+
+[node name="Experiment3" parent="." instance=ExtResource("2_ptu6t")]
+offset_left = 640.0
+offset_top = 384.0
+offset_right = 1296.0
+offset_bottom = 903.0
+
+[node name="Experiment4" parent="." instance=ExtResource("2_ptu6t")]
+offset_left = 960.0
+offset_top = 384.0
+offset_right = 1616.0
+offset_bottom = 903.0
+
+[node name="Experiment5" parent="." instance=ExtResource("2_ptu6t")]
+offset_left = 1280.0
+offset_top = 384.0
+offset_right = 1936.0
+offset_bottom = 903.0

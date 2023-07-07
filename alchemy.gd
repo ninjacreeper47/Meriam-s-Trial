@@ -19,6 +19,12 @@ func _process(delta):
 		selected_experiment = experiment_nodes[1]
 	if Input.is_action_just_pressed("SelectEx2"):
 		selected_experiment = experiment_nodes[2]
+	if Input.is_action_just_pressed("SelectEx3"):
+		selected_experiment = experiment_nodes[3]
+	if Input.is_action_just_pressed("SelectEx4"):
+		selected_experiment = experiment_nodes[4]
+	if Input.is_action_just_pressed("SelectEx5"):
+		selected_experiment = experiment_nodes[5]
 	
 func _check_meta():
 	if active_experiments < 3:
