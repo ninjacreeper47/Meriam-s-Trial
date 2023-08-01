@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://i3jhroewpw33"]
+[gd_scene load_steps=3 format=3 uid="uid://i3jhroewpw33"]
 
 [ext_resource type="Script" path="res://upcoming_essence.gd" id="1_e5cuf"]
+[ext_resource type="PackedScene" uid="uid://bu5nuvji7xww4" path="res://letter_square.tscn" id="2_ccpki"]
 
 [node name="UpcomingEssence" type="Control"]
 layout_mode = 3
@@ -17,25 +18,90 @@ offset_right = 1600.0
 offset_bottom = 904.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
+
+[node name="LetterSquare" parent="HBoxContainer/VBoxContainer" instance=ExtResource("2_ccpki")]
+layout_mode = 2
+
+[node name="Label" parent="HBoxContainer/VBoxContainer/LetterSquare" index="0"]
+text = "R"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
+
+[node name="LetterSquare" parent="HBoxContainer/VBoxContainer2" instance=ExtResource("2_ccpki")]
+layout_mode = 2
+
+[node name="Label" parent="HBoxContainer/VBoxContainer2/LetterSquare" index="0"]
+text = "E"
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
+
+[node name="LetterSquare" parent="HBoxContainer/VBoxContainer3" instance=ExtResource("2_ccpki")]
+layout_mode = 2
+
+[node name="Label" parent="HBoxContainer/VBoxContainer3/LetterSquare" index="0"]
+text = "S"
 
 [node name="VBoxContainer4" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
+
+[node name="LetterSquare" parent="HBoxContainer/VBoxContainer4" instance=ExtResource("2_ccpki")]
+layout_mode = 2
+
+[node name="Label" parent="HBoxContainer/VBoxContainer4/LetterSquare" index="0"]
+text = "E"
 
 [node name="VBoxContainer5" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
+
+[node name="LetterSquare" parent="HBoxContainer/VBoxContainer5" instance=ExtResource("2_ccpki")]
+layout_mode = 2
+
+[node name="Label" parent="HBoxContainer/VBoxContainer5/LetterSquare" index="0"]
+text = "A"
 
 [node name="VBoxContainer6" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
+
+[node name="LetterSquare" parent="HBoxContainer/VBoxContainer6" instance=ExtResource("2_ccpki")]
+layout_mode = 2
+
+[node name="Label" parent="HBoxContainer/VBoxContainer6/LetterSquare" index="0"]
+text = "R"
 
 [node name="VBoxContainer7" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
 
-[node name="VBoxContainer8" type="VBoxContainer" parent="HBoxContainer"]
+[node name="LetterSquare" parent="HBoxContainer/VBoxContainer7" instance=ExtResource("2_ccpki")]
 layout_mode = 2
+
+[node name="Label" parent="HBoxContainer/VBoxContainer7/LetterSquare" index="0"]
+text = "C"
+
+[node name="VBoxContainer8" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+
+[node name="LetterSquare" parent="HBoxContainer/VBoxContainer8" instance=ExtResource("2_ccpki")]
+layout_mode = 2
+
+[node name="Label" parent="HBoxContainer/VBoxContainer8/LetterSquare" index="0"]
+text = "H"
+
+[editable path="HBoxContainer/VBoxContainer/LetterSquare"]
+[editable path="HBoxContainer/VBoxContainer2/LetterSquare"]
+[editable path="HBoxContainer/VBoxContainer3/LetterSquare"]
+[editable path="HBoxContainer/VBoxContainer4/LetterSquare"]
+[editable path="HBoxContainer/VBoxContainer5/LetterSquare"]
+[editable path="HBoxContainer/VBoxContainer6/LetterSquare"]
+[editable path="HBoxContainer/VBoxContainer7/LetterSquare"]
+[editable path="HBoxContainer/VBoxContainer8/LetterSquare"]

@@ -1,7 +1,8 @@
 extends Control
 
 var essence = load("res://Essence.tscn") 
-
+var letter_square = load("res://letter_square.tscn")
+var column_clear_marker = load("res://column_clear_marker.tscn")
 @export var tableau:Control
 
 @export var column_height = 10
@@ -29,7 +30,6 @@ func spawn_balanced():
 		while bag.size() < board_total:
 			bag.append(surplus_type)
 	bag.shuffle()
-	print(bag)
 	
 	#essence spawning
 	for i in range(get_child(0).get_child_count()):
@@ -48,8 +48,14 @@ func spawn_balanced():
 func _process(delta):
 	pass
 
+	
 func _on_next_requested(column):
 	var column_node = get_child(0).get_child(column)
+	if column_node.get_child_count() <= 1:
+		var instance = column_clear_marker.instantiate()
+		tableau.add_child(instance)
+		tableau.move_child(instance,column)
+		return
 	var request = column_node.get_child(column_node.get_child_count() -1)
 	request.in_upcoming = false
 	tableau._refill(request)

@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://bu5nuvji7xww4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kwn6p"]
+font_size = 80
+
+[node name="LetterSquare" type="ColorRect"]
+custom_minimum_size = Vector2(128, 128)
+offset_right = 128.0
+offset_bottom = 128.0
+scale = Vector2(0.5, 0.5)
+color = Color(0.341176, 0.129412, 0.333333, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+text = "Q"
+label_settings = SubResource("LabelSettings_kwn6p")
+horizontal_alignment = 1
+vertical_alignment = 1
