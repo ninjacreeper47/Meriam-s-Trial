@@ -2,10 +2,11 @@ extends Node
 #this script is autoloaded and is used to provide "global" values to other scripts 
 enum type {Metal,Plant,Star,Water,Friendship}
 var active_experiments  = 0
-var experiment_nodes = ["placeholder"]
+var experiment_nodes = ["storage placeholder"]
 var essence_counts = {}
 var selected_experiment
 
+var labatory_stable = true
 signal meta_breached
 signal alchemic_state_changed
 # Called when the node enters the scene tree for the first time.
@@ -28,7 +29,8 @@ func _process(delta):
 		selected_experiment = experiment_nodes[4]
 	if Input.is_action_just_pressed("SelectEx5"):
 		selected_experiment = experiment_nodes[5]
-
+	if Input.is_action_just_pressed("storage"):
+		selected_experiment = experiment_nodes[0]
 
 func _check_meta():
 	if active_experiments < 3:
@@ -50,5 +52,11 @@ func _check_meta():
 	for count in essence_counts:
 		if(sum - essence_counts[count] < essence_counts[count]):
 			meta_breached.emit()
+			return false
+	return true
+	
+func _check_labatory_stability():
+	for i in range(1, experiment_nodes.size()):
+		if(experiment_nodes[i].stable == false):
 			return false
 	return true

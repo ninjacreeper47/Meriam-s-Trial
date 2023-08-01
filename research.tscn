@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://xl4jsnrh5oll"]
+
+[ext_resource type="PackedScene" uid="uid://i3jhroewpw33" path="res://upcoming_essence.tscn" id="1_1t6it"]
+[ext_resource type="Script" path="res://ResearchTableau.gd" id="2_pqy6i"]
+
+[node name="Research" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = -24.0
+offset_right = 40.0
+offset_bottom = 16.0
+
+[node name="UpcomingEssence" parent="." node_paths=PackedStringArray("tableau") instance=ExtResource("1_1t6it")]
+layout_mode = 1
+offset_left = 128.0
+offset_top = -808.0
+offset_right = 128.0
+offset_bottom = -808.0
+scale = Vector2(0.75, 0.75)
+tableau = NodePath("../Tableau")
+
+[node name="Tableau" type="GridContainer" parent="."]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+offset_left = 128.0
+offset_top = 128.0
+offset_right = 1216.0
+offset_bottom = 248.0
+grow_horizontal = 2
+scale = Vector2(0.75, 0.75)
+columns = 8
+script = ExtResource("2_pqy6i")

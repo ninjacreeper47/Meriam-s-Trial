@@ -58,6 +58,7 @@ func _check_laws():
 		stabilized.emit()
 	
 	
+	
 
 func _check_kudu():
 	var sum = 0
@@ -97,5 +98,9 @@ func _check_qluix():
 				return false
 	return true
 
+func _is_full():
+	#Currently experiments do not have any hehaviour where they are considerd full. This function only exists so that
+	#storage and experiments can elegantly use the same logic
+	return false
 	
 

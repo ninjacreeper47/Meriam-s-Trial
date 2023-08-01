@@ -1,16 +1,19 @@
 extends GridContainer
 
-@export var exposed_count = 10
+#If you change this you have to also modify upcomming essence manually!
+var exposed_count = 8
 var essence = load("res://Essence.tscn")
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if self.get_child_count() < exposed_count:
-		var instance = essence.instantiate()
-		add_child(instance)
+	pass
+func _refill(newEssence):
+		newEssence.get_parent().remove_child(newEssence)
+		add_child(newEssence)
+		newEssence.in_tableau = true
+		move_child(get_child(get_child_count() -1 ),newEssence.my_col)
