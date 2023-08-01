@@ -24,13 +24,18 @@ func spawn_balanced():
 	var bag = []
 	for i in range(amount_of_each_type):
 		for type in types:
+			if alchemy.essence_goals.has(alchemy.type[type]):
+				alchemy.essence_goals[alchemy.type[type]] += 1
+			else:
+				alchemy.essence_goals[alchemy.type[type]] = 1
 			bag.append(type)
 	if bag.size() < board_total:
 		var surplus_type = types.pick_random()
-		while bag.size() < board_total:
+		for  i in range(board_total - bag.size()):
 			bag.append(surplus_type)
+			alchemy.essence_goals[alchemy.type[surplus_type]] += 1
 	bag.shuffle()
-	
+	print(alchemy.essence_goals)
 	#essence spawning
 	for i in range(get_child(0).get_child_count()):
 		var column = get_child(0).get_child(i)
@@ -40,8 +45,8 @@ func spawn_balanced():
 			instance.my_col = i
 			instance.in_upcoming = true
 			instance._set_type(alchemy.type[bag.pop_back()])
-			var call = Callable(self, "_on_next_requested")
-			instance.taken_from_tableau.connect(call)
+			var my_call = Callable(self, "_on_next_requested")
+			instance.taken_from_tableau.connect(my_call)
 		#populate the intial tableau
 		_on_next_requested(i)
 # Called every frame. 'delta' is the elapsed time since the previous frame.

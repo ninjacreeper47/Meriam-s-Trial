@@ -17,13 +17,12 @@ signal activated
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	alchemy.experiment_nodes.append(self)
-	var call = Callable(self, "_check_laws")
-	alchemy.alchemic_state_changed.connect(call)
+	var my_call = Callable(self, "_check_laws")
+	alchemy.alchemic_state_changed.connect(my_call)
 	for i in range(alchemy.type.size()):
 		type_counts[i] = 0
 	for i in range (1,7):
 		value_counts[i] = 0
-	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass

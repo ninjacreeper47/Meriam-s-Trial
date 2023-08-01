@@ -6,13 +6,19 @@ var experiment_nodes = ["storage placeholder"]
 var essence_counts = {}
 var selected_experiment
 
+var active_type_counts = {}
+var essence_goals ={}
+var type_targets = {}
 var labatory_stable = true
 signal meta_breached
 signal alchemic_state_changed
+signal game_won
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	var my_call = Callable(self,"_on_alchemic_state_changed")
+	alchemic_state_changed.connect(my_call)
+	my_call = Callable(self,"_on_game_won")
+	game_won.connect(my_call)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -60,3 +66,20 @@ func _check_labatory_stability():
 		if(experiment_nodes[i].stable == false):
 			return false
 	return true
+func _on_alchemic_state_changed():
+	_check_victory()
+func _check_victory():
+	if !_check_labatory_stability():
+		return
+	for i in range(type.size()):
+		active_type_counts[i] = 0 
+	for i in range(1, experiment_nodes.size()):
+		for j in range(type.size()):
+			active_type_counts[j] += experiment_nodes[i].type_counts[j]
+			
+	for i in range(type.size()):
+		if active_type_counts[i] >= essence_goals[i]:
+			game_won.emit()
+func _on_game_won():
+	get_tree().change_scene_to_file("res://victory_celebration.tscn")
+
