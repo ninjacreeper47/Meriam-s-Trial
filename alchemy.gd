@@ -10,6 +10,8 @@ var active_type_counts = {}
 var essence_goals ={}
 var type_targets = {}
 var labatory_stable = true
+
+var forced_meta_threshold = 20
 signal meta_breached
 signal alchemic_state_changed
 signal game_won
@@ -39,7 +41,8 @@ func _process(delta):
 		selected_experiment = experiment_nodes[0]
 
 func _check_meta():
-	if active_experiments < 3:
+	
+	if active_experiments < 3 && _count_active_essences() < forced_meta_threshold:
 		return true
 		#meta-qluix
 	for count in essence_counts:
@@ -72,15 +75,21 @@ func _on_alchemic_state_changed():
 func _check_victory():
 	if !_check_labatory_stability():
 		return
-	for i in range(type.size()):
-		active_type_counts[i] = 0 
-	for i in range(1, experiment_nodes.size()):
-		for j in range(type.size()):
-			active_type_counts[j] += experiment_nodes[i].type_counts[j]
-			
+	_count_active_essences()
 	for i in range(type.size()):
 		if active_type_counts[i] >= essence_goals[i]:
 			game_won.emit()
 func _on_game_won():
 	get_tree().change_scene_to_file("res://victory_celebration.tscn")
 
+func _count_active_essences():
+	var sum = 0
+	for i in range(type.size()):
+		active_type_counts[i] = 0 
+	for i in range(1, experiment_nodes.size()):
+		for j in range(type.size()):
+			if experiment_nodes[i].active == false:
+				continue
+			active_type_counts[j] += experiment_nodes[i].type_counts[j]
+			sum += experiment_nodes[i].type_counts[j]
+	return sum

@@ -89,7 +89,6 @@ func _get_drag_data(position):
 	#Centered preview work around 
 	#Thanks to u/kleonc @ https://www.reddit.com/r/godot/comments/j0o11y/how_can_i_change_the_position_of_the_drag_preview/g6tubo4/
 	var c = Control.new()
-	c.position
 	c.add_child(preview)
 	preview.position = Vector2(-50,-50)
 	set_drag_preview(c)
