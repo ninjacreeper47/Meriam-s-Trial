@@ -47,6 +47,7 @@ func _remove_essence(val, type):
 		active = false
 		inactive.emit()
 		alchemy.active_experiments -= 1
+	
 
 func _check_laws():
 	if !active:
@@ -102,4 +103,20 @@ func _is_full():
 	#storage and experiments can elegantly use the same logic
 	return false
 	
-
+func _can_drop_data(at_position, data):
+	if _is_full():
+		return false
+	return true
+	
+func _drop_data(at_position, data):
+	if data.assigned_experiment == self:
+		return 
+	if(data.assigned_experiment != null): 
+		data.assigned_experiment._remove_essence(data.value,data.my_type)
+	if(data.in_tableau):
+		data.taken_from_tableau.emit(data.my_col)
+		data.in_tableau = false
+	data.assigned_experiment = self
+	_add_essence(data.value,data.my_type)
+	data.reparent(self)
+	alchemy.alchemic_state_changed.emit()	

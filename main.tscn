@@ -18,35 +18,35 @@ script = ExtResource("1_tdfog")
 offset_left = 128.0
 offset_top = 384.0
 offset_right = 784.0
-offset_bottom = 903.0
+offset_bottom = 2091.0
 ex_num = 1
 
 [node name="Experiment2" parent="." instance=ExtResource("2_ptu6t")]
 offset_left = 448.0
 offset_top = 384.0
 offset_right = 1104.0
-offset_bottom = 903.0
+offset_bottom = 2064.0
 ex_num = 2
 
 [node name="Experiment3" parent="." instance=ExtResource("2_ptu6t")]
 offset_left = 768.0
 offset_top = 384.0
 offset_right = 1424.0
-offset_bottom = 903.0
+offset_bottom = 2064.0
 ex_num = 3
 
 [node name="Experiment4" parent="." instance=ExtResource("2_ptu6t")]
 offset_left = 1088.0
 offset_top = 384.0
-offset_right = 1744.0
-offset_bottom = 903.0
+offset_right = 1755.0
+offset_bottom = 2064.0
 ex_num = 4
 
 [node name="Experiment5" parent="." instance=ExtResource("2_ptu6t")]
 offset_left = 1408.0
 offset_top = 384.0
 offset_right = 2064.0
-offset_bottom = 903.0
+offset_bottom = 2064.0
 ex_num = 5
 
 [node name="ExStatus1" parent="." instance=ExtResource("3_5a3tb")]

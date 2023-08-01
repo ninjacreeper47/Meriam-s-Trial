@@ -70,10 +70,29 @@ func _on_pressed():
 	reparent(alchemy.selected_experiment)
 	alchemy.alchemic_state_changed.emit()
 	
+	
 func _check_if_locked():
 	if(in_tableau && alchemy._check_labatory_stability() == false):
 		return true 
 	if(in_upcoming):
 		return true
 	return false
+
+
+func _get_drag_data(position):
+	if  _check_if_locked():
+		return null
+	var preview = TextureRect.new()
+	preview.texture = load(value_iconpath)
+	preview.scale = Vector2(0.75,0.75)
+	#Centered preview work around 
+	#Thanks to u/kleonc @ https://www.reddit.com/r/godot/comments/j0o11y/how_can_i_change_the_position_of_the_drag_preview/g6tubo4/
+	var c = Control.new()
+	c.add_child(preview)
+	preview.position = Vector2(-100,-100)
+	set_drag_preview(c)
+	return self
 	
+
+
+

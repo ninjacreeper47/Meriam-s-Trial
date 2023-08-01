@@ -63,10 +63,11 @@ func _check_meta():
 	
 func _check_labatory_stability():
 	for i in range(1, experiment_nodes.size()):
-		if(experiment_nodes[i].stable == false):
+		if(experiment_nodes[i].stable == false && experiment_nodes[i].active == true):
 			return false
 	return true
 func _on_alchemic_state_changed():
+	labatory_stable = _check_labatory_stability()
 	_check_victory()
 func _check_victory():
 	if !_check_labatory_stability():
