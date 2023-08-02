@@ -11,10 +11,13 @@ var essence_goals ={}
 var type_targets = {}
 var labatory_stable = true
 
+
 var forced_meta_threshold = 20
 signal meta_breached
 signal alchemic_state_changed
 signal game_won
+signal meta_counters_updated
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var my_call = Callable(self,"_on_alchemic_state_changed")
@@ -71,6 +74,7 @@ func _check_labatory_stability():
 	return true
 func _on_alchemic_state_changed():
 	labatory_stable = _check_labatory_stability()
+	meta_counters_updated.emit()
 	_check_victory()
 func _check_victory():
 	if !_check_labatory_stability():

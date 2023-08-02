@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://sd0cyqy52ykw"]
+
+[ext_resource type="Script" path="res://meta_status.gd" id="1_btu6g"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bkv7j"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_mvwx4"]
+font_size = 60
+
+[sub_resource type="LabelSettings" id="LabelSettings_q7w35"]
+font_size = 60
+
+[node name="Meta Status" type="Label"]
+offset_left = 1032.0
+offset_top = -624.0
+offset_right = 1352.0
+offset_bottom = -456.0
+text = "META INACTIVE
+"
+label_settings = SubResource("LabelSettings_bkv7j")
+script = ExtResource("1_btu6g")
+
+[node name="MetaExpertimentCountdown" type="Label" parent="."]
+layout_mode = 0
+offset_left = -8.0
+offset_top = 112.0
+offset_right = 654.0
+offset_bottom = 284.0
+text = "0/3 active experiments
+"
+label_settings = SubResource("LabelSettings_mvwx4")
+
+[node name="MetaEssenceCountdown" type="Label" parent="."]
+layout_mode = 0
+offset_left = -8.0
+offset_top = 208.0
+offset_right = 553.0
+offset_bottom = 294.0
+text = "0/20 active essence"
+label_settings = SubResource("LabelSettings_q7w35")

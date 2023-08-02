@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cvya4rcawkcxg"]
+[gd_scene load_steps=7 format=3 uid="uid://cvya4rcawkcxg"]
 
 [ext_resource type="Script" path="res://screenshift.gd" id="1_tdfog"]
 [ext_resource type="PackedScene" uid="uid://xl4jsnrh5oll" path="res://research.tscn" id="2_57rww"]
 [ext_resource type="PackedScene" uid="uid://dvyh1vflmrb8" path="res://experiment.tscn" id="2_ptu6t"]
 [ext_resource type="PackedScene" uid="uid://bm64f1i3smn5o" path="res://ex_status.tscn" id="3_5a3tb"]
 [ext_resource type="Script" path="res://Storage.gd" id="4_ky610"]
+[ext_resource type="PackedScene" uid="uid://sd0cyqy52ykw" path="res://meta_status.tscn" id="6_qwf21"]
 
 [node name="Main" type="Node2D"]
 
@@ -87,6 +88,8 @@ offset_bottom = 240.0
 columns = 4
 script = ExtResource("4_ky610")
 capacity = 20
+
+[node name="Meta Status" parent="." instance=ExtResource("6_qwf21")]
 
 [connection signal="activated" from="Experiment1" to="ExStatus1" method="_on_activated"]
 [connection signal="inactive" from="Experiment1" to="ExStatus1" method="_on_inactive"]
