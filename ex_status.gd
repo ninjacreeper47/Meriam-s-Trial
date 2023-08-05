@@ -20,9 +20,9 @@ func _process(delta):
 	pass
 
 func _on_kudu_breached():
-	self.text = status_num+ ": " + warning_symbol +"Kudu"
+	self.text = status_num+ ": " + warning_symbol +"A > B+C+D..."
 func _on_qluix_breached():
-	self.text = status_num+ ": " + warning_symbol +"Qluix"
+	self.text = status_num+ ": " + warning_symbol +"A = B"
 func _on_stablized():
 	self.text = status_num+ ": " + checkmark_symbol +"Stable"
 func _on_inactive():

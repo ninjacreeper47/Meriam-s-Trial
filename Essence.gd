@@ -79,18 +79,19 @@ func _check_if_locked():
 	return false
 
 
-func _get_drag_data(position):
+func _get_drag_data(drag_position):
 	if  _check_if_locked():
 		return null
 	var preview = TextureRect.new()
 	preview.texture = load(value_iconpath)
 	preview.scale = Vector2(0.75,0.75)
 	preview.modulate = modulate
+	preview.position = drag_position
 	#Centered preview work around 
 	#Thanks to u/kleonc @ https://www.reddit.com/r/godot/comments/j0o11y/how_can_i_change_the_position_of_the_drag_preview/g6tubo4/
 	var c = Control.new()
 	c.add_child(preview)
-	preview.position = Vector2(-50,-50)
+	preview.global_position = drag_position
 	set_drag_preview(c)
 	return self
 	

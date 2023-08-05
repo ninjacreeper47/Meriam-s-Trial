@@ -81,8 +81,8 @@ text = "5:  💤Inactive "
 status_num = "5"
 
 [node name="Storage" type="GridContainer" parent="."]
-offset_left = 1160.0
-offset_top = 8.0
+offset_left = 960.0
+offset_top = -64.0
 offset_right = 1536.0
 offset_bottom = 240.0
 columns = 4

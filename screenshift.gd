@@ -12,3 +12,9 @@ func _process(delta):
 		translate(Vector2.UP*100)
 	if Input.is_action_just_pressed("StopLookahead") && position.y < 500 :
 		translate(Vector2.DOWN*100)
+	if Input.is_action_just_pressed("ZoomIn"):
+		zoom += Vector2(0.1,0.1)
+	if Input.is_action_just_pressed("ZoomOut"):
+		zoom -= Vector2(0.1,0.1)
+	if Input.is_action_just_pressed("ResetZoom"):
+		zoom = Vector2(1,1)
