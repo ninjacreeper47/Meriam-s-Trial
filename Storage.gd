@@ -1,6 +1,6 @@
 extends GridContainer
 
-@export var capacity = 6 
+@export var capacity = 8 
 var essence_count = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -9,7 +9,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if Input.is_action_just_pressed("PlaytestIncreaseStorageCapacity"):
+		capacity += 1
 
 func _add_essence(val, type):
 	essence_count += 1

@@ -83,13 +83,33 @@ status_num = "5"
 [node name="Storage" type="GridContainer" parent="."]
 offset_left = 960.0
 offset_top = -64.0
-offset_right = 1536.0
+offset_right = 1592.0
 offset_bottom = 240.0
 columns = 4
 script = ExtResource("4_ky610")
-capacity = 20
 
 [node name="Meta Status" parent="." instance=ExtResource("6_qwf21")]
+offset_top = -672.0
+offset_right = 1507.0
+offset_bottom = -504.0
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = 1024.0
+offset_top = -384.0
+offset_right = 1592.0
+offset_bottom = -64.0
+text = "Alchemical Laws Reference
+1. Can not have an equal amount of the same attribute
+2. Can not have more of one attribute than all the other attirbutes
+ of the same class combined
+
+Alchemic laws apply seperately to Color, Dice Value, and 
+experiment dice counts (if meta is active)
+-Only Active experiments are subject to alchemic laws
+-Experiments must have at least 3 dice to be active
+
+Storage Capacity is 8"
+editable = false
 
 [connection signal="activated" from="Experiment1" to="ExStatus1" method="_on_activated"]
 [connection signal="inactive" from="Experiment1" to="ExStatus1" method="_on_inactive"]
