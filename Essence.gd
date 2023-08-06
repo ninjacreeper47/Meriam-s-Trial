@@ -4,7 +4,7 @@ extends TextureButton
 
 
 var value = alchemy.value_letters.pick_random()
-var my_type = _pickType()
+var my_type = alchemy.type.pick_random()
 
 
 
@@ -24,10 +24,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
-
-func _pickType():
-	return  randi() % alchemy.type.size() 
+	pass 
 
 func _set_type(type):
 	my_type = type
@@ -37,7 +34,7 @@ func _pickValue():
 	
 func _generateIcon():
 	var type_iconpath = "res://Assets/%s.svg"
-	type_iconpath = type_iconpath % alchemy.type.find_key(my_type)
+	type_iconpath = type_iconpath % my_type
 	texture_normal = load(type_iconpath)
 	get_child(0).text = str(value)
 
@@ -57,8 +54,6 @@ func _on_pressed():
 	alchemy.selected_experiment._add_essence(value,my_type)
 	assigned_experiment = alchemy.selected_experiment
 	reparent(alchemy.selected_experiment)
-	alchemy.alchemic_state_changed.emit()
-	
 	
 func _check_if_locked():
 	if(in_tableau && alchemy._check_labatory_stability() == false):

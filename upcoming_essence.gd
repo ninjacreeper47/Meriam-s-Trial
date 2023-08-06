@@ -19,21 +19,20 @@ func _ready():
 #If board total is not evenly divisble by amount of types, it will pick one type to put surplus off in the bag
 func spawn_balanced():
 	#bag creation
-	var types = alchemy.type.keys()
-	var amount_of_each_type = (board_total / types.size()) as int
+	var amount_of_each_type = (board_total / alchemy.type.size()) as int
 	var bag = []
 	for i in range(amount_of_each_type):
-		for type in types:
-			if alchemy.essence_goals.has(alchemy.type[type]):
-				alchemy.essence_goals[alchemy.type[type]] += 1
+		for t in alchemy.type:
+			if alchemy.essence_goals.has(t):
+				alchemy.essence_goals[t] += 1
 			else:
-				alchemy.essence_goals[alchemy.type[type]] = 1
-			bag.append(type)
+				alchemy.essence_goals[t] = 1
+			bag.append(t)
 	if bag.size() < board_total:
-		var surplus_type = types.pick_random()
+		var surplus_type = alchemy.type.pick_random()
 		for  i in range(board_total - bag.size()):
 			bag.append(surplus_type)
-			alchemy.essence_goals[alchemy.type[surplus_type]] += 1
+			alchemy.essence_goals[surplus_type] += 1
 	bag.shuffle()
 	print(alchemy.essence_goals)
 	#essence spawning
@@ -44,7 +43,7 @@ func spawn_balanced():
 			column.add_child(instance)
 			instance.my_col = i
 			instance.in_upcoming = true
-			instance._set_type(alchemy.type[bag.pop_back()])
+			instance._set_type(bag.pop_back())
 			var my_call = Callable(self, "_on_next_requested")
 			instance.taken_from_tableau.connect(my_call)
 		#populate the intial tableau

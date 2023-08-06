@@ -119,7 +119,7 @@ text = "Alchemical Laws Reference
 2. Can not have more of one attribute than all the other attirbutes
  of the same class combined
 
-Alchemic laws apply seperately to Color, Dice Value, and 
+Alchemic laws apply seperately to type,letter and
 experiment dice counts (if meta is active)
 -Only Active experiments are subject to alchemic laws
 -Experiments must have at least 3 dice to be active
@@ -137,7 +137,7 @@ layout_mode = 2
 columns = 4
 script = ExtResource("4_ky610")
 
-[node name="Label" type="Label" parent="."]
+[node name="StorageLabel" type="Label" parent="."]
 offset_left = 1096.0
 offset_top = -32.0
 offset_right = 1333.0

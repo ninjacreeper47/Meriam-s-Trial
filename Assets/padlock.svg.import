@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2sohvqqb0hvs"
-path="res://.godot/imported/dice-six-faces-six.svg-6ac234c6992e0600bedfd75f52aa7ae9.ctex"
+uid="uid://n7hqip00ci7k"
+path="res://.godot/imported/padlock.svg-057c602d3cd70c16e985776edce9360a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/dice-six-faces-six.svg"
-dest_files=["res://.godot/imported/dice-six-faces-six.svg-6ac234c6992e0600bedfd75f52aa7ae9.ctex"]
+source_file="res://Assets/padlock.svg"
+dest_files=["res://.godot/imported/padlock.svg-057c602d3cd70c16e985776edce9360a.ctex"]
 
 [params]
 

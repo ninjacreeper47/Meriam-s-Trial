@@ -7,8 +7,8 @@ var active = false
 var stable = true
 
 #signals
-signal kudu_breached
-signal qluix_breached
+signal kudu_breached(dominant)
+signal qluix_breached(equal1,equal2)
 signal stabilized
 signal inactive
 signal activated
@@ -17,9 +17,7 @@ signal activated
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	alchemy.experiment_nodes.append(self)
-	var my_call = Callable(self, "_check_laws")
-	alchemy.alchemic_state_changed.connect(my_call)
-	for i in range(alchemy.type.size()):
+	for i in alchemy.type:
 		type_counts[i] = 0
 	for i in alchemy.value_letters:
 		value_counts[i] = 0
@@ -36,6 +34,7 @@ func _add_essence(val, type):
 		activated.emit()
 		active = true
 		alchemy.active_experiments += 1
+	_check_laws()
 
 
 func _remove_essence(val, type):
@@ -47,6 +46,7 @@ func _remove_essence(val, type):
 		active = false
 		inactive.emit()
 		alchemy.active_experiments -= 1
+	_check_laws()
 	
 
 func _check_laws():
@@ -66,14 +66,14 @@ func _check_kudu():
 		sum += type_counts[type]
 	for type in type_counts:
 		if(sum - type_counts[type] < type_counts[type]):
-			kudu_breached.emit()	
+			kudu_breached.emit(type)
 			return false
 	sum = 0
 	for val in value_counts:
 		sum += value_counts[val]
 	for val in value_counts:
 		if(sum - value_counts[val] < value_counts[val]):
-			kudu_breached.emit()
+			kudu_breached.emit(val)
 			return false
 	return true
 func _check_qluix():
@@ -84,7 +84,7 @@ func _check_qluix():
 			if type == innertype:
 				continue
 			if(type_counts[type] == type_counts[innertype]):
-				qluix_breached.emit()
+				qluix_breached.emit(type,innertype)
 				return false
 	
 	for val in value_counts:
@@ -94,7 +94,7 @@ func _check_qluix():
 			if val == innerval:
 				continue
 			if(value_counts[val] == value_counts[innerval]):
-				qluix_breached.emit()
+				qluix_breached.emit(val,innerval)
 				return false
 	return true
 
@@ -119,4 +119,3 @@ func _drop_data(at_position, data):
 	data.assigned_experiment = self
 	_add_essence(data.value,data.my_type)
 	data.reparent(self)
-	alchemy.alchemic_state_changed.emit()	

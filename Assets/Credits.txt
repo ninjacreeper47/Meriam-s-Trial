@@ -1,4 +1,6 @@
-Dice faces-  game-icons.net by Delapouite
+Padlock icon: game-icons.net
+	https://game-icons.net/1x1/lorc/padlock.html
+by Lorc
 
 Playtesters
 Adam Sequoyah

@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://xl4jsnrh5oll"]
+[gd_scene load_steps=5 format=3 uid="uid://xl4jsnrh5oll"]
 
 [ext_resource type="PackedScene" uid="uid://i3jhroewpw33" path="res://upcoming_essence.tscn" id="1_1t6it"]
 [ext_resource type="Script" path="res://ResearchTableau.gd" id="2_pqy6i"]
+[ext_resource type="Texture2D" uid="uid://n7hqip00ci7k" path="res://Assets/padlock.svg" id="3_b1g8c"]
+[ext_resource type="Script" path="res://locked_warning.gd" id="4_k7iwp"]
 
 [node name="Research" type="Control"]
 layout_mode = 3
@@ -30,3 +32,13 @@ grow_horizontal = 2
 scale = Vector2(0.75, 0.75)
 columns = 8
 script = ExtResource("2_pqy6i")
+
+[node name="locked_warning" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 142.0
+offset_right = 122.0
+offset_bottom = 230.0
+texture = ExtResource("3_b1g8c")
+expand_mode = 1
+script = ExtResource("4_k7iwp")
