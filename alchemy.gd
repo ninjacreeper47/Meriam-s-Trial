@@ -1,6 +1,7 @@
 extends Node
 #this script is autoloaded and is used to provide "global" values to other scripts 
 enum type {Metal,Plant,Star,Water,Friendship}
+var value_letters = ["A","B","C","D","E","F"]
 var active_experiments  = 0
 var experiment_nodes = ["storage placeholder"]
 var essence_counts = {}

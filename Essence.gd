@@ -2,9 +2,11 @@ extends TextureButton
 
 #Essense Attributes
 
-var value = _pickValue()
+
+var value = alchemy.value_letters.pick_random()
 var my_type = _pickType()
-var value_iconpath = "res://Assets/dice-six-faces-%s.svg"
+
+
 
 var in_tableau = false
 var in_upcoming = false #This should be set by the upcomming essence!
@@ -29,29 +31,16 @@ func _pickType():
 
 func _set_type(type):
 	my_type = type
-	_type_visual()
+	_generateIcon()
 func _pickValue():
 	return randi() % 6 + 1
 	
 func _generateIcon():
-	_type_visual()
-	value_iconpath = value_iconpath % value
-	self.texture_normal = load(value_iconpath)
+	var type_iconpath = "res://Assets/%s.svg"
+	type_iconpath = type_iconpath % alchemy.type.find_key(my_type)
+	texture_normal = load(type_iconpath)
+	get_child(0).text = str(value)
 
-func _type_visual():
-	match (my_type):
-		alchemy.type.Metal:
-			self.modulate = Color.SLATE_GRAY
-		alchemy.type.Plant:
-			self.modulate = Color.DARK_GREEN
-		alchemy.type.Star:
-			self.modulate = Color.YELLOW
-		alchemy.type.Water:
-			self.modulate = Color.BLUE
-		alchemy.type.Friendship:
-			self.modulate = Color.RED
-		_:
-			print("Invalid Type in _type_visual()")
 
 func _on_pressed():
 	if _check_if_locked():
@@ -82,17 +71,17 @@ func _check_if_locked():
 func _get_drag_data(drag_position):
 	if  _check_if_locked():
 		return null
-	var preview = TextureRect.new()
-	preview.texture = load(value_iconpath)
-	preview.scale = Vector2(0.75,0.75)
-	preview.modulate = modulate
-	preview.position = drag_position
+	#var preview = TextureRect.new()
+	#preview.texture = load(value_iconpath)
+	#preview.scale = Vector2(0.75,0.75)
+	#preview.modulate = modulate
+	#preview.position = drag_position
 	#Centered preview work around 
 	#Thanks to u/kleonc @ https://www.reddit.com/r/godot/comments/j0o11y/how_can_i_change_the_position_of_the_drag_preview/g6tubo4/
-	var c = Control.new()
-	c.add_child(preview)
-	preview.global_position = drag_position
-	set_drag_preview(c)
+	#var c = Control.new()
+	#c.add_child(preview)
+	#preview.global_position = drag_position
+	#set_drag_preview(c)
 	return self
 	
 

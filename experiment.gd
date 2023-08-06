@@ -21,7 +21,7 @@ func _ready():
 	alchemy.alchemic_state_changed.connect(my_call)
 	for i in range(alchemy.type.size()):
 		type_counts[i] = 0
-	for i in range (1,7):
+	for i in alchemy.value_letters:
 		value_counts[i] = 0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
