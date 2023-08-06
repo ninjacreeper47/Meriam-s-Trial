@@ -109,22 +109,31 @@ offset_top = -672.0
 offset_right = 1507.0
 offset_bottom = -504.0
 
-[node name="Reference" type="TextEdit" parent="."]
+[node name="HelpContainer" type="TabContainer" parent="."]
 offset_left = 1024.0
 offset_top = -384.0
 offset_right = 1592.0
 offset_bottom = -64.0
-text = "Alchemical Laws Reference
-1. Can not have an equal amount of the same attribute
-2. Can not have more of one attribute than all the other attirbutes
- of the same class combined
 
-Alchemic laws apply seperately to type,letter and
+[node name="Alchemic Laws" type="TextEdit" parent="HelpContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "1. Can not have an equal amount of the same attribute
+2. Can not have more of one attribute than
+ all the other attirbutes  of the same class combined
+
+Alchemic laws apply seperately to types,letters and
 experiment dice counts (if meta is active)
 -Only Active experiments are subject to alchemic laws
--Experiments must have at least 3 dice to be active
-"
+-Experiments must have at least 3 dice to be active"
 editable = false
+drag_and_drop_selection_enabled = false
+
+[node name="Notes" type="TextEdit" parent="HelpContainer"]
+visible = false
+layout_mode = 2
+placeholder_text = "type anything you want here"
+drag_and_drop_selection_enabled = false
 
 [node name="StorageBackground" type="PanelContainer" parent="."]
 offset_left = 1024.0
