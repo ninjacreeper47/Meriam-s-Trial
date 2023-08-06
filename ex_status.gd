@@ -24,7 +24,7 @@ func _process(delta):
 
 func _on_kudu_breached(dominant):
 	if type_icons_unicode.has(dominant):
-		self.text = status_num+ ": " + warning_symbol + type_icons_unicode[dominant] +"dominant"
+		self.text = status_num+ ": " + warning_symbol + type_icons_unicode[dominant] +" dominant"
 	else:
 		self.text = status_num+ ": " + warning_symbol + dominant +" dominant"
 func _on_qluix_breached(equal1,equal2):

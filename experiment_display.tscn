@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://bq55k435edwi7"]
+
+[ext_resource type="PackedScene" uid="uid://dvyh1vflmrb8" path="res://experiment.tscn" id="1_ino3q"]
+[ext_resource type="PackedScene" uid="uid://bm64f1i3smn5o" path="res://ex_status.tscn" id="2_4qfhn"]
+
+[node name="ExperimentDisplay" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 256.0
+offset_bottom = 608.0
+
+[node name="ExperimentBackground1" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_top = 104.0
+offset_right = 853.0
+offset_bottom = 1784.0
+scale = Vector2(0.3, 0.3)
+
+[node name="Experiment1" parent="ExperimentBackground1" instance=ExtResource("1_ino3q")]
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 2
+ex_num = 1
+
+[node name="ExStatus" parent="." instance=ExtResource("2_4qfhn")]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 54.0
+offset_right = 109.0
+offset_bottom = 80.0
+status_num = "1"
+
+[node name="SortChoice" type="OptionButton" parent="."]
+layout_mode = 0
+offset_top = 1.0
+offset_right = 248.0
+offset_bottom = 49.0
+focus_mode = 1
+item_count = 4
+popup/item_0/text = "No sorting"
+popup/item_0/id = 0
+popup/item_1/text = "Sort by type"
+popup/item_1/id = 1
+popup/item_2/text = "Sort by letter"
+popup/item_2/id = 2
+popup/item_3/text = "Sort Randomly :)"
+popup/item_3/id = 3
+
+[connection signal="activated" from="ExperimentBackground1/Experiment1" to="ExStatus" method="_on_activated"]
+[connection signal="inactive" from="ExperimentBackground1/Experiment1" to="ExStatus" method="_on_inactive"]
+[connection signal="kudu_breached" from="ExperimentBackground1/Experiment1" to="ExStatus" method="_on_kudu_breached"]
+[connection signal="qluix_breached" from="ExperimentBackground1/Experiment1" to="ExStatus" method="_on_qluix_breached"]
+[connection signal="stabilized" from="ExperimentBackground1/Experiment1" to="ExStatus" method="_on_stablized"]
+[connection signal="item_selected" from="SortChoice" to="ExperimentBackground1/Experiment1" method="_on_sort_choice_item_selected"]

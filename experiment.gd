@@ -6,6 +6,9 @@ var num_essences = 0
 var active = false
 var stable = true
 
+var sorting_style
+#make sure the option drop down matches this order oomfie
+enum {sort_none, sort_type,sort_value,sort_random}
 #signals
 signal kudu_breached(dominant)
 signal qluix_breached(equal1,equal2)
@@ -36,7 +39,6 @@ func _add_essence(val, type):
 		alchemy.active_experiments += 1
 	_check_laws()
 
-
 func _remove_essence(val, type):
 	type_counts[type] -= 1
 	value_counts[val] -= 1
@@ -47,6 +49,7 @@ func _remove_essence(val, type):
 		inactive.emit()
 		alchemy.active_experiments -= 1
 	_check_laws()
+	
 	
 
 func _check_laws():
@@ -111,11 +114,45 @@ func _can_drop_data(at_position, data):
 func _drop_data(at_position, data):
 	if data.assigned_experiment == self:
 		return 
+	data.reparent(self) #should be done before sorting
 	if(data.assigned_experiment != null): 
 		data.assigned_experiment._remove_essence(data.value,data.my_type)
+		data.assigned_experiment._sort_experiment()
 	if(data.in_tableau):
 		data.taken_from_tableau.emit(data.my_col)
 		data.in_tableau = false
 	data.assigned_experiment = self
+	
 	_add_essence(data.value,data.my_type)
-	data.reparent(self)
+	_sort_experiment()
+	
+
+func _sort_experiment():
+	if sorting_style == sort_none:
+		return
+	if sorting_style == sort_type:
+		var type_offsets = {}
+		var offset_sum = 0
+		for type in type_counts:
+			if type_counts[type] > 0:
+				type_offsets[type] = offset_sum
+				offset_sum += type_counts[type]
+		for child in get_children():
+			move_child(child,type_offsets[child.my_type])
+			type_offsets[child.my_type] += 1
+	if sorting_style == sort_value:
+		var value_offsets = {}
+		var offset_sum = 0
+		for value in value_counts:
+			if value_counts[value] > 0:
+				value_offsets[value] = offset_sum
+				offset_sum += value_counts[value]
+		for child in get_children():
+			move_child(child,value_offsets[child.value])
+			value_offsets[child.value] += 1
+	if sorting_style == sort_random:
+		for child in get_children():
+			move_child(child, randi() % get_child_count())
+func _on_sort_choice_item_selected(index):
+	sorting_style = index
+	_sort_experiment()

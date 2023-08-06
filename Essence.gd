@@ -46,14 +46,18 @@ func _on_pressed():
 		return  
 	if(alchemy.selected_experiment._is_full() == true):
 		return 
+	reparent(alchemy.selected_experiment) #this should be done before sorting uwu
 	if(assigned_experiment != null):
 		assigned_experiment._remove_essence(value,my_type)
+		assigned_experiment._sort_experiment()
 	if(in_tableau):
 		taken_from_tableau.emit(my_col)
 		in_tableau = false
+	
 	alchemy.selected_experiment._add_essence(value,my_type)
 	assigned_experiment = alchemy.selected_experiment
-	reparent(alchemy.selected_experiment)
+	assigned_experiment._sort_experiment()
+	
 	
 func _check_if_locked():
 	if(in_tableau && alchemy._check_labatory_stability() == false):

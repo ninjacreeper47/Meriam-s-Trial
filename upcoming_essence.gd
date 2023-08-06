@@ -34,7 +34,6 @@ func spawn_balanced():
 			bag.append(surplus_type)
 			alchemy.essence_goals[surplus_type] += 1
 	bag.shuffle()
-	print(alchemy.essence_goals)
 	#essence spawning
 	for i in range(get_child(0).get_child_count()):
 		var column = get_child(0).get_child(i)

@@ -25,6 +25,9 @@ func _is_full():
 		return true
 	return false
 
+#polymorphism abuse.  Storage is treated as an experiment to drag/drop behavior and essence clicking.  This function exists so the logic can cleanly call it without checking if it's storage first
+func _sort_experiment():
+	return
 func _can_drop_data(at_position, data):
 	if _is_full():
 		return false

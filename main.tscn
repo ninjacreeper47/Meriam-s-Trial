@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cvya4rcawkcxg"]
+[gd_scene load_steps=7 format=3 uid="uid://cvya4rcawkcxg"]
 
 [ext_resource type="Script" path="res://screenshift.gd" id="1_tdfog"]
 [ext_resource type="PackedScene" uid="uid://xl4jsnrh5oll" path="res://research.tscn" id="2_57rww"]
-[ext_resource type="PackedScene" uid="uid://dvyh1vflmrb8" path="res://experiment.tscn" id="2_ptu6t"]
-[ext_resource type="PackedScene" uid="uid://bm64f1i3smn5o" path="res://ex_status.tscn" id="3_5a3tb"]
+[ext_resource type="PackedScene" uid="uid://bq55k435edwi7" path="res://experiment_display.tscn" id="3_wqano"]
 [ext_resource type="Script" path="res://Storage.gd" id="4_ky610"]
 [ext_resource type="PackedScene" uid="uid://sd0cyqy52ykw" path="res://meta_status.tscn" id="6_qwf21"]
 
@@ -18,89 +17,61 @@ script = ExtResource("1_tdfog")
 
 [node name="Research" parent="." instance=ExtResource("2_57rww")]
 
-[node name="ExperimentBackground1" type="PanelContainer" parent="."]
+[node name="ExperimentDisplay" parent="." instance=ExtResource("3_wqano")]
 offset_left = 128.0
-offset_top = 384.0
-offset_right = 981.0
-offset_bottom = 2064.0
-scale = Vector2(0.3, 0.3)
+offset_top = 288.0
+offset_right = 384.0
+offset_bottom = 896.0
 
-[node name="Experiment1" parent="ExperimentBackground1" instance=ExtResource("2_ptu6t")]
-custom_minimum_size = Vector2(300, 400)
-layout_mode = 2
-ex_num = 1
+[node name="ExperimentDisplay2" parent="." instance=ExtResource("3_wqano")]
+offset_left = 456.0
+offset_top = 288.0
+offset_right = 712.0
+offset_bottom = 896.0
 
-[node name="ExperimentBackground2" type="PanelContainer" parent="."]
-offset_left = 448.0
-offset_top = 384.0
-offset_right = 1301.0
-offset_bottom = 2064.0
-scale = Vector2(0.3, 0.3)
-
-[node name="Experiment2" parent="ExperimentBackground2" instance=ExtResource("2_ptu6t")]
-layout_mode = 2
+[node name="Experiment1" parent="ExperimentDisplay2/ExperimentBackground1" index="0"]
 ex_num = 2
 
-[node name="ExperimentBackground3" type="PanelContainer" parent="."]
-offset_left = 768.0
-offset_top = 384.0
-offset_right = 1621.0
-offset_bottom = 2064.0
-scale = Vector2(0.3, 0.3)
-
-[node name="Experiment3" parent="ExperimentBackground3" instance=ExtResource("2_ptu6t")]
-layout_mode = 2
-ex_num = 3
-
-[node name="ExperimentBackground4" type="PanelContainer" parent="."]
-offset_left = 1088.0
-offset_top = 384.0
-offset_right = 1941.0
-offset_bottom = 2064.0
-scale = Vector2(0.3, 0.3)
-
-[node name="Experiment4" parent="ExperimentBackground4" instance=ExtResource("2_ptu6t")]
-layout_mode = 2
-ex_num = 4
-
-[node name="ExperimentBackground5" type="PanelContainer" parent="."]
-offset_left = 1408.0
-offset_top = 384.0
-offset_right = 2261.0
-offset_bottom = 2064.0
-scale = Vector2(0.3, 0.3)
-
-[node name="Experiment5" parent="ExperimentBackground5" instance=ExtResource("2_ptu6t")]
-layout_mode = 2
-ex_num = 5
-
-[node name="ExStatus1" parent="." instance=ExtResource("3_5a3tb")]
-offset_right = 237.0
-status_num = "1"
-
-[node name="ExStatus2" parent="." instance=ExtResource("3_5a3tb")]
-offset_left = 448.0
-offset_right = 577.0
+[node name="ExStatus" parent="ExperimentDisplay2" index="1"]
 text = "2:  💤Inactive "
 status_num = "2"
 
-[node name="ExStatus3" parent="." instance=ExtResource("3_5a3tb")]
-offset_left = 768.0
-offset_right = 897.0
+[node name="ExperimentDisplay3" parent="." instance=ExtResource("3_wqano")]
+offset_left = 776.0
+offset_top = 288.0
+offset_right = 1032.0
+offset_bottom = 896.0
+
+[node name="Experiment1" parent="ExperimentDisplay3/ExperimentBackground1" index="0"]
+ex_num = 3
+
+[node name="ExStatus" parent="ExperimentDisplay3" index="1"]
 text = "3:  💤Inactive "
 status_num = "3"
 
-[node name="ExStatus4" parent="." instance=ExtResource("3_5a3tb")]
+[node name="ExperimentDisplay4" parent="." instance=ExtResource("3_wqano")]
 offset_left = 1088.0
-offset_right = 1217.0
+offset_top = 288.0
+offset_right = 1344.0
+offset_bottom = 896.0
+
+[node name="Experiment1" parent="ExperimentDisplay4/ExperimentBackground1" index="0"]
+ex_num = 4
+
+[node name="ExStatus" parent="ExperimentDisplay4" index="1"]
 text = "4:  💤Inactive "
 status_num = "4"
 
-[node name="ExStatus5" parent="." instance=ExtResource("3_5a3tb")]
+[node name="ExperimentDisplay5" parent="." instance=ExtResource("3_wqano")]
 offset_left = 1408.0
-offset_top = 336.0
-offset_right = 1537.0
-offset_bottom = 362.0
+offset_top = 288.0
+offset_right = 1664.0
+offset_bottom = 896.0
+
+[node name="Experiment1" parent="ExperimentDisplay5/ExperimentBackground1" index="0"]
+ex_num = 5
+
+[node name="ExStatus" parent="ExperimentDisplay5" index="1"]
 text = "5:  💤Inactive "
 status_num = "5"
 
@@ -135,18 +106,28 @@ layout_mode = 2
 placeholder_text = "type anything you want here"
 drag_and_drop_selection_enabled = false
 
-[node name="StorageBackground" type="PanelContainer" parent="."]
+[node name="Storage" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -8.0
+offset_top = -24.0
+offset_right = 32.0
+offset_bottom = 16.0
+
+[node name="StorageBackground" type="PanelContainer" parent="Storage"]
+layout_mode = 0
 offset_left = 1024.0
 offset_top = 40.0
 offset_right = 1552.0
 offset_bottom = 304.0
 
-[node name="Storage" type="GridContainer" parent="StorageBackground"]
+[node name="Storage" type="GridContainer" parent="Storage/StorageBackground"]
 layout_mode = 2
 columns = 4
 script = ExtResource("4_ky610")
 
-[node name="StorageLabel" type="Label" parent="."]
+[node name="StorageLabel" type="Label" parent="Storage"]
+layout_mode = 0
 offset_left = 1096.0
 offset_top = -32.0
 offset_right = 1333.0
@@ -154,28 +135,7 @@ offset_bottom = 59.0
 text = "Storage"
 label_settings = SubResource("LabelSettings_tp21d")
 
-[connection signal="activated" from="ExperimentBackground1/Experiment1" to="ExStatus1" method="_on_activated"]
-[connection signal="inactive" from="ExperimentBackground1/Experiment1" to="ExStatus1" method="_on_inactive"]
-[connection signal="kudu_breached" from="ExperimentBackground1/Experiment1" to="ExStatus1" method="_on_kudu_breached"]
-[connection signal="qluix_breached" from="ExperimentBackground1/Experiment1" to="ExStatus1" method="_on_qluix_breached"]
-[connection signal="stabilized" from="ExperimentBackground1/Experiment1" to="ExStatus1" method="_on_stablized"]
-[connection signal="activated" from="ExperimentBackground2/Experiment2" to="ExStatus2" method="_on_activated"]
-[connection signal="inactive" from="ExperimentBackground2/Experiment2" to="ExStatus2" method="_on_inactive"]
-[connection signal="kudu_breached" from="ExperimentBackground2/Experiment2" to="ExStatus2" method="_on_kudu_breached"]
-[connection signal="qluix_breached" from="ExperimentBackground2/Experiment2" to="ExStatus2" method="_on_qluix_breached"]
-[connection signal="stabilized" from="ExperimentBackground2/Experiment2" to="ExStatus2" method="_on_stablized"]
-[connection signal="activated" from="ExperimentBackground3/Experiment3" to="ExStatus3" method="_on_activated"]
-[connection signal="inactive" from="ExperimentBackground3/Experiment3" to="ExStatus3" method="_on_inactive"]
-[connection signal="kudu_breached" from="ExperimentBackground3/Experiment3" to="ExStatus3" method="_on_kudu_breached"]
-[connection signal="qluix_breached" from="ExperimentBackground3/Experiment3" to="ExStatus3" method="_on_qluix_breached"]
-[connection signal="stabilized" from="ExperimentBackground3/Experiment3" to="ExStatus3" method="_on_stablized"]
-[connection signal="activated" from="ExperimentBackground4/Experiment4" to="ExStatus4" method="_on_activated"]
-[connection signal="inactive" from="ExperimentBackground4/Experiment4" to="ExStatus4" method="_on_inactive"]
-[connection signal="kudu_breached" from="ExperimentBackground4/Experiment4" to="ExStatus4" method="_on_kudu_breached"]
-[connection signal="qluix_breached" from="ExperimentBackground4/Experiment4" to="ExStatus4" method="_on_qluix_breached"]
-[connection signal="stabilized" from="ExperimentBackground4/Experiment4" to="ExStatus4" method="_on_stablized"]
-[connection signal="activated" from="ExperimentBackground5/Experiment5" to="ExStatus5" method="_on_activated"]
-[connection signal="inactive" from="ExperimentBackground5/Experiment5" to="ExStatus5" method="_on_inactive"]
-[connection signal="kudu_breached" from="ExperimentBackground5/Experiment5" to="ExStatus5" method="_on_kudu_breached"]
-[connection signal="qluix_breached" from="ExperimentBackground5/Experiment5" to="ExStatus5" method="_on_qluix_breached"]
-[connection signal="stabilized" from="ExperimentBackground5/Experiment5" to="ExStatus5" method="_on_stablized"]
+[editable path="ExperimentDisplay2"]
+[editable path="ExperimentDisplay3"]
+[editable path="ExperimentDisplay4"]
+[editable path="ExperimentDisplay5"]
