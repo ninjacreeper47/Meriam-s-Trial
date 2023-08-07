@@ -2,6 +2,10 @@ extends GridContainer
 
 @export var capacity = 8 
 var essence_count = 0
+
+#this variable exists for more polymorphism abuse, this is really getting out of hand and i should just refactor 
+#storage to not be considered an experiment
+var my_children =[]
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	alchemy.experiment_nodes[0] = self
@@ -38,10 +42,15 @@ func _drop_data(at_position, data):
 		return 
 	if(data.assigned_experiment != null): 
 		data.assigned_experiment._remove_essence(data.value,data.my_type)
+		data.assigned_experiment.my_children.erase(data)
+		data.assigned_experiment._sort_experiment()
 	if(data.in_tableau):
 		data.taken_from_tableau.emit(data.my_col)
 		data.in_tableau = false
 	data.assigned_experiment = self
 	_add_essence(data.value,data.my_type)
 	data.reparent(self)
-	alchemy.alchemic_state_changed.emit()	
+
+	
+func _assign_new_child(incoming_ess):
+	incoming_ess.reparent(self)

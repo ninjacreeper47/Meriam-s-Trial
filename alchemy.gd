@@ -15,7 +15,6 @@ var labatory_stable = true
 
 var forced_meta_threshold = 20
 signal meta_breached
-signal alchemic_state_changed
 signal game_won
 signal meta_counters_updated
 

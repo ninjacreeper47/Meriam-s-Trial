@@ -2,9 +2,32 @@
 
 [ext_resource type="Script" path="res://experiment.gd" id="1_ubn6d"]
 
-[node name="Experiment" type="GridContainer" groups=["Experiments"]]
+[node name="Experiment" type="HBoxContainer" groups=["Experiments"]]
 offset_right = 656.0
 offset_bottom = 519.0
 scale = Vector2(0.3, 0.3)
-columns = 6
 script = ExtResource("1_ubn6d")
+
+[node name="column1" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+
+[node name="column2" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+
+[node name="column3" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+
+[node name="column4" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+
+[node name="column5" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+
+[node name="column6" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2

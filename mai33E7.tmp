@@ -1,0 +1,141 @@
+[gd_scene load_steps=7 format=3 uid="uid://cvya4rcawkcxg"]
+
+[ext_resource type="Script" path="res://screenshift.gd" id="1_tdfog"]
+[ext_resource type="PackedScene" uid="uid://xl4jsnrh5oll" path="res://research.tscn" id="2_57rww"]
+[ext_resource type="PackedScene" uid="uid://bq55k435edwi7" path="res://experiment_display.tscn" id="3_wqano"]
+[ext_resource type="Script" path="res://Storage.gd" id="4_ky610"]
+[ext_resource type="PackedScene" uid="uid://sd0cyqy52ykw" path="res://meta_status.tscn" id="6_qwf21"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tp21d"]
+font_size = 48
+
+[node name="Main" type="Node2D"]
+
+[node name="MyView" type="Camera2D" parent="."]
+position = Vector2(880, 450)
+script = ExtResource("1_tdfog")
+
+[node name="Research" parent="." instance=ExtResource("2_57rww")]
+
+[node name="ExperimentDisplay" parent="." instance=ExtResource("3_wqano")]
+offset_left = 128.0
+offset_top = 288.0
+offset_right = 384.0
+offset_bottom = 896.0
+
+[node name="ExperimentDisplay2" parent="." instance=ExtResource("3_wqano")]
+offset_left = 456.0
+offset_top = 288.0
+offset_right = 712.0
+offset_bottom = 896.0
+
+[node name="Experiment1" parent="ExperimentDisplay2/ExperimentBackground1" index="0"]
+ex_num = 2
+
+[node name="ExStatus" parent="ExperimentDisplay2" index="1"]
+text = "2:  💤Inactive "
+status_num = "2"
+
+[node name="ExperimentDisplay3" parent="." instance=ExtResource("3_wqano")]
+offset_left = 776.0
+offset_top = 288.0
+offset_right = 1032.0
+offset_bottom = 896.0
+
+[node name="Experiment1" parent="ExperimentDisplay3/ExperimentBackground1" index="0"]
+ex_num = 3
+
+[node name="ExStatus" parent="ExperimentDisplay3" index="1"]
+text = "3:  💤Inactive "
+status_num = "3"
+
+[node name="ExperimentDisplay4" parent="." instance=ExtResource("3_wqano")]
+offset_left = 1088.0
+offset_top = 288.0
+offset_right = 1344.0
+offset_bottom = 896.0
+
+[node name="Experiment1" parent="ExperimentDisplay4/ExperimentBackground1" index="0"]
+ex_num = 4
+
+[node name="ExStatus" parent="ExperimentDisplay4" index="1"]
+text = "4:  💤Inactive "
+status_num = "4"
+
+[node name="ExperimentDisplay5" parent="." instance=ExtResource("3_wqano")]
+offset_left = 1408.0
+offset_top = 288.0
+offset_right = 1664.0
+offset_bottom = 896.0
+
+[node name="Experiment1" parent="ExperimentDisplay5/ExperimentBackground1" index="0"]
+ex_num = 5
+
+[node name="ExStatus" parent="ExperimentDisplay5" index="1"]
+text = "5:  💤Inactive "
+status_num = "5"
+
+[node name="Meta Status" parent="." instance=ExtResource("6_qwf21")]
+offset_top = -672.0
+offset_right = 1507.0
+offset_bottom = -504.0
+
+[node name="HelpContainer" type="TabContainer" parent="."]
+offset_left = 1024.0
+offset_top = -384.0
+offset_right = 1592.0
+offset_bottom = -64.0
+
+[node name="Alchemic Laws" type="TextEdit" parent="HelpContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "1. Can not have an equal amount of the same attribute
+2. Can not have more of one attribute than
+ all the other attirbutes  of the same class combined
+
+Alchemic laws apply seperately to types,letters and
+experiment dice counts (if meta is active)
+-Only Active experiments are subject to alchemic laws
+-Experiments must have at least 3 dice to be active"
+editable = false
+drag_and_drop_selection_enabled = false
+
+[node name="Notes" type="TextEdit" parent="HelpContainer"]
+visible = false
+layout_mode = 2
+placeholder_text = "type anything you want here"
+drag_and_drop_selection_enabled = false
+
+[node name="Storage" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -8.0
+offset_top = -24.0
+offset_right = 32.0
+offset_bottom = 16.0
+
+[node name="StorageBackground" type="PanelContainer" parent="Storage"]
+layout_mode = 0
+offset_left = 1024.0
+offset_top = 40.0
+offset_right = 1552.0
+offset_bottom = 304.0
+
+[node name="Storage" type="GridContainer" parent="Storage/StorageBackground"]
+layout_mode = 2
+columns = 4
+script = ExtResource("4_ky610")
+
+[node name="StorageLabel" type="Label" parent="Storage"]
+layout_mode = 0
+offset_left = 1096.0
+offset_top = -32.0
+offset_right = 1333.0
+offset_bottom = 59.0
+text = "Storage"
+label_settings = SubResource("LabelSettings_tp21d")
+
+[editable path="ExperimentDisplay2"]
+[editable path="ExperimentDisplay3"]
+[editable path="ExperimentDisplay4"]
+[editable path="ExperimentDisplay5"]

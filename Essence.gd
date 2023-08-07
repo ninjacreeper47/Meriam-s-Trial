@@ -46,9 +46,10 @@ func _on_pressed():
 		return  
 	if(alchemy.selected_experiment._is_full() == true):
 		return 
-	reparent(alchemy.selected_experiment) #this should be done before sorting uwu
+	alchemy.selected_experiment._assign_new_child(self)
 	if(assigned_experiment != null):
 		assigned_experiment._remove_essence(value,my_type)
+		assigned_experiment.my_children.erase(self)
 		assigned_experiment._sort_experiment()
 	if(in_tableau):
 		taken_from_tableau.emit(my_col)
