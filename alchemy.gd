@@ -9,14 +9,19 @@ var selected_experiment
 
 var active_type_counts = {}
 var essence_goals ={}
+var resetting_in_progress = false
 var labatory_stable = true
 
+var game_playing = true
+var queue_reset = false
 var forced_meta_threshold = 20
 signal meta_breached
 signal game_won
 signal meta_counters_updated
 
 func _reset():
+	print("uwu")
+	resetting_in_progress = true
 	active_experiments = 0
 	experiment_nodes = ["storage placeholder"]
 	essence_counts.clear()
@@ -27,6 +32,7 @@ func _reset():
 	#essence_goals.clear()
 	get_tree().unload_current_scene()
 	get_tree().change_scene_to_file("res://main.tscn")
+	queue_reset = false
 	#$Research.get_child(0)._spawn_balanced()
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -36,7 +42,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	_input_checks()
-	_update_alchemic_state()
+	if !resetting_in_progress && game_playing:
+		_update_alchemic_state()
 
 #Sub function for _process
 func _input_checks():
@@ -55,8 +62,10 @@ func _input_checks():
 		selected_experiment = experiment_nodes[5]
 	if Input.is_action_just_pressed("storage"):
 		selected_experiment = experiment_nodes[0]
-	if Input.is_action_just_pressed("restart"):
+	if Input.is_action_just_pressed("restart") || queue_reset == true:
 		_reset()
+	if Input.is_action_just_pressed("debug_win"):
+		_on_game_won()
 func _check_meta():
 	
 	if active_experiments < 3 && _count_active_essences() < forced_meta_threshold:
@@ -98,6 +107,7 @@ func _check_victory():
 		if active_type_counts[i] >= essence_goals[i]:
 			game_won.emit()
 func _on_game_won():
+	game_playing = false
 	get_tree().change_scene_to_file("res://victory_celebration.tscn")
 
 func _count_active_essences():

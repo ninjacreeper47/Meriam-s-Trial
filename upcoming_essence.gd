@@ -22,7 +22,6 @@ func _ready():
 #If board total is not evenly divisble by amount of types, it will pick one type to put surplus off in the bag
 func spawn_balanced():
 	#bag creation
-	print("uwu")
 	var amount_of_each_type = (board_total / alchemy.type.size()) as int
 	var bag = []
 	for i in range(amount_of_each_type):
@@ -52,6 +51,8 @@ func spawn_balanced():
 			instance.taken_from_tableau.connect(my_call)
 		#populate the intial tableau
 		_on_next_requested(i)
+	alchemy.resetting_in_progress = false
+	alchemy.game_playing = true
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass

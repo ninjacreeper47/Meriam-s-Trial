@@ -1,10 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://cvya4rcawkcxg"]
+[gd_scene load_steps=9 format=3 uid="uid://cvya4rcawkcxg"]
 
 [ext_resource type="Script" path="res://screenshift.gd" id="1_tdfog"]
 [ext_resource type="PackedScene" uid="uid://xl4jsnrh5oll" path="res://research.tscn" id="2_57rww"]
 [ext_resource type="PackedScene" uid="uid://bq55k435edwi7" path="res://experiment_display.tscn" id="3_wqano"]
 [ext_resource type="Script" path="res://Storage.gd" id="4_ky610"]
+[ext_resource type="Script" path="res://IngameMenu.gd" id="5_ksgo2"]
 [ext_resource type="PackedScene" uid="uid://sd0cyqy52ykw" path="res://meta_status.tscn" id="6_qwf21"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0vaxm"]
+bg_color = Color(0.235294, 0.176471, 0.419608, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_tp21d"]
 font_size = 48
@@ -87,6 +91,7 @@ offset_right = 1592.0
 offset_bottom = -64.0
 
 [node name="Alchemic Laws" type="TextEdit" parent="HelpContainer"]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "1. Can not have an equal amount of the same attribute
@@ -105,6 +110,34 @@ visible = false
 layout_mode = 2
 placeholder_text = "type anything you want here"
 drag_and_drop_selection_enabled = false
+
+[node name="Victory Progress" type="Panel" parent="HelpContainer"]
+layout_mode = 2
+
+[node name="Menu" type="Panel" parent="HelpContainer"]
+visible = false
+layout_mode = 2
+script = ExtResource("5_ksgo2")
+
+[node name="NewGameButton" type="Button" parent="HelpContainer/Menu"]
+layout_mode = 0
+offset_left = 188.0
+offset_top = 33.0
+offset_right = 442.0
+offset_bottom = 137.0
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_0vaxm")
+text = "New Game"
+
+[node name="QuitButton" type="Button" parent="HelpContainer/Menu"]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 177.0
+offset_right = 438.0
+offset_bottom = 281.0
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_0vaxm")
+text = "Quit"
 
 [node name="Storage" type="Control" parent="."]
 layout_mode = 3
@@ -134,6 +167,9 @@ offset_right = 1333.0
 offset_bottom = 59.0
 text = "Storage"
 label_settings = SubResource("LabelSettings_tp21d")
+
+[connection signal="pressed" from="HelpContainer/Menu/NewGameButton" to="HelpContainer/Menu" method="_on_new_game_pressed"]
+[connection signal="pressed" from="HelpContainer/Menu/QuitButton" to="HelpContainer/Menu" method="_on_quit_pressed"]
 
 [editable path="ExperimentDisplay2"]
 [editable path="ExperimentDisplay3"]
