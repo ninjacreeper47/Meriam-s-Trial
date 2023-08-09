@@ -34,6 +34,7 @@ columns = 8
 script = ExtResource("2_pqy6i")
 
 [node name="locked_warning" type="TextureRect" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 34.0
 offset_top = 142.0

@@ -9,15 +9,25 @@ var selected_experiment
 
 var active_type_counts = {}
 var essence_goals ={}
-var type_targets = {}
 var labatory_stable = true
-
 
 var forced_meta_threshold = 20
 signal meta_breached
 signal game_won
 signal meta_counters_updated
 
+func _reset():
+	active_experiments = 0
+	experiment_nodes = ["storage placeholder"]
+	essence_counts.clear()
+	active_type_counts.clear()
+	labatory_stable = true
+	for goal in essence_goals.keys():
+		essence_goals[goal] = 0
+	#essence_goals.clear()
+	get_tree().unload_current_scene()
+	get_tree().change_scene_to_file("res://main.tscn")
+	#$Research.get_child(0)._spawn_balanced()
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var	my_call = Callable(self,"_on_game_won")
@@ -45,6 +55,8 @@ func _input_checks():
 		selected_experiment = experiment_nodes[5]
 	if Input.is_action_just_pressed("storage"):
 		selected_experiment = experiment_nodes[0]
+	if Input.is_action_just_pressed("restart"):
+		_reset()
 func _check_meta():
 	
 	if active_experiments < 3 && _count_active_essences() < forced_meta_threshold:

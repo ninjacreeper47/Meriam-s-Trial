@@ -9,8 +9,11 @@ var column_clear_marker = load("res://column_clear_marker.tscn")
 
 
 @onready var board_total = get_child(0).get_child_count() * column_height
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+
 	spawn_balanced()
 
 #Fills the research area with new essences. 
@@ -19,9 +22,11 @@ func _ready():
 #If board total is not evenly divisble by amount of types, it will pick one type to put surplus off in the bag
 func spawn_balanced():
 	#bag creation
+	print("uwu")
 	var amount_of_each_type = (board_total / alchemy.type.size()) as int
 	var bag = []
 	for i in range(amount_of_each_type):
+		
 		for t in alchemy.type:
 			if alchemy.essence_goals.has(t):
 				alchemy.essence_goals[t] += 1
