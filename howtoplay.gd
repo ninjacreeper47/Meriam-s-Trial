@@ -1,7 +1,7 @@
 extends TextureRect
 
 var slide_num = 1
-var instructions_path = "res://Assets/How to Play/Instructions/Slide%s.png"
+var instructions_path = "res://Assets/How to Play/Instructions/Slide%s.PNG"
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
