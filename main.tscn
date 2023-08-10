@@ -1,14 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://cvya4rcawkcxg"]
+[gd_scene load_steps=14 format=3 uid="uid://cvya4rcawkcxg"]
 
 [ext_resource type="Script" path="res://screenshift.gd" id="1_tdfog"]
 [ext_resource type="PackedScene" uid="uid://xl4jsnrh5oll" path="res://research.tscn" id="2_57rww"]
 [ext_resource type="PackedScene" uid="uid://bq55k435edwi7" path="res://experiment_display.tscn" id="3_wqano"]
 [ext_resource type="Script" path="res://Storage.gd" id="4_ky610"]
-[ext_resource type="Script" path="res://IngameMenu.gd" id="5_ksgo2"]
+[ext_resource type="Texture2D" uid="uid://dtwgdtcecjwxr" path="res://Assets/Water.svg" id="5_2g8eu"]
+[ext_resource type="Texture2D" uid="uid://c3ev2fwar7q8r" path="res://Assets/Metal.svg" id="5_g43vu"]
+[ext_resource type="Script" path="res://ProgressBars.gd" id="5_uedx0"]
+[ext_resource type="Texture2D" uid="uid://ckmghjoqor5x7" path="res://Assets/Plant.svg" id="6_iq6j7"]
 [ext_resource type="PackedScene" uid="uid://sd0cyqy52ykw" path="res://meta_status.tscn" id="6_qwf21"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0vaxm"]
-bg_color = Color(0.235294, 0.176471, 0.419608, 1)
+[ext_resource type="Texture2D" uid="uid://p3thchowpw5y" path="res://Assets/Star.svg" id="7_mbdti"]
+[ext_resource type="Texture2D" uid="uid://bkw4b4xi8osu5" path="res://Assets/Friendship.svg" id="9_t62h7"]
+[ext_resource type="PackedScene" uid="uid://bt0ytr2vo3k77" path="res://ingame_menu.tscn" id="11_cjw6x"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tp21d"]
 font_size = 48
@@ -91,7 +94,6 @@ offset_right = 1592.0
 offset_bottom = -64.0
 
 [node name="Alchemic Laws" type="TextEdit" parent="HelpContainer"]
-visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "1. Can not have an equal amount of the same attribute
@@ -108,36 +110,142 @@ drag_and_drop_selection_enabled = false
 [node name="Notes" type="TextEdit" parent="HelpContainer"]
 visible = false
 layout_mode = 2
-placeholder_text = "type anything you want here"
+placeholder_text = "type anything you want here ((does not persist between rrestarts)"
 drag_and_drop_selection_enabled = false
 
 [node name="Victory Progress" type="Panel" parent="HelpContainer"]
-layout_mode = 2
-
-[node name="Menu" type="Panel" parent="HelpContainer"]
 visible = false
 layout_mode = 2
-script = ExtResource("5_ksgo2")
 
-[node name="NewGameButton" type="Button" parent="HelpContainer/Menu"]
+[node name="ProgressBars" type="VBoxContainer" parent="HelpContainer/Victory Progress"]
 layout_mode = 0
-offset_left = 188.0
-offset_top = 33.0
-offset_right = 442.0
-offset_bottom = 137.0
-theme_override_font_sizes/font_size = 48
-theme_override_styles/normal = SubResource("StyleBoxFlat_0vaxm")
-text = "New Game"
+offset_left = 16.0
+offset_top = 97.0
+offset_right = 560.0
+offset_bottom = 313.0
+script = ExtResource("5_uedx0")
 
-[node name="QuitButton" type="Button" parent="HelpContainer/Menu"]
+[node name="MetalProgress" type="Control" parent="HelpContainer/Victory Progress/ProgressBars"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="HelpContainer/Victory Progress/ProgressBars/MetalProgress"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+offset_left = 56.0
+offset_top = -31.0
+offset_right = 544.0
+offset_bottom = -4.0
+max_value = 16.0
+step = 1.0
+
+[node name="TextureRect" type="TextureRect" parent="HelpContainer/Victory Progress/ProgressBars/MetalProgress"]
 layout_mode = 0
-offset_left = 184.0
-offset_top = 177.0
-offset_right = 438.0
-offset_bottom = 281.0
-theme_override_font_sizes/font_size = 48
-theme_override_styles/normal = SubResource("StyleBoxFlat_0vaxm")
-text = "Quit"
+offset_top = -32.0
+offset_right = 40.0
+offset_bottom = 8.0
+texture = ExtResource("5_g43vu")
+expand_mode = 1
+
+[node name="PlantProgress" type="Control" parent="HelpContainer/Victory Progress/ProgressBars"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="HelpContainer/Victory Progress/ProgressBars/PlantProgress"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+offset_left = 56.0
+offset_top = -31.0
+offset_right = 544.0
+offset_bottom = -4.0
+max_value = 16.0
+step = 1.0
+
+[node name="TextureRect" type="TextureRect" parent="HelpContainer/Victory Progress/ProgressBars/PlantProgress"]
+layout_mode = 0
+offset_top = -32.0
+offset_right = 40.0
+offset_bottom = 8.0
+texture = ExtResource("6_iq6j7")
+expand_mode = 1
+
+[node name="StarProgress" type="Control" parent="HelpContainer/Victory Progress/ProgressBars"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="HelpContainer/Victory Progress/ProgressBars/StarProgress"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+offset_left = 56.0
+offset_top = -31.0
+offset_right = 544.0
+offset_bottom = -4.0
+max_value = 16.0
+step = 1.0
+
+[node name="TextureRect" type="TextureRect" parent="HelpContainer/Victory Progress/ProgressBars/StarProgress"]
+layout_mode = 0
+offset_top = -32.0
+offset_right = 40.0
+offset_bottom = 8.0
+texture = ExtResource("7_mbdti")
+expand_mode = 1
+
+[node name="WaterProgress" type="Control" parent="HelpContainer/Victory Progress/ProgressBars"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="HelpContainer/Victory Progress/ProgressBars/WaterProgress"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+offset_left = 56.0
+offset_top = -31.0
+offset_right = 544.0
+offset_bottom = -4.0
+max_value = 16.0
+step = 1.0
+
+[node name="TextureRect" type="TextureRect" parent="HelpContainer/Victory Progress/ProgressBars/WaterProgress"]
+layout_mode = 0
+offset_top = -32.0
+offset_right = 40.0
+offset_bottom = 8.0
+texture = ExtResource("5_2g8eu")
+expand_mode = 1
+
+[node name="FriendshipProgress" type="Control" parent="HelpContainer/Victory Progress/ProgressBars"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="HelpContainer/Victory Progress/ProgressBars/FriendshipProgress"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+offset_left = 56.0
+offset_top = -31.0
+offset_right = 544.0
+offset_bottom = -4.0
+max_value = 16.0
+step = 1.0
+
+[node name="TextureRect" type="TextureRect" parent="HelpContainer/Victory Progress/ProgressBars/FriendshipProgress"]
+layout_mode = 0
+offset_top = -32.0
+offset_right = 40.0
+offset_bottom = 8.0
+texture = ExtResource("9_t62h7")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="HelpContainer/Victory Progress"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 1.0
+offset_right = 552.0
+offset_bottom = 57.0
+text = "1.All experiments must be stable 
+2. Your experiments must contain all 16 of any ONE type"
+
+[node name="Menu" parent="HelpContainer" instance=ExtResource("11_cjw6x")]
+layout_mode = 2
 
 [node name="Storage" type="Control" parent="."]
 layout_mode = 3
@@ -167,9 +275,6 @@ offset_right = 1333.0
 offset_bottom = 59.0
 text = "Storage"
 label_settings = SubResource("LabelSettings_tp21d")
-
-[connection signal="pressed" from="HelpContainer/Menu/NewGameButton" to="HelpContainer/Menu" method="_on_new_game_pressed"]
-[connection signal="pressed" from="HelpContainer/Menu/QuitButton" to="HelpContainer/Menu" method="_on_quit_pressed"]
 
 [editable path="ExperimentDisplay2"]
 [editable path="ExperimentDisplay3"]
