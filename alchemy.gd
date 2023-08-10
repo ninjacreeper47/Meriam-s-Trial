@@ -20,7 +20,6 @@ signal game_won
 signal meta_counters_updated
 
 func _reset():
-	print("uwu")
 	resetting_in_progress = true
 	active_experiments = 0
 	experiment_nodes = ["storage placeholder"]

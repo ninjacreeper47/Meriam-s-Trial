@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cvya4rcawkcxg"]
+[gd_scene load_steps=17 format=3 uid="uid://cvya4rcawkcxg"]
 
 [ext_resource type="Script" path="res://screenshift.gd" id="1_tdfog"]
 [ext_resource type="PackedScene" uid="uid://xl4jsnrh5oll" path="res://research.tscn" id="2_57rww"]
@@ -12,6 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://p3thchowpw5y" path="res://Assets/Star.svg" id="7_mbdti"]
 [ext_resource type="Texture2D" uid="uid://bkw4b4xi8osu5" path="res://Assets/Friendship.svg" id="9_t62h7"]
 [ext_resource type="PackedScene" uid="uid://bt0ytr2vo3k77" path="res://ingame_menu.tscn" id="11_cjw6x"]
+[ext_resource type="Script" path="res://TutorialButton.gd" id="13_uul6k"]
+[ext_resource type="Texture2D" uid="uid://bsh0bafsswi66" path="res://Assets/How to Play/Instructions/Slide1.PNG" id="14_nqlfj"]
+[ext_resource type="Script" path="res://howtoplay.gd" id="14_x4fhe"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tp21d"]
 font_size = 48
@@ -22,102 +25,123 @@ font_size = 48
 position = Vector2(880, 450)
 script = ExtResource("1_tdfog")
 
-[node name="Research" parent="." instance=ExtResource("2_57rww")]
+[node name="Game Screen" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 880.0
+offset_top = 450.0
+offset_right = 920.0
+offset_bottom = 490.0
 
-[node name="ExperimentDisplay" parent="." instance=ExtResource("3_wqano")]
-offset_left = 128.0
-offset_top = 288.0
-offset_right = 384.0
-offset_bottom = 896.0
+[node name="Research" parent="Game Screen" instance=ExtResource("2_57rww")]
+offset_left = -880.0
+offset_top = -474.0
+offset_right = -840.0
+offset_bottom = -434.0
 
-[node name="ExperimentDisplay2" parent="." instance=ExtResource("3_wqano")]
-offset_left = 456.0
-offset_top = 288.0
-offset_right = 712.0
-offset_bottom = 896.0
+[node name="ExperimentDisplay" parent="Game Screen" instance=ExtResource("3_wqano")]
+offset_left = -752.0
+offset_top = -162.0
+offset_right = -496.0
+offset_bottom = 446.0
 
-[node name="Experiment1" parent="ExperimentDisplay2/ExperimentBackground1" index="0"]
+[node name="ExperimentDisplay2" parent="Game Screen" instance=ExtResource("3_wqano")]
+offset_left = -424.0
+offset_top = -162.0
+offset_right = -168.0
+offset_bottom = 446.0
+
+[node name="Experiment1" parent="Game Screen/ExperimentDisplay2/ExperimentBackground1" index="0"]
 ex_num = 2
 
-[node name="ExStatus" parent="ExperimentDisplay2" index="1"]
+[node name="ExStatus" parent="Game Screen/ExperimentDisplay2" index="1"]
 text = "2:  💤Inactive "
 status_num = "2"
 
-[node name="ExperimentDisplay3" parent="." instance=ExtResource("3_wqano")]
-offset_left = 776.0
-offset_top = 288.0
-offset_right = 1032.0
-offset_bottom = 896.0
+[node name="ExperimentDisplay3" parent="Game Screen" instance=ExtResource("3_wqano")]
+offset_left = -104.0
+offset_top = -162.0
+offset_right = 152.0
+offset_bottom = 446.0
 
-[node name="Experiment1" parent="ExperimentDisplay3/ExperimentBackground1" index="0"]
+[node name="Experiment1" parent="Game Screen/ExperimentDisplay3/ExperimentBackground1" index="0"]
 ex_num = 3
 
-[node name="ExStatus" parent="ExperimentDisplay3" index="1"]
+[node name="ExStatus" parent="Game Screen/ExperimentDisplay3" index="1"]
 text = "3:  💤Inactive "
 status_num = "3"
 
-[node name="ExperimentDisplay4" parent="." instance=ExtResource("3_wqano")]
-offset_left = 1088.0
-offset_top = 288.0
-offset_right = 1344.0
-offset_bottom = 896.0
+[node name="ExperimentDisplay4" parent="Game Screen" instance=ExtResource("3_wqano")]
+offset_left = 208.0
+offset_top = -162.0
+offset_right = 464.0
+offset_bottom = 446.0
 
-[node name="Experiment1" parent="ExperimentDisplay4/ExperimentBackground1" index="0"]
+[node name="Experiment1" parent="Game Screen/ExperimentDisplay4/ExperimentBackground1" index="0"]
 ex_num = 4
 
-[node name="ExStatus" parent="ExperimentDisplay4" index="1"]
+[node name="ExStatus" parent="Game Screen/ExperimentDisplay4" index="1"]
 text = "4:  💤Inactive "
 status_num = "4"
 
-[node name="ExperimentDisplay5" parent="." instance=ExtResource("3_wqano")]
-offset_left = 1408.0
-offset_top = 288.0
-offset_right = 1664.0
-offset_bottom = 896.0
+[node name="ExperimentDisplay5" parent="Game Screen" instance=ExtResource("3_wqano")]
+offset_left = 528.0
+offset_top = -162.0
+offset_right = 784.0
+offset_bottom = 446.0
 
-[node name="Experiment1" parent="ExperimentDisplay5/ExperimentBackground1" index="0"]
+[node name="Experiment1" parent="Game Screen/ExperimentDisplay5/ExperimentBackground1" index="0"]
 ex_num = 5
 
-[node name="ExStatus" parent="ExperimentDisplay5" index="1"]
+[node name="ExStatus" parent="Game Screen/ExperimentDisplay5" index="1"]
 text = "5:  💤Inactive "
 status_num = "5"
 
-[node name="Meta Status" parent="." instance=ExtResource("6_qwf21")]
-offset_top = -672.0
-offset_right = 1507.0
-offset_bottom = -504.0
+[node name="Meta Status" parent="Game Screen" instance=ExtResource("6_qwf21")]
+layout_mode = 0
+offset_left = 88.0
+offset_top = -1138.0
+offset_right = 563.0
+offset_bottom = -970.0
 
-[node name="HelpContainer" type="TabContainer" parent="."]
-offset_left = 1024.0
-offset_top = -384.0
-offset_right = 1592.0
-offset_bottom = -64.0
+[node name="HelpContainer" type="TabContainer" parent="Game Screen"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = -834.0
+offset_right = 648.0
+offset_bottom = -514.0
 
-[node name="Alchemic Laws" type="TextEdit" parent="HelpContainer"]
+[node name="Alchemic Laws" type="TextEdit" parent="Game Screen/HelpContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "1. Can not have an equal amount of the same attribute
 2. Can not have more of one attribute than
  all the other attirbutes  of the same class combined
 
-Alchemic laws apply seperately to types,letters and
+Alchemic laws apply seperately to elements,letters and
 experiment dice counts (if meta is active)
 -Only Active experiments are subject to alchemic laws
 -Experiments must have at least 3 dice to be active"
 editable = false
+context_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
 drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
 
-[node name="Notes" type="TextEdit" parent="HelpContainer"]
+[node name="Notes" type="TextEdit" parent="Game Screen/HelpContainer"]
 visible = false
 layout_mode = 2
-placeholder_text = "type anything you want here ((does not persist between rrestarts)"
+placeholder_text = "type anything you want here (does not persist between restarts)"
 drag_and_drop_selection_enabled = false
 
-[node name="Victory Progress" type="Panel" parent="HelpContainer"]
+[node name="Victory Progress" type="Panel" parent="Game Screen/HelpContainer"]
 visible = false
 layout_mode = 2
 
-[node name="ProgressBars" type="VBoxContainer" parent="HelpContainer/Victory Progress"]
+[node name="ProgressBars" type="VBoxContainer" parent="Game Screen/HelpContainer/Victory Progress"]
 layout_mode = 0
 offset_left = 16.0
 offset_top = 97.0
@@ -125,11 +149,11 @@ offset_right = 560.0
 offset_bottom = 313.0
 script = ExtResource("5_uedx0")
 
-[node name="MetalProgress" type="Control" parent="HelpContainer/Victory Progress/ProgressBars"]
+[node name="MetalProgress" type="Control" parent="Game Screen/HelpContainer/Victory Progress/ProgressBars"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 
-[node name="ProgressBar" type="ProgressBar" parent="HelpContainer/Victory Progress/ProgressBars/MetalProgress"]
+[node name="ProgressBar" type="ProgressBar" parent="Game Screen/HelpContainer/Victory Progress/ProgressBars/MetalProgress"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 offset_left = 56.0
@@ -139,7 +163,7 @@ offset_bottom = -4.0
 max_value = 16.0
 step = 1.0
 
-[node name="TextureRect" type="TextureRect" parent="HelpContainer/Victory Progress/ProgressBars/MetalProgress"]
+[node name="TextureRect" type="TextureRect" parent="Game Screen/HelpContainer/Victory Progress/ProgressBars/MetalProgress"]
 layout_mode = 0
 offset_top = -32.0
 offset_right = 40.0
@@ -147,11 +171,11 @@ offset_bottom = 8.0
 texture = ExtResource("5_g43vu")
 expand_mode = 1
 
-[node name="PlantProgress" type="Control" parent="HelpContainer/Victory Progress/ProgressBars"]
+[node name="PlantProgress" type="Control" parent="Game Screen/HelpContainer/Victory Progress/ProgressBars"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 
-[node name="ProgressBar" type="ProgressBar" parent="HelpContainer/Victory Progress/ProgressBars/PlantProgress"]
+[node name="ProgressBar" type="ProgressBar" parent="Game Screen/HelpContainer/Victory Progress/ProgressBars/PlantProgress"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 offset_left = 56.0
@@ -161,7 +185,7 @@ offset_bottom = -4.0
 max_value = 16.0
 step = 1.0
 
-[node name="TextureRect" type="TextureRect" parent="HelpContainer/Victory Progress/ProgressBars/PlantProgress"]
+[node name="TextureRect" type="TextureRect" parent="Game Screen/HelpContainer/Victory Progress/ProgressBars/PlantProgress"]
 layout_mode = 0
 offset_top = -32.0
 offset_right = 40.0
@@ -169,11 +193,11 @@ offset_bottom = 8.0
 texture = ExtResource("6_iq6j7")
 expand_mode = 1
 
-[node name="StarProgress" type="Control" parent="HelpContainer/Victory Progress/ProgressBars"]
+[node name="StarProgress" type="Control" parent="Game Screen/HelpContainer/Victory Progress/ProgressBars"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 
-[node name="ProgressBar" type="ProgressBar" parent="HelpContainer/Victory Progress/ProgressBars/StarProgress"]
+[node name="ProgressBar" type="ProgressBar" parent="Game Screen/HelpContainer/Victory Progress/ProgressBars/StarProgress"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 offset_left = 56.0
@@ -183,7 +207,7 @@ offset_bottom = -4.0
 max_value = 16.0
 step = 1.0
 
-[node name="TextureRect" type="TextureRect" parent="HelpContainer/Victory Progress/ProgressBars/StarProgress"]
+[node name="TextureRect" type="TextureRect" parent="Game Screen/HelpContainer/Victory Progress/ProgressBars/StarProgress"]
 layout_mode = 0
 offset_top = -32.0
 offset_right = 40.0
@@ -191,11 +215,11 @@ offset_bottom = 8.0
 texture = ExtResource("7_mbdti")
 expand_mode = 1
 
-[node name="WaterProgress" type="Control" parent="HelpContainer/Victory Progress/ProgressBars"]
+[node name="WaterProgress" type="Control" parent="Game Screen/HelpContainer/Victory Progress/ProgressBars"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 
-[node name="ProgressBar" type="ProgressBar" parent="HelpContainer/Victory Progress/ProgressBars/WaterProgress"]
+[node name="ProgressBar" type="ProgressBar" parent="Game Screen/HelpContainer/Victory Progress/ProgressBars/WaterProgress"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 offset_left = 56.0
@@ -205,7 +229,7 @@ offset_bottom = -4.0
 max_value = 16.0
 step = 1.0
 
-[node name="TextureRect" type="TextureRect" parent="HelpContainer/Victory Progress/ProgressBars/WaterProgress"]
+[node name="TextureRect" type="TextureRect" parent="Game Screen/HelpContainer/Victory Progress/ProgressBars/WaterProgress"]
 layout_mode = 0
 offset_top = -32.0
 offset_right = 40.0
@@ -213,11 +237,11 @@ offset_bottom = 8.0
 texture = ExtResource("5_2g8eu")
 expand_mode = 1
 
-[node name="FriendshipProgress" type="Control" parent="HelpContainer/Victory Progress/ProgressBars"]
+[node name="FriendshipProgress" type="Control" parent="Game Screen/HelpContainer/Victory Progress/ProgressBars"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 
-[node name="ProgressBar" type="ProgressBar" parent="HelpContainer/Victory Progress/ProgressBars/FriendshipProgress"]
+[node name="ProgressBar" type="ProgressBar" parent="Game Screen/HelpContainer/Victory Progress/ProgressBars/FriendshipProgress"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 offset_left = 56.0
@@ -227,7 +251,7 @@ offset_bottom = -4.0
 max_value = 16.0
 step = 1.0
 
-[node name="TextureRect" type="TextureRect" parent="HelpContainer/Victory Progress/ProgressBars/FriendshipProgress"]
+[node name="TextureRect" type="TextureRect" parent="Game Screen/HelpContainer/Victory Progress/ProgressBars/FriendshipProgress"]
 layout_mode = 0
 offset_top = -32.0
 offset_right = 40.0
@@ -235,39 +259,39 @@ offset_bottom = 8.0
 texture = ExtResource("9_t62h7")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="HelpContainer/Victory Progress"]
+[node name="Label" type="Label" parent="Game Screen/HelpContainer/Victory Progress"]
 layout_mode = 0
 offset_left = 24.0
 offset_top = 1.0
 offset_right = 552.0
 offset_bottom = 57.0
 text = "1.All experiments must be stable 
-2. Your experiments must contain all 16 of any ONE type"
+2. Your experiments must contain all 16 of any ONE element"
 
-[node name="Menu" parent="HelpContainer" instance=ExtResource("11_cjw6x")]
+[node name="Menu" parent="Game Screen/HelpContainer" instance=ExtResource("11_cjw6x")]
 layout_mode = 2
 
-[node name="Storage" type="Control" parent="."]
+[node name="Storage" type="Control" parent="Game Screen"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = -8.0
-offset_top = -24.0
-offset_right = 32.0
-offset_bottom = 16.0
+offset_left = -944.0
+offset_top = -490.0
+offset_right = -904.0
+offset_bottom = -450.0
 
-[node name="StorageBackground" type="PanelContainer" parent="Storage"]
+[node name="StorageBackground" type="PanelContainer" parent="Game Screen/Storage"]
 layout_mode = 0
 offset_left = 1024.0
 offset_top = 40.0
 offset_right = 1552.0
 offset_bottom = 304.0
 
-[node name="Storage" type="GridContainer" parent="Storage/StorageBackground"]
+[node name="Storage" type="GridContainer" parent="Game Screen/Storage/StorageBackground"]
 layout_mode = 2
 columns = 4
 script = ExtResource("4_ky610")
 
-[node name="StorageLabel" type="Label" parent="Storage"]
+[node name="StorageLabel" type="Label" parent="Game Screen/Storage"]
 layout_mode = 0
 offset_left = 1096.0
 offset_top = -32.0
@@ -276,7 +300,56 @@ offset_bottom = 59.0
 text = "Storage"
 label_settings = SubResource("LabelSettings_tp21d")
 
-[editable path="ExperimentDisplay2"]
-[editable path="ExperimentDisplay3"]
-[editable path="ExperimentDisplay4"]
-[editable path="ExperimentDisplay5"]
+[node name="TutorialButton" type="Button" parent="Game Screen" node_paths=PackedStringArray("instructions")]
+layout_mode = 0
+offset_left = 624.0
+offset_top = -434.0
+offset_right = 776.0
+offset_bottom = -189.0
+theme_override_font_sizes/font_size = 48
+text = "HOW
+TO
+PLAY"
+script = ExtResource("13_uul6k")
+instructions = NodePath("../../Instructions")
+
+[node name="Instructions" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="InstructionsDisplay" type="TextureRect" parent="Instructions"]
+layout_mode = 0
+offset_right = 1496.0
+offset_bottom = 888.0
+texture = ExtResource("14_nqlfj")
+expand_mode = 1
+script = ExtResource("14_x4fhe")
+
+[node name="NextPage" type="Button" parent="Instructions/InstructionsDisplay"]
+layout_mode = 0
+offset_left = 1408.0
+offset_top = 800.0
+offset_right = 1496.0
+offset_bottom = 888.0
+theme_override_font_sizes/font_size = 32
+text = ">"
+
+[node name="PreviousPage" type="Button" parent="Instructions/InstructionsDisplay"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 800.0
+offset_right = 96.0
+offset_bottom = 888.0
+theme_override_font_sizes/font_size = 32
+text = "<"
+
+[connection signal="pressed" from="Game Screen/TutorialButton" to="Game Screen/TutorialButton" method="_on_pressed"]
+[connection signal="pressed" from="Instructions/InstructionsDisplay/NextPage" to="Instructions/InstructionsDisplay" method="_next_page"]
+[connection signal="pressed" from="Instructions/InstructionsDisplay/PreviousPage" to="Instructions/InstructionsDisplay" method="_prev_page"]
+
+[editable path="Game Screen/ExperimentDisplay2"]
+[editable path="Game Screen/ExperimentDisplay3"]
+[editable path="Game Screen/ExperimentDisplay4"]
+[editable path="Game Screen/ExperimentDisplay5"]
