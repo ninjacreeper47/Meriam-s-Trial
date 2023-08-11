@@ -307,11 +307,14 @@ offset_top = -434.0
 offset_right = 776.0
 offset_bottom = -189.0
 theme_override_font_sizes/font_size = 48
-text = "X"
+text = "HOW
+TO
+PLAY"
 script = ExtResource("13_uul6k")
 instructions = NodePath("../../Instructions")
 
 [node name="Instructions" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0

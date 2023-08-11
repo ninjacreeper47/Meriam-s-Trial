@@ -13,6 +13,8 @@ var sorting_style = sort_none
 enum {sort_none, sort_type,sort_value}
 var my_children = []
 
+
+@export var essence_count_label :Label
 #signals
 signal kudu_breached(dominant)
 signal qluix_breached(equal1,equal2)
@@ -36,6 +38,7 @@ func _add_essence(val, type):
 	type_counts[type] += 1
 	value_counts[val] += 1
 	num_essences+= 1
+	essence_count_label.text = "[" + str(num_essences) +"]"
 	alchemy.essence_counts[ex_num] = num_essences
 	if (active == false && num_essences >= 3):
 		activated.emit()
@@ -46,6 +49,7 @@ func _remove_essence(val, type):
 	type_counts[type] -= 1
 	value_counts[val] -= 1
 	num_essences-= 1
+	essence_count_label.text = "[" + str(num_essences) +"]"
 	alchemy.essence_counts[ex_num] = num_essences
 	if (active == true && num_essences < 3):
 		active = false

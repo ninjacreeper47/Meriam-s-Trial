@@ -16,9 +16,10 @@ offset_right = 853.0
 offset_bottom = 1784.0
 scale = Vector2(0.3, 0.3)
 
-[node name="Experiment1" parent="ExperimentBackground1" instance=ExtResource("1_ino3q")]
+[node name="Experiment1" parent="ExperimentBackground1" node_paths=PackedStringArray("essence_count_label") instance=ExtResource("1_ino3q")]
 custom_minimum_size = Vector2(300, 400)
 layout_mode = 2
+essence_count_label = NodePath("../../EssenceCount")
 ex_num = 1
 
 [node name="ExStatus" parent="." instance=ExtResource("2_4qfhn")]
@@ -32,7 +33,7 @@ status_num = "1"
 [node name="SortChoice" type="OptionButton" parent="."]
 layout_mode = 0
 offset_top = 1.0
-offset_right = 248.0
+offset_right = 200.0
 offset_bottom = 49.0
 focus_mode = 1
 item_count = 3
@@ -42,6 +43,15 @@ popup/item_1/text = "Sort by type"
 popup/item_1/id = 1
 popup/item_2/text = "Sort by letter"
 popup/item_2/id = 2
+
+[node name="EssenceCount" type="Label" parent="."]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 8.0
+offset_right = 252.0
+offset_bottom = 45.0
+theme_override_font_sizes/font_size = 24
+text = "[0]"
 
 [connection signal="activated" from="ExperimentBackground1/Experiment1" to="ExStatus" method="_on_activated"]
 [connection signal="inactive" from="ExperimentBackground1/Experiment1" to="ExStatus" method="_on_inactive"]
