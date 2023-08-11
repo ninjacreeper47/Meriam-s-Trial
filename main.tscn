@@ -116,9 +116,9 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "1. Can not have an equal amount of the same attribute
 2. Can not have more of one attribute than
- all the other attirbutes  of the same class combined
+ all the other attributes  of the same class combined
 
-Alchemic laws apply seperately to elements,letters and
+Alchemic laws apply separately to elements,letters and
 experiment dice counts (if meta is active)
 -Only Active experiments are subject to alchemic laws
 -Experiments must have at least 3 dice to be active"
