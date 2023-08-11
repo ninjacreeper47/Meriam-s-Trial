@@ -71,10 +71,10 @@ func _check_meta():
 		return true
 		#meta-qluix
 	for count in essence_counts:
-		if essence_counts[count] == 0:
+		if essence_counts[count] == 0 || experiment_nodes[count].active == false:
 			continue
 		for innercount in essence_counts:
-			if count == innercount:
+			if count == innercount || experiment_nodes[innercount].active == false:
 				continue
 			if(essence_counts[count] == essence_counts[innercount]):
 				meta_breached.emit()
@@ -91,6 +91,7 @@ func _check_meta():
 	
 func _check_labatory_stability():
 	for i in range(1, experiment_nodes.size()):
+		experiment_nodes[i]._check_laws()
 		if(experiment_nodes[i].stable == false && experiment_nodes[i].active == true):
 			return false
 	return true

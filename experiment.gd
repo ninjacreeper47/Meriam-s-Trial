@@ -36,7 +36,7 @@ func _add_essence(val, type):
 	type_counts[type] += 1
 	value_counts[val] += 1
 	num_essences+= 1
-	alchemy.essence_counts[self.name] = num_essences
+	alchemy.essence_counts[ex_num] = num_essences
 	if (active == false && num_essences >= 3):
 		activated.emit()
 		active = true
@@ -46,7 +46,7 @@ func _remove_essence(val, type):
 	type_counts[type] -= 1
 	value_counts[val] -= 1
 	num_essences-= 1
-	alchemy.essence_counts[self.name] = num_essences
+	alchemy.essence_counts[ex_num] = num_essences
 	if (active == true && num_essences < 3):
 		active = false
 		inactive.emit()
