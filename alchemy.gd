@@ -67,9 +67,11 @@ func _input_checks():
 		_on_game_won()
 func _check_meta():
 	
+	#meta is inactive
 	if active_experiments < 3 && _count_active_essences() < forced_meta_threshold:
 		return true
-		#meta-qluix
+		
+	#meta-qluix
 	for count in essence_counts:
 		if essence_counts[count] == 0 || experiment_nodes[count].active == false:
 			continue
@@ -82,11 +84,13 @@ func _check_meta():
 	#meta-kudu
 	var sum = 0
 	for count in essence_counts:
-		sum += essence_counts[count]
+		if experiment_nodes[count].active == true:
+			sum += essence_counts[count]
 	for count in essence_counts:
-		if(sum - essence_counts[count] < essence_counts[count]):
+		if(sum - essence_counts[count] < essence_counts[count]) && experiment_nodes[count].active == true:
 			meta_breached.emit()
 			return false
+	#passed all metachecks
 	return true
 	
 func _check_labatory_stability():
