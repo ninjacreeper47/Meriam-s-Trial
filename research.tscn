@@ -15,9 +15,9 @@ offset_bottom = 16.0
 [node name="UpcomingEssence" parent="." node_paths=PackedStringArray("tableau") instance=ExtResource("1_1t6it")]
 layout_mode = 1
 offset_left = 127.0
-offset_top = -872.0
+offset_top = -688.0
 offset_right = 127.0
-offset_bottom = -872.0
+offset_bottom = -688.0
 scale = Vector2(0.75, 0.75)
 tableau = NodePath("../Tableau")
 

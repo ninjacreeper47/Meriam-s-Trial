@@ -5,11 +5,12 @@ var letter_square = load("res://letter_square.tscn")
 var column_clear_marker = load("res://column_clear_marker.tscn")
 @export var tableau:Control
 
-@export var column_height = 10
+@export var column_height = 8
 
 
 @onready var board_total = get_child(0).get_child_count() * column_height
 
+var column_counts = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,10 +20,10 @@ func _ready():
 #Fills the research area with new essences. 
 #Randomization style:  Creates a bag which contains an equal amount of each type.
 # Each spawned essence draws the next type from the bag.  Value is untouched
-#If board total is not evenly divisble by amount of types, it will pick one type to put surplus off in the bag
+#If board total is not evenly divisble by amount of types, then the surplus are added to storage
 func spawn_balanced():
 	#bag creation
-	var amount_of_each_type = (board_total / alchemy.type.size()) as int
+	var amount_of_each_type = (board_total / alchemy.type.size()) as int + 1
 	var bag = []
 	for i in range(amount_of_each_type):
 		
@@ -32,14 +33,10 @@ func spawn_balanced():
 			else:
 				alchemy.essence_goals[t] = 1
 			bag.append(t)
-	if bag.size() < board_total:
-		var surplus_type = alchemy.type.pick_random()
-		for  i in range(board_total - bag.size()):
-			bag.append(surplus_type)
-			alchemy.essence_goals[surplus_type] += 1
 	bag.shuffle()
 	#essence spawning
 	for i in range(get_child(0).get_child_count()):
+		column_counts.append(0)
 		var column = get_child(0).get_child(i)
 		for j in range(column_height):
 			var instance = essence.instantiate()
@@ -49,8 +46,16 @@ func spawn_balanced():
 			instance._set_type(bag.pop_back())
 			var my_call = Callable(self, "_on_next_requested")
 			instance.taken_from_tableau.connect(my_call)
+			
+			column_counts[i] += 1
 		#populate the intial tableau
-		_on_next_requested(i)
+		_on_next_requested(i,false)
+	#dump excess into storage
+	var storage_ref = get_node("/root/Main/Game Screen/StorageContainer/StorageBackground/Storage")
+	while bag.size() > 0:
+		var instance = essence.instantiate()
+		storage_ref.add_child(instance)
+		instance._set_type(bag.pop_back())
 	alchemy.resetting_in_progress = false
 	alchemy.game_playing = true
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -58,9 +63,9 @@ func _process(delta):
 	pass
 
 	
-func _on_next_requested(column):
+func _on_next_requested(column, spawn_replacement = true):
 	var column_node = get_child(0).get_child(column)
-	if column_node.get_child_count() <= 1:
+	if column_counts[column] == 0:
 		var instance = column_clear_marker.instantiate()
 		tableau.add_child(instance)
 		tableau.move_child(instance,column)
@@ -68,3 +73,8 @@ func _on_next_requested(column):
 	var request = column_node.get_child(column_node.get_child_count() -1)
 	request.in_upcoming = false
 	tableau._refill(request)
+	column_counts[column] -= 1
+	if spawn_replacement:
+		var replacement = column_clear_marker.instantiate()
+		column_node.add_child(replacement)
+		column_node.move_child(replacement,1)

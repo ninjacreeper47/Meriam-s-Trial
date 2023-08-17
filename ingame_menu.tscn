@@ -6,7 +6,6 @@
 bg_color = Color(0.235294, 0.176471, 0.419608, 1)
 
 [node name="Menu" type="Panel"]
-visible = false
 script = ExtResource("1_36ssy")
 
 [node name="NewGameButton" type="Button" parent="."]
@@ -30,4 +29,5 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_0vaxm")
 text = "Quit"
 
 [connection signal="pressed" from="NewGameButton" to="." method="_on_new_game_pressed"]
+[connection signal="mouse_exited" from="QuitButton" to="." method="_on_quit_button_mouse_exited"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_pressed"]

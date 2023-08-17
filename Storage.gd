@@ -51,6 +51,6 @@ func _drop_data(at_position, data):
 	_add_essence(data.value,data.my_type)
 	data.reparent(self)
 
-	
+	#this function exists because dropping essence logic calls it on expremiments
 func _assign_new_child(incoming_ess):
 	incoming_ess.reparent(self)

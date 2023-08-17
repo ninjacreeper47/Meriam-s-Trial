@@ -259,19 +259,20 @@ offset_bottom = 8.0
 texture = ExtResource("9_t62h7")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="Game Screen/HelpContainer/Victory Progress"]
+[node name="VictoryRulesReminder" type="Label" parent="Game Screen/HelpContainer/Victory Progress"]
 layout_mode = 0
 offset_left = 24.0
 offset_top = 1.0
 offset_right = 552.0
 offset_bottom = 57.0
 text = "1.All experiments must be stable 
-2. Your experiments must contain all 16 of any ONE element"
+2. Your experiments must contain all 13 of any ONE element"
 
 [node name="Menu" parent="Game Screen/HelpContainer" instance=ExtResource("11_cjw6x")]
+visible = false
 layout_mode = 2
 
-[node name="Storage" type="Control" parent="Game Screen"]
+[node name="StorageContainer" type="Control" parent="Game Screen"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = -944.0
@@ -279,19 +280,19 @@ offset_top = -490.0
 offset_right = -904.0
 offset_bottom = -450.0
 
-[node name="StorageBackground" type="PanelContainer" parent="Game Screen/Storage"]
+[node name="StorageBackground" type="PanelContainer" parent="Game Screen/StorageContainer"]
 layout_mode = 0
 offset_left = 1024.0
 offset_top = 40.0
 offset_right = 1552.0
 offset_bottom = 304.0
 
-[node name="Storage" type="GridContainer" parent="Game Screen/Storage/StorageBackground"]
+[node name="Storage" type="GridContainer" parent="Game Screen/StorageContainer/StorageBackground"]
 layout_mode = 2
 columns = 4
 script = ExtResource("4_ky610")
 
-[node name="StorageLabel" type="Label" parent="Game Screen/Storage"]
+[node name="StorageLabel" type="Label" parent="Game Screen/StorageContainer"]
 layout_mode = 0
 offset_left = 1096.0
 offset_top = -32.0

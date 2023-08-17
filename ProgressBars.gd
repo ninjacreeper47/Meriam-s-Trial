@@ -11,8 +11,15 @@ func _process(delta):
 	_update_bars()
 
 func _update_bars():
+	
 	get_child(0).get_child(0).value = alchemy.active_type_counts["Metal"]
 	get_child(1).get_child(0).value = alchemy.active_type_counts["Plant"]
 	get_child(2).get_child(0).value = alchemy.active_type_counts["Star"]
 	get_child(3).get_child(0).value = alchemy.active_type_counts["Water"]
 	get_child(4).get_child(0).value = alchemy.active_type_counts["Friendship"]
+	
+	get_child(0).get_child(0).max_value = alchemy.essence_goals["Metal"]
+	get_child(1).get_child(0).max_value = alchemy.essence_goals["Plant"]
+	get_child(2).get_child(0).max_value = alchemy.essence_goals["Star"]
+	get_child(3).get_child(0).max_value = alchemy.essence_goals["Water"]
+	get_child(4).get_child(0).max_value = alchemy.essence_goals["Friendship"]
