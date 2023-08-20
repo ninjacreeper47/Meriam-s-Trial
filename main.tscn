@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cvya4rcawkcxg"]
+[gd_scene load_steps=18 format=3 uid="uid://cvya4rcawkcxg"]
 
 [ext_resource type="Script" path="res://screenshift.gd" id="1_tdfog"]
 [ext_resource type="PackedScene" uid="uid://xl4jsnrh5oll" path="res://research.tscn" id="2_57rww"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://TutorialButton.gd" id="13_uul6k"]
 [ext_resource type="Texture2D" uid="uid://bsh0bafsswi66" path="res://Assets/How to Play/Instructions/Slide1.PNG" id="14_nqlfj"]
 [ext_resource type="Script" path="res://howtoplay.gd" id="14_x4fhe"]
+[ext_resource type="PackedScene" uid="uid://he48k77wuxff" path="res://victory_celebration.tscn" id="16_8gp8j"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tp21d"]
 font_size = 48
@@ -100,9 +101,9 @@ status_num = "5"
 [node name="Meta Status" parent="Game Screen" instance=ExtResource("6_qwf21")]
 layout_mode = 0
 offset_left = 88.0
-offset_top = -1138.0
+offset_top = -1050.0
 offset_right = 563.0
-offset_bottom = -970.0
+offset_bottom = -882.0
 
 [node name="HelpContainer" type="TabContainer" parent="Game Screen"]
 layout_mode = 0
@@ -346,6 +347,10 @@ offset_right = 96.0
 offset_bottom = 888.0
 theme_override_font_sizes/font_size = 32
 text = "<"
+
+[node name="victorycelebration" parent="." instance=ExtResource("16_8gp8j")]
+visible = false
+position = Vector2(72, -48)
 
 [connection signal="pressed" from="Game Screen/TutorialButton" to="Game Screen/TutorialButton" method="_on_pressed"]
 [connection signal="pressed" from="Instructions/InstructionsDisplay/NextPage" to="Instructions/InstructionsDisplay" method="_next_page"]

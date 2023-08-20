@@ -1,27 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://he48k77wuxff"]
+[gd_scene load_steps=7 format=3 uid="uid://he48k77wuxff"]
 
+[ext_resource type="Script" path="res://victory_celebration.gd" id="1_b75x3"]
 [ext_resource type="PackedScene" uid="uid://bt0ytr2vo3k77" path="res://ingame_menu.tscn" id="1_gb8w6"]
+[ext_resource type="Script" path="res://CloseButton.gd" id="2_ddmo5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rwg0l"]
+font_size = 200
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_drji8"]
+bg_color = Color(0.235294, 0.176471, 0.419608, 1)
 
 [sub_resource type="Gradient" id="Gradient_hq64r"]
 offsets = PackedFloat32Array(0, 0.18543, 0.377483, 0.523179, 0.682119, 0.86755, 1)
 colors = PackedColorArray(1, 0, 0, 1, 1, 0.607843, 0.164706, 1, 1, 1, 0.360784, 1, 0, 0.486275, 0.258824, 1, 0.0579681, 0.783, 0.864771, 1, 0.241643, 0.185067, 0.884279, 1, 0.440147, 0.0921047, 0.526272, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_rwg0l"]
-font_size = 256
-
 [node name="victorycelebration" type="Node2D"]
-
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-position = Vector2(1184, 656)
-amount = 75
-emission_shape = 1
-emission_sphere_radius = 128.0
-spread = 92.27
-gravity = Vector2(2000, -980)
-orbit_velocity_max = 1.0
-scale_amount_min = 50.0
-scale_amount_max = 50.0
-color_ramp = SubResource("Gradient_hq64r")
+script = ExtResource("1_b75x3")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -29,19 +23,51 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="Background" type="ColorRect" parent="Control"]
+modulate = Color(0.705882, 0.435294, 0.866667, 1)
+layout_mode = 0
+offset_right = 1608.0
+offset_bottom = 360.0
+
 [node name="Label" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 64.0
-offset_top = 160.0
-offset_right = 996.0
-offset_bottom = 512.0
+offset_left = 48.0
+offset_top = 32.0
+offset_right = 980.0
+offset_bottom = 256.0
 text = "Victory!"
 label_settings = SubResource("LabelSettings_rwg0l")
 
 [node name="Menu" parent="Control" instance=ExtResource("1_gb8w6")]
-visible = true
 layout_mode = 0
-offset_left = 152.0
-offset_top = 456.0
-offset_right = 152.0
-offset_bottom = 456.0
+offset_left = 1200.0
+offset_top = -8.0
+offset_right = 1200.0
+offset_bottom = -8.0
+scale = Vector2(0.75, 0.75)
+
+[node name="CloseButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 1336.0
+offset_top = 240.0
+offset_right = 1590.0
+offset_bottom = 344.0
+scale = Vector2(0.75, 0.75)
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_drji8")
+text = "Close this"
+script = ExtResource("2_ddmo5")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Control"]
+position = Vector2(1136, 224)
+amount = 75
+emission_shape = 1
+emission_sphere_radius = 128.0
+spread = 92.27
+gravity = Vector2(-2000, 980)
+orbit_velocity_max = 1.0
+scale_amount_min = 50.0
+scale_amount_max = 50.0
+color_ramp = SubResource("Gradient_hq64r")
+
+[connection signal="pressed" from="Control/CloseButton" to="Control/CloseButton" method="_on_pressed"]

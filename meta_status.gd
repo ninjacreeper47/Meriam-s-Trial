@@ -13,11 +13,9 @@ func _process(delta):
 
 func _on_meta_counters_updated():
 	
-	var ex_count = alchemy.active_experiments
 	var es_count = alchemy._count_active_essences()
-	if ex_count >= 3 || es_count >= 20:
+	if es_count >= 20:
 		text = "META ACTIVE"
 	else:
 		text = "META INACTIVE"
-	get_child(0).text = str(ex_count) + "/3 active experiments"
-	get_child(1).text = str(es_count) + "/20 active essence"
+	get_child(0).text = str(es_count) + "/20 active essence"

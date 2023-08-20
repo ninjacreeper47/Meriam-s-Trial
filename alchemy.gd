@@ -2,7 +2,7 @@ extends Node
 #this script is autoloaded and is used to provide "global" values to other scripts 
 var type = ["Metal","Plant","Star","Water","Friendship"]
 var value_letters = ["A","B","C","D","E","F"]
-var active_experiments  = 0
+var active_experiments  = 0 #This variable should be vestgial. Not deleting it because I might decide to care about it again
 var experiment_nodes = ["storage placeholder"]
 var essence_counts = {}
 var selected_experiment
@@ -21,7 +21,7 @@ signal meta_counters_updated
 
 func _reset():
 	resetting_in_progress = true
-	active_experiments = 0
+#	active_experiments = 0
 	experiment_nodes = ["storage placeholder"]
 	essence_counts.clear()
 	active_type_counts.clear()
@@ -64,11 +64,11 @@ func _input_checks():
 	if Input.is_action_just_pressed("restart") || queue_reset == true:
 		_reset()
 	if Input.is_action_just_pressed("debug_win"):
-		_on_game_won()
+		game_won.emit()
 func _check_meta():
 	
 	#meta is inactive
-	if active_experiments < 3 && _count_active_essences() < forced_meta_threshold:
+	if  _count_active_essences() < forced_meta_threshold:
 		return true
 		
 	#meta-qluix
@@ -112,7 +112,6 @@ func _check_victory():
 			game_won.emit()
 func _on_game_won():
 	game_playing = false
-	get_tree().change_scene_to_file("res://victory_celebration.tscn")
 
 func _count_active_essences():
 	var sum = 0
