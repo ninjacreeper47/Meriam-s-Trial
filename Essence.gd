@@ -1,8 +1,6 @@
 extends TextureButton
 
 #Essense Attributes
-
-
 var value = alchemy.value_letters.pick_random()
 var my_type = alchemy.type.pick_random()
 
@@ -28,6 +26,9 @@ func _process(delta):
 
 func _set_type(type):
 	my_type = type
+	_generateIcon()
+func _set_value(v):
+	value = v
 	_generateIcon()
 func _pickValue():
 	return randi() % 6 + 1

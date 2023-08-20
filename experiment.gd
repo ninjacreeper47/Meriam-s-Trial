@@ -3,6 +3,12 @@ var type_counts = {}
 var value_counts = {}
 var num_essences = 0
 
+var largest_type
+var smallest_type
+
+var largest_value
+var smallest_value
+
 var unsorted_index = 0
 
 var active = false
@@ -13,7 +19,8 @@ var sorting_style = sort_none
 enum {sort_none, sort_type,sort_value}
 var my_children = []
 
-
+var type_transmutation_on = false
+var value_transmutation_on = false
 @export var essence_count_label :Label
 #signals
 signal kudu_breached(dominant)
@@ -58,14 +65,16 @@ func _remove_essence(val, type):
 	_check_laws()
 	
 	
-
+#This should be called whenever the essences in an experiment are changed
 func _check_laws():
+	_calculate_lowest_and_greatest()
 	if !active:
 		stable = true
 		return
 	stable =  _check_kudu() && _check_qluix() && alchemy._check_meta()
 	if stable:
 		stabilized.emit()
+		
 
 func _check_kudu():
 	var sum = 0
@@ -153,3 +162,55 @@ func _assign_child(incoming_ess):
 		incoming_ess.reparent(get_child(alchemy.value_letters.find(incoming_ess.value)))
 	if sorting_style == sort_type:
 		incoming_ess.reparent(get_child(alchemy.type.find(incoming_ess.my_type)))
+
+#Ties are resolved based off order of dictionary iteration.  
+#They should never matter because transmutations require a stable experiment (no duplicate amounts)
+func _calculate_lowest_and_greatest():
+	var prev_lowest = 999
+	var prev_highest = 0
+	for key in type_counts:
+		if type_counts[key] == 0:
+			continue
+		if type_counts[key] > prev_highest:
+			largest_type = key
+			prev_highest = type_counts[key]
+		if type_counts[key] < prev_lowest:
+			smallest_type = key
+			prev_lowest = type_counts[key]
+	prev_lowest = 999
+	prev_highest = 0
+	for key in value_counts:
+		if value_counts[key] == 0:
+			continue
+		if value_counts[key] > prev_highest:
+			largest_value = key
+			prev_highest = value_counts[key]
+		if value_counts[key] < prev_lowest:
+			smallest_value = key
+			prev_lowest = value_counts[key]
+
+#swaps the lowest and largest [types and/or values]
+func _transmute():
+	if !stable:
+		return
+	if type_transmutation_on:
+		for child in my_children:
+			if child.my_type == largest_type:
+				child._set_type(smallest_type)
+			elif child.my_type == smallest_type:
+				child._set_type(largest_type)
+	if value_transmutation_on:
+		for child in my_children:
+			if child.value == largest_value:
+				child._set_value(smallest_value)
+			elif child.value == smallest_value:
+				child._set_value(largest_value)
+				
+	_check_laws() #Nothing should have been broken by a transmutation, this just seems like a good idea
+
+
+func _on_type_trans_toggle():
+	type_transmutation_on = !type_transmutation_on
+
+func _on_value_trans_toggle():
+	value_transmutation_on = !value_transmutation_on
