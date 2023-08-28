@@ -11,9 +11,9 @@ offset_bottom = 608.0
 
 [node name="ExperimentBackground1" type="PanelContainer" parent="."]
 layout_mode = 0
-offset_top = 104.0
+offset_top = 168.0
 offset_right = 853.0
-offset_bottom = 1464.0
+offset_bottom = 1528.0
 scale = Vector2(0.3, 0.3)
 
 [node name="Experiment1" parent="ExperimentBackground1" node_paths=PackedStringArray("essence_count_label") instance=ExtResource("1_ino3q")]

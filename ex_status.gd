@@ -24,14 +24,14 @@ func _process(delta):
 
 func _on_kudu_breached(dominant):
 	if type_icons_unicode.has(dominant):
-		self.text = status_num+ ": " + warning_symbol + type_icons_unicode[dominant] +" dominant"
+		self.text = status_num+ ": " + warning_symbol + type_icons_unicode[dominant] +" dominant \n (Law #2)"
 	else:
-		self.text = status_num+ ": " + warning_symbol + dominant +" dominant"
+		self.text = status_num+ ": " + warning_symbol + dominant +" dominant \n (Law #2)"
 func _on_qluix_breached(equal1,equal2):
 	if type_icons_unicode.has(equal1) && type_icons_unicode.has(equal2):
-		self.text = status_num+ ": " + warning_symbol + type_icons_unicode[equal1] + "=" + type_icons_unicode[equal2]
+		self.text = status_num+ ": " + warning_symbol + type_icons_unicode[equal1] + "=" + type_icons_unicode[equal2] +"\n (Law #1)"
 	else:
-		self.text = status_num+ ": " + warning_symbol + equal1 + "=" +equal2
+		self.text = status_num+ ": " + warning_symbol + equal1 + "=" +equal2 + "\n (Law #1)"
 func _on_stablized():
 	self.text = status_num+ ": " + checkmark_symbol +"Stable"
 func _on_inactive():
