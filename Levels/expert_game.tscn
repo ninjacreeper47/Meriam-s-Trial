@@ -1,0 +1,230 @@
+[gd_scene load_steps=13 format=3 uid="uid://b22m8fv2tjqn6"]
+
+[ext_resource type="Script" path="res://screenshift.gd" id="1_oy18a"]
+[ext_resource type="PackedScene" uid="uid://xl4jsnrh5oll" path="res://research.tscn" id="2_2mxv5"]
+[ext_resource type="PackedScene" uid="uid://bq55k435edwi7" path="res://experiment_display.tscn" id="3_su3hc"]
+[ext_resource type="PackedScene" uid="uid://sd0cyqy52ykw" path="res://meta_status.tscn" id="4_nxo81"]
+[ext_resource type="PackedScene" uid="uid://bt0ytr2vo3k77" path="res://ingame_menu.tscn" id="5_d5ktv"]
+[ext_resource type="PackedScene" uid="uid://bydyuhkcwjusw" path="res://victory_progress_graph.tscn" id="6_lehdv"]
+[ext_resource type="Script" path="res://Storage.gd" id="7_lo5vi"]
+[ext_resource type="Script" path="res://TutorialButton.gd" id="8_cvqye"]
+[ext_resource type="Texture2D" uid="uid://bsh0bafsswi66" path="res://Assets/How to Play/Instructions/Slide1.PNG" id="9_8nqwn"]
+[ext_resource type="Script" path="res://howtoplay.gd" id="10_ejcph"]
+[ext_resource type="PackedScene" uid="uid://he48k77wuxff" path="res://victory_celebration.tscn" id="11_gw0lh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tp21d"]
+font_size = 48
+
+[node name="Main" type="Node2D"]
+
+[node name="MyView" type="Camera2D" parent="."]
+position = Vector2(880, 450)
+script = ExtResource("1_oy18a")
+
+[node name="Game Screen" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 880.0
+offset_top = 450.0
+offset_right = 920.0
+offset_bottom = 490.0
+
+[node name="Research" parent="Game Screen" instance=ExtResource("2_2mxv5")]
+offset_left = -880.0
+offset_top = -474.0
+offset_right = -840.0
+offset_bottom = -434.0
+
+[node name="ExperimentDisplay" parent="Game Screen" instance=ExtResource("3_su3hc")]
+offset_left = -752.0
+offset_top = -162.0
+offset_right = -496.0
+offset_bottom = 446.0
+
+[node name="ExperimentDisplay2" parent="Game Screen" instance=ExtResource("3_su3hc")]
+offset_left = -424.0
+offset_top = -162.0
+offset_right = -168.0
+offset_bottom = 446.0
+
+[node name="Experiment1" parent="Game Screen/ExperimentDisplay2/ExperimentBackground1" index="0"]
+ex_num = 2
+
+[node name="ExStatus" parent="Game Screen/ExperimentDisplay2" index="1"]
+text = "2:  💤Inactive "
+status_num = "2"
+
+[node name="ExperimentDisplay3" parent="Game Screen" instance=ExtResource("3_su3hc")]
+offset_left = -104.0
+offset_top = -162.0
+offset_right = 152.0
+offset_bottom = 446.0
+
+[node name="Experiment1" parent="Game Screen/ExperimentDisplay3/ExperimentBackground1" index="0"]
+ex_num = 3
+
+[node name="ExStatus" parent="Game Screen/ExperimentDisplay3" index="1"]
+text = "3:  💤Inactive "
+status_num = "3"
+
+[node name="ExperimentDisplay4" parent="Game Screen" instance=ExtResource("3_su3hc")]
+offset_left = 208.0
+offset_top = -162.0
+offset_right = 464.0
+offset_bottom = 446.0
+
+[node name="Experiment1" parent="Game Screen/ExperimentDisplay4/ExperimentBackground1" index="0"]
+ex_num = 4
+
+[node name="ExStatus" parent="Game Screen/ExperimentDisplay4" index="1"]
+text = "4:  💤Inactive "
+status_num = "4"
+
+[node name="ExperimentDisplay5" parent="Game Screen" instance=ExtResource("3_su3hc")]
+offset_left = 528.0
+offset_top = -162.0
+offset_right = 784.0
+offset_bottom = 446.0
+
+[node name="Experiment1" parent="Game Screen/ExperimentDisplay5/ExperimentBackground1" index="0"]
+ex_num = 5
+
+[node name="ExStatus" parent="Game Screen/ExperimentDisplay5" index="1"]
+text = "5:  💤Inactive "
+status_num = "5"
+
+[node name="Meta Status" parent="Game Screen" instance=ExtResource("4_nxo81")]
+layout_mode = 0
+offset_left = 88.0
+offset_top = -1050.0
+offset_right = 563.0
+offset_bottom = -882.0
+
+[node name="HelpContainer" type="TabContainer" parent="Game Screen"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = -834.0
+offset_right = 648.0
+offset_bottom = -514.0
+
+[node name="Alchemic Laws" type="TextEdit" parent="Game Screen/HelpContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "1. Can not have an equal amount of the same attribute
+2. Can not have more of one attribute than
+ all the other attributes  of the same class combined
+
+Alchemic laws apply separately to elements,letters and
+experiment dice counts (if meta is active)
+-Only Active experiments are subject to alchemic laws
+-Experiments must have at least 3 dice to be active"
+editable = false
+context_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+
+[node name="Notes" type="TextEdit" parent="Game Screen/HelpContainer"]
+visible = false
+layout_mode = 2
+placeholder_text = "type anything you want here (does not persist between restarts)"
+drag_and_drop_selection_enabled = false
+
+[node name="Menu" parent="Game Screen/HelpContainer" instance=ExtResource("5_d5ktv")]
+visible = false
+layout_mode = 2
+
+[node name="Victory Progress" parent="Game Screen/HelpContainer" instance=ExtResource("6_lehdv")]
+visible = false
+layout_mode = 2
+
+[node name="StorageContainer" type="Control" parent="Game Screen"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -944.0
+offset_top = -490.0
+offset_right = -904.0
+offset_bottom = -450.0
+
+[node name="StorageBackground" type="PanelContainer" parent="Game Screen/StorageContainer"]
+layout_mode = 0
+offset_left = 1024.0
+offset_top = 40.0
+offset_right = 1552.0
+offset_bottom = 304.0
+
+[node name="Storage" type="GridContainer" parent="Game Screen/StorageContainer/StorageBackground"]
+layout_mode = 2
+columns = 4
+script = ExtResource("7_lo5vi")
+
+[node name="StorageLabel" type="Label" parent="Game Screen/StorageContainer"]
+layout_mode = 0
+offset_left = 1096.0
+offset_top = -32.0
+offset_right = 1333.0
+offset_bottom = 59.0
+text = "Storage"
+label_settings = SubResource("LabelSettings_tp21d")
+
+[node name="TutorialButton" type="Button" parent="Game Screen" node_paths=PackedStringArray("instructions")]
+layout_mode = 0
+offset_left = 624.0
+offset_top = -434.0
+offset_right = 776.0
+offset_bottom = -189.0
+theme_override_font_sizes/font_size = 48
+text = "HOW
+TO
+PLAY"
+script = ExtResource("8_cvqye")
+instructions = NodePath("../../Instructions")
+
+[node name="Instructions" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="InstructionsDisplay" type="TextureRect" parent="Instructions"]
+layout_mode = 0
+offset_right = 1496.0
+offset_bottom = 888.0
+texture = ExtResource("9_8nqwn")
+expand_mode = 1
+script = ExtResource("10_ejcph")
+
+[node name="NextPage" type="Button" parent="Instructions/InstructionsDisplay"]
+layout_mode = 0
+offset_left = 1408.0
+offset_top = 800.0
+offset_right = 1496.0
+offset_bottom = 888.0
+theme_override_font_sizes/font_size = 32
+text = ">"
+
+[node name="PreviousPage" type="Button" parent="Instructions/InstructionsDisplay"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 800.0
+offset_right = 96.0
+offset_bottom = 888.0
+theme_override_font_sizes/font_size = 32
+text = "<"
+
+[node name="victorycelebration" parent="." instance=ExtResource("11_gw0lh")]
+visible = false
+position = Vector2(72, -48)
+
+[connection signal="pressed" from="Game Screen/TutorialButton" to="Game Screen/TutorialButton" method="_on_pressed"]
+[connection signal="pressed" from="Instructions/InstructionsDisplay/NextPage" to="Instructions/InstructionsDisplay" method="_next_page"]
+[connection signal="pressed" from="Instructions/InstructionsDisplay/PreviousPage" to="Instructions/InstructionsDisplay" method="_prev_page"]
+
+[editable path="Game Screen/ExperimentDisplay2"]
+[editable path="Game Screen/ExperimentDisplay3"]
+[editable path="Game Screen/ExperimentDisplay4"]
+[editable path="Game Screen/ExperimentDisplay5"]

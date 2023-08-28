@@ -1,0 +1,137 @@
+[gd_scene load_steps=7 format=3 uid="uid://bydyuhkcwjusw"]
+
+[ext_resource type="Script" path="res://ProgressBars.gd" id="1_6vktx"]
+[ext_resource type="Texture2D" uid="uid://c3ev2fwar7q8r" path="res://Assets/Metal.svg" id="2_0p825"]
+[ext_resource type="Texture2D" uid="uid://ckmghjoqor5x7" path="res://Assets/Plant.svg" id="3_375vm"]
+[ext_resource type="Texture2D" uid="uid://p3thchowpw5y" path="res://Assets/Star.svg" id="4_pttvc"]
+[ext_resource type="Texture2D" uid="uid://dtwgdtcecjwxr" path="res://Assets/Water.svg" id="5_y6f6k"]
+[ext_resource type="Texture2D" uid="uid://bkw4b4xi8osu5" path="res://Assets/Friendship.svg" id="6_u545v"]
+
+[node name="Victory Progress" type="Panel"]
+
+[node name="ProgressBars" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 97.0
+offset_right = 560.0
+offset_bottom = 313.0
+script = ExtResource("1_6vktx")
+
+[node name="MetalProgress" type="Control" parent="ProgressBars"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="ProgressBars/MetalProgress"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+offset_left = 56.0
+offset_top = -31.0
+offset_right = 544.0
+offset_bottom = -4.0
+max_value = 13.0
+step = 1.0
+
+[node name="TextureRect" type="TextureRect" parent="ProgressBars/MetalProgress"]
+layout_mode = 0
+offset_top = -32.0
+offset_right = 40.0
+offset_bottom = 8.0
+texture = ExtResource("2_0p825")
+expand_mode = 1
+
+[node name="PlantProgress" type="Control" parent="ProgressBars"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="ProgressBars/PlantProgress"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+offset_left = 56.0
+offset_top = -31.0
+offset_right = 544.0
+offset_bottom = -4.0
+max_value = 13.0
+step = 1.0
+
+[node name="TextureRect" type="TextureRect" parent="ProgressBars/PlantProgress"]
+layout_mode = 0
+offset_top = -32.0
+offset_right = 40.0
+offset_bottom = 8.0
+texture = ExtResource("3_375vm")
+expand_mode = 1
+
+[node name="StarProgress" type="Control" parent="ProgressBars"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="ProgressBars/StarProgress"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+offset_left = 56.0
+offset_top = -31.0
+offset_right = 544.0
+offset_bottom = -4.0
+max_value = 13.0
+step = 1.0
+
+[node name="TextureRect" type="TextureRect" parent="ProgressBars/StarProgress"]
+layout_mode = 0
+offset_top = -32.0
+offset_right = 40.0
+offset_bottom = 8.0
+texture = ExtResource("4_pttvc")
+expand_mode = 1
+
+[node name="WaterProgress" type="Control" parent="ProgressBars"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="ProgressBars/WaterProgress"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+offset_left = 56.0
+offset_top = -31.0
+offset_right = 544.0
+offset_bottom = -4.0
+max_value = 13.0
+step = 1.0
+
+[node name="TextureRect" type="TextureRect" parent="ProgressBars/WaterProgress"]
+layout_mode = 0
+offset_top = -32.0
+offset_right = 40.0
+offset_bottom = 8.0
+texture = ExtResource("5_y6f6k")
+expand_mode = 1
+
+[node name="FriendshipProgress" type="Control" parent="ProgressBars"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="ProgressBars/FriendshipProgress"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+offset_left = 56.0
+offset_top = -31.0
+offset_right = 544.0
+offset_bottom = -4.0
+max_value = 13.0
+step = 1.0
+
+[node name="TextureRect" type="TextureRect" parent="ProgressBars/FriendshipProgress"]
+layout_mode = 0
+offset_top = -32.0
+offset_right = 40.0
+offset_bottom = 8.0
+texture = ExtResource("6_u545v")
+expand_mode = 1
+
+[node name="VictoryRulesReminder" type="Label" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 1.0
+offset_right = 552.0
+offset_bottom = 57.0
+text = "1.All experiments must be stable 
+2. Your experiments must contain all 13 of any ONE element"

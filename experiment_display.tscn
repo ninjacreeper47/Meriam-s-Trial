@@ -53,37 +53,9 @@ offset_bottom = 45.0
 theme_override_font_sizes/font_size = 24
 text = "[0]"
 
-[node name="TransmuteButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 536.0
-offset_right = 248.0
-offset_bottom = 608.0
-theme_override_font_sizes/font_size = 32
-text = "TRANSMUTE"
-
-[node name="ElementTransToggle" type="CheckButton" parent="."]
-layout_mode = 0
-offset_left = 16.0
-offset_top = 608.0
-offset_right = 128.0
-offset_bottom = 639.0
-text = "Element"
-
-[node name="LetterTransToggle" type="CheckButton" parent="."]
-layout_mode = 0
-offset_left = 136.0
-offset_top = 608.0
-offset_right = 232.0
-offset_bottom = 639.0
-text = "Letter"
-
 [connection signal="activated" from="ExperimentBackground1/Experiment1" to="ExStatus" method="_on_activated"]
 [connection signal="inactive" from="ExperimentBackground1/Experiment1" to="ExStatus" method="_on_inactive"]
 [connection signal="kudu_breached" from="ExperimentBackground1/Experiment1" to="ExStatus" method="_on_kudu_breached"]
 [connection signal="qluix_breached" from="ExperimentBackground1/Experiment1" to="ExStatus" method="_on_qluix_breached"]
 [connection signal="stabilized" from="ExperimentBackground1/Experiment1" to="ExStatus" method="_on_stablized"]
 [connection signal="item_selected" from="SortChoice" to="ExperimentBackground1/Experiment1" method="_on_sort_choice_item_selected"]
-[connection signal="pressed" from="TransmuteButton" to="ExperimentBackground1/Experiment1" method="_transmute"]
-[connection signal="pressed" from="ElementTransToggle" to="ExperimentBackground1/Experiment1" method="_on_type_trans_toggle"]
-[connection signal="pressed" from="LetterTransToggle" to="ExperimentBackground1/Experiment1" method="_on_value_trans_toggle"]

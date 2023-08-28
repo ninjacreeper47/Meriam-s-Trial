@@ -15,6 +15,9 @@ var labatory_stable = true
 var game_playing = true
 var queue_reset = false
 var forced_meta_threshold = 20
+
+#this should be set to true when the expert scene loads
+var expert_difficulty = false
 signal meta_breached
 signal game_won
 signal meta_counters_updated
@@ -30,7 +33,10 @@ func _reset():
 		essence_goals[goal] = 0
 	#essence_goals.clear()
 	get_tree().unload_current_scene()
-	get_tree().change_scene_to_file("res://main.tscn")
+	if (expert_difficulty):
+		get_tree().change_scene_to_file("res://Levels/expert_game.tscn")
+	else:
+		get_tree().change_scene_to_file("res://Levels/main.tscn")
 	queue_reset = false
 	#$Research.get_child(0)._spawn_balanced()
 # Called when the node enters the scene tree for the first time.
