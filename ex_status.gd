@@ -37,8 +37,12 @@ func _on_stablized():
 func _on_inactive():
 	associated_experiment_active = false
 	self.text = status_num+ ": " + sleep_symbol +"Inactive"
-func _on_meta_breached():
+func _on_meta_breached(law_broken,ex1,ex2):
 	if(associated_experiment_active == true):
 		self.text = status_num+ ": " + warning_symbol +"Meta"
+		if law_broken == 1:
+			self.text += "\n Ex[" + str(ex1) + "] = Ex[" + str(ex2) +"]"
+		if law_broken == 2:
+			self.text += "\n Ex[" + str(ex1) + "] dominant"
 func _on_activated():
 	associated_experiment_active = true

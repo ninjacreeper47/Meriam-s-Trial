@@ -62,6 +62,8 @@ func _on_pressed():
 	
 	
 func _check_if_locked():
+	if alchemy.debug_research_locking_disabled:
+		return false
 	if(in_tableau && alchemy._check_labatory_stability() == false):
 		return true 
 	if(in_upcoming):

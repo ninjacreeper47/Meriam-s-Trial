@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://he48k77wuxff" path="res://victory_celebration.tscn" id="16_8gp8j"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tp21d"]
-font_size = 48
+font_size = 24
 
 [node name="Main" type="Node2D"]
 
@@ -30,22 +30,22 @@ offset_right = 920.0
 offset_bottom = 490.0
 
 [node name="Research" parent="Game Screen" instance=ExtResource("2_57rww")]
-offset_left = -880.0
-offset_top = -474.0
-offset_right = -840.0
-offset_bottom = -434.0
+offset_left = -840.0
+offset_top = 200.0
+offset_right = -800.0
+offset_bottom = 240.0
 
 [node name="ExperimentDisplay" parent="Game Screen" instance=ExtResource("3_wqano")]
 offset_left = -752.0
-offset_top = -162.0
+offset_top = -47.0
 offset_right = -496.0
-offset_bottom = 446.0
+offset_bottom = 561.0
 
 [node name="ExperimentDisplay2" parent="Game Screen" instance=ExtResource("3_wqano")]
 offset_left = -424.0
-offset_top = -162.0
+offset_top = -47.0
 offset_right = -168.0
-offset_bottom = 446.0
+offset_bottom = 561.0
 
 [node name="Experiment1" parent="Game Screen/ExperimentDisplay2/ExperimentBackground1" index="0"]
 ex_num = 2
@@ -56,9 +56,9 @@ status_num = "2"
 
 [node name="ExperimentDisplay3" parent="Game Screen" instance=ExtResource("3_wqano")]
 offset_left = -104.0
-offset_top = -162.0
+offset_top = -47.0
 offset_right = 152.0
-offset_bottom = 446.0
+offset_bottom = 561.0
 
 [node name="Experiment1" parent="Game Screen/ExperimentDisplay3/ExperimentBackground1" index="0"]
 ex_num = 3
@@ -69,9 +69,9 @@ status_num = "3"
 
 [node name="ExperimentDisplay4" parent="Game Screen" instance=ExtResource("3_wqano")]
 offset_left = 208.0
-offset_top = -162.0
+offset_top = -47.0
 offset_right = 464.0
-offset_bottom = 446.0
+offset_bottom = 561.0
 
 [node name="Experiment1" parent="Game Screen/ExperimentDisplay4/ExperimentBackground1" index="0"]
 ex_num = 4
@@ -82,9 +82,9 @@ status_num = "4"
 
 [node name="ExperimentDisplay5" parent="Game Screen" instance=ExtResource("3_wqano")]
 offset_left = 528.0
-offset_top = -162.0
+offset_top = -47.0
 offset_right = 784.0
-offset_bottom = 446.0
+offset_bottom = 561.0
 
 [node name="Experiment1" parent="Game Screen/ExperimentDisplay5/ExperimentBackground1" index="0"]
 ex_num = 5
@@ -95,17 +95,17 @@ status_num = "5"
 
 [node name="Meta Status" parent="Game Screen" instance=ExtResource("6_qwf21")]
 layout_mode = 0
-offset_left = 88.0
-offset_top = -1050.0
-offset_right = 563.0
-offset_bottom = -882.0
+offset_left = -224.0
+offset_top = -391.0
+offset_right = 64.0
+offset_bottom = -295.0
 
 [node name="HelpContainer" type="TabContainer" parent="Game Screen"]
 layout_mode = 0
 offset_left = 80.0
-offset_top = -834.0
+offset_top = -407.0
 offset_right = 648.0
-offset_bottom = -514.0
+offset_bottom = -87.0
 
 [node name="Alchemic Laws" type="TextEdit" parent="Game Screen/HelpContainer"]
 layout_mode = 2
@@ -144,17 +144,16 @@ layout_mode = 2
 [node name="StorageContainer" type="Control" parent="Game Screen"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = -944.0
-offset_top = -490.0
-offset_right = -904.0
-offset_bottom = -450.0
+offset_left = -216.0
+offset_top = -246.0
+offset_right = 48.0
+offset_bottom = -110.0
 
 [node name="StorageBackground" type="PanelContainer" parent="Game Screen/StorageContainer"]
 layout_mode = 0
-offset_left = 1024.0
-offset_top = 40.0
-offset_right = 1552.0
-offset_bottom = 304.0
+offset_right = 528.0
+offset_bottom = 264.0
+scale = Vector2(0.5, 0.5)
 
 [node name="Storage" type="GridContainer" parent="Game Screen/StorageContainer/StorageBackground"]
 layout_mode = 2
@@ -163,19 +162,18 @@ script = ExtResource("4_ky610")
 
 [node name="StorageLabel" type="Label" parent="Game Screen/StorageContainer"]
 layout_mode = 0
-offset_left = 1096.0
-offset_top = -32.0
-offset_right = 1333.0
-offset_bottom = 59.0
+offset_left = 64.0
+offset_top = -40.0
+offset_right = 160.0
 text = "Storage"
 label_settings = SubResource("LabelSettings_tp21d")
 
 [node name="TutorialButton" type="Button" parent="Game Screen" node_paths=PackedStringArray("instructions")]
 layout_mode = 0
-offset_left = 624.0
-offset_top = -434.0
-offset_right = 776.0
-offset_bottom = -189.0
+offset_left = 664.0
+offset_top = -343.0
+offset_right = 816.0
+offset_bottom = -98.0
 theme_override_font_sizes/font_size = 48
 text = "HOW
 TO

@@ -18,18 +18,18 @@ offset_left = 127.0
 offset_top = -688.0
 offset_right = 127.0
 offset_bottom = -688.0
-scale = Vector2(0.75, 0.75)
+scale = Vector2(0.4, 0.4)
 tableau = NodePath("../Tableau")
 
 [node name="Tableau" type="GridContainer" parent="."]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-offset_left = 128.0
-offset_top = 128.0
-offset_right = 1216.0
-offset_bottom = 248.0
+offset_left = 127.0
+offset_top = -368.0
+offset_right = 1215.0
+offset_bottom = -248.0
 grow_horizontal = 2
-scale = Vector2(0.75, 0.75)
+scale = Vector2(0.4, 0.4)
 columns = 8
 script = ExtResource("2_pqy6i")
 

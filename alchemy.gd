@@ -16,9 +16,10 @@ var game_playing = true
 var queue_reset = false
 var forced_meta_threshold = 20
 
+var debug_research_locking_disabled = false
 #this should be set to true when the expert scene loads
 var expert_difficulty = false
-signal meta_breached
+signal meta_breached(law_broken,ex1, ex2)
 signal game_won
 signal meta_counters_updated
 
@@ -69,6 +70,8 @@ func _input_checks():
 		selected_experiment = experiment_nodes[0]
 	if Input.is_action_just_pressed("restart") || queue_reset == true:
 		_reset()
+	if Input.is_action_just_pressed("debug_disable_locking"):
+		debug_research_locking_disabled  = !debug_research_locking_disabled
 	if Input.is_action_just_pressed("debug_win"):
 		game_won.emit()
 func _check_meta():
@@ -85,7 +88,7 @@ func _check_meta():
 			if count == innercount || experiment_nodes[innercount].active == false:
 				continue
 			if(essence_counts[count] == essence_counts[innercount]):
-				meta_breached.emit()
+				meta_breached.emit(1,count,innercount)
 				return false
 	#meta-kudu
 	var sum = 0
@@ -94,7 +97,7 @@ func _check_meta():
 			sum += essence_counts[count]
 	for count in essence_counts:
 		if(sum - essence_counts[count] < essence_counts[count]) && experiment_nodes[count].active == true:
-			meta_breached.emit()
+			meta_breached.emit(2,count,-1)
 			return false
 	#passed all metachecks
 	return true
