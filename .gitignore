@@ -16,3 +16,4 @@ mono_crash.*.json
 
 # project/personal specific ignores
 /Builds
+~*
