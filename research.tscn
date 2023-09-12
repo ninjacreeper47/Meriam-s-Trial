@@ -35,11 +35,11 @@ script = ExtResource("2_pqy6i")
 
 [node name="locked_warning" type="TextureRect" parent="."]
 visible = false
-layout_mode = 0
-offset_left = 34.0
-offset_top = 142.0
-offset_right = 122.0
-offset_bottom = 230.0
+layout_mode = 2
+offset_left = 24.0
+offset_top = -376.0
+offset_right = 112.0
+offset_bottom = -288.0
 texture = ExtResource("3_b1g8c")
 expand_mode = 1
 script = ExtResource("4_k7iwp")

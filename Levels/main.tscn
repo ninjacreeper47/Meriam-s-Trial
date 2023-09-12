@@ -1,10 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://cvya4rcawkcxg"]
+[gd_scene load_steps=12 format=3 uid="uid://cvya4rcawkcxg"]
 
 [ext_resource type="Script" path="res://screenshift.gd" id="1_tdfog"]
 [ext_resource type="PackedScene" uid="uid://xl4jsnrh5oll" path="res://research.tscn" id="2_57rww"]
 [ext_resource type="PackedScene" uid="uid://bq55k435edwi7" path="res://experiment_display.tscn" id="3_wqano"]
 [ext_resource type="Script" path="res://Storage.gd" id="4_ky610"]
-[ext_resource type="PackedScene" uid="uid://bydyuhkcwjusw" path="res://victory_progress_graph.tscn" id="6_lf7hv"]
 [ext_resource type="PackedScene" uid="uid://sd0cyqy52ykw" path="res://meta_status.tscn" id="6_qwf21"]
 [ext_resource type="PackedScene" uid="uid://bt0ytr2vo3k77" path="res://ingame_menu.tscn" id="11_cjw6x"]
 [ext_resource type="Script" path="res://TutorialButton.gd" id="13_uul6k"]
@@ -133,9 +132,25 @@ layout_mode = 2
 placeholder_text = "type anything you want here (does not persist between restarts)"
 drag_and_drop_selection_enabled = false
 
-[node name="Victory Progress" parent="Game Screen/HelpContainer" instance=ExtResource("6_lf7hv")]
+[node name="Controls" type="TextEdit" parent="Game Screen/HelpContainer"]
 visible = false
 layout_mode = 2
+text = "Move essences by dragging them to their destination
+Alternate Control:   Use 1,2,3,4,5 to select an experiment
+space to select storage
+click an essence to send to selected area
+
+Ctrl+N starts a new deal
+
+Ctrl+/- Zoom In/Out (probably unesscary unless I messed up UI scaling"
+editable = false
+context_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
 
 [node name="Menu" parent="Game Screen/HelpContainer" instance=ExtResource("11_cjw6x")]
 visible = false

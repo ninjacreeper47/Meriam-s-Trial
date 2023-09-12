@@ -8,7 +8,7 @@ var essence_counts = {}
 var selected_experiment
 
 var active_type_counts = {}
-var essence_goals ={}
+var essence_goal = 0
 var resetting_in_progress = false
 var labatory_stable = true
 
@@ -30,8 +30,7 @@ func _reset():
 	essence_counts.clear()
 	active_type_counts.clear()
 	labatory_stable = true
-	for goal in essence_goals.keys():
-		essence_goals[goal] = 0
+	essence_goal = 0
 	#essence_goals.clear()
 	get_tree().unload_current_scene()
 	if (expert_difficulty):
@@ -115,9 +114,7 @@ func _update_alchemic_state():
 func _check_victory():
 	if !_check_labatory_stability():
 		return
-	_count_active_essences()
-	for i in type:
-		if active_type_counts[i] >= essence_goals[i]:
+	if  _count_active_essences() >= essence_goal:
 			game_won.emit()
 func _on_game_won():
 	game_playing = false

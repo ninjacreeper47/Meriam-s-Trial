@@ -28,10 +28,7 @@ func spawn_balanced():
 	for i in range(amount_of_each_type):
 		
 		for t in alchemy.type:
-			if alchemy.essence_goals.has(t):
-				alchemy.essence_goals[t] += 1
-			else:
-				alchemy.essence_goals[t] = 1
+			alchemy.essence_goal += 1
 			bag.append(t)
 	bag.shuffle()
 	#essence spawning
