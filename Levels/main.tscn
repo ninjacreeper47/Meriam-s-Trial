@@ -114,9 +114,9 @@ text = "1. Can not have an equal amount of the same attribute
  all the other attributes  of the same class combined
 
 Alchemic laws apply separately to elements,letters and
-experiment dice counts (if meta is active)
+experiment essence counts (if meta is active)
 -Only Active experiments are subject to alchemic laws
--Experiments must have at least 3 dice to be active"
+-Experiments must have at least 3 essences to be active"
 editable = false
 context_menu_enabled = false
 shortcut_keys_enabled = false
