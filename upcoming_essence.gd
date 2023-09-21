@@ -41,6 +41,7 @@ func spawn_balanced():
 			instance.my_col = i
 			instance.in_upcoming = true
 			instance._set_type(bag.pop_back())
+			instance._set_value(alchemy.value_letters.pick_random())
 			var my_call = Callable(self, "_on_next_requested")
 			instance.taken_from_tableau.connect(my_call)
 			
@@ -53,6 +54,7 @@ func spawn_balanced():
 		var instance = essence.instantiate()
 		storage_ref.add_child(instance)
 		instance._set_type(bag.pop_back())
+		instance._set_value(alchemy.value_letters.pick_random())
 	alchemy.resetting_in_progress = false
 	alchemy.game_playing = true
 # Called every frame. 'delta' is the elapsed time since the previous frame.

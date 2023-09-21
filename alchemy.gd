@@ -25,13 +25,7 @@ signal meta_counters_updated
 
 func _reset():
 	resetting_in_progress = true
-#	active_experiments = 0
-	experiment_nodes = ["storage placeholder"]
-	essence_counts.clear()
-	active_type_counts.clear()
-	labatory_stable = true
-	essence_goal = 0
-	#essence_goals.clear()
+	_clear_game_state()
 	get_tree().unload_current_scene()
 	if (expert_difficulty):
 		get_tree().change_scene_to_file("res://Levels/expert_game.tscn")
@@ -43,7 +37,15 @@ func _reset():
 func _ready():
 	var	my_call = Callable(self,"_on_game_won")
 	game_won.connect(my_call)
+	_clear_game_state()
 
+func _clear_game_state():
+	experiment_nodes = ["storage placeholder"]
+	essence_counts.clear()
+	active_type_counts.clear()
+	labatory_stable = true
+	essence_goal = 0
+	active_experiments = 0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	_input_checks()

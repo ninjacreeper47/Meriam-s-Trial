@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://bei423sbo6cig"]
+
+[ext_resource type="Script" path="res://Storage.gd" id="1_ju3o0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tp21d"]
+font_size = 24
+
+[node name="StorageContainer" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -216.0
+offset_top = -246.0
+offset_right = 48.0
+offset_bottom = -110.0
+
+[node name="StorageBackground" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 528.0
+offset_bottom = 264.0
+scale = Vector2(0.5, 0.5)
+
+[node name="Storage" type="GridContainer" parent="StorageBackground"]
+layout_mode = 2
+columns = 4
+script = ExtResource("1_ju3o0")
+
+[node name="StorageLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = -40.0
+offset_right = 160.0
+text = "Storage"
+label_settings = SubResource("LabelSettings_tp21d")

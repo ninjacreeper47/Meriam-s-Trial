@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://qut8qjgu8hel"]
+
+[ext_resource type="Script" path="res://advance_button.gd" id="1_jiq0v"]
+
+[node name="AdvanceButton" type="Button"]
+offset_right = 288.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 64
+text = "NEXT"
+script = ExtResource("1_jiq0v")

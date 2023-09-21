@@ -1,18 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://cvya4rcawkcxg"]
+[gd_scene load_steps=11 format=3 uid="uid://cvya4rcawkcxg"]
 
 [ext_resource type="Script" path="res://screenshift.gd" id="1_tdfog"]
 [ext_resource type="PackedScene" uid="uid://xl4jsnrh5oll" path="res://research.tscn" id="2_57rww"]
 [ext_resource type="PackedScene" uid="uid://bq55k435edwi7" path="res://experiment_display.tscn" id="3_wqano"]
-[ext_resource type="Script" path="res://Storage.gd" id="4_ky610"]
+[ext_resource type="PackedScene" uid="uid://bei423sbo6cig" path="res://storage_container.tscn" id="6_d81vx"]
 [ext_resource type="PackedScene" uid="uid://sd0cyqy52ykw" path="res://meta_status.tscn" id="6_qwf21"]
 [ext_resource type="PackedScene" uid="uid://bt0ytr2vo3k77" path="res://ingame_menu.tscn" id="11_cjw6x"]
 [ext_resource type="Script" path="res://TutorialButton.gd" id="13_uul6k"]
 [ext_resource type="Texture2D" uid="uid://bsh0bafsswi66" path="res://Assets/How to Play/Instructions/Slide1.PNG" id="14_nqlfj"]
 [ext_resource type="Script" path="res://howtoplay.gd" id="14_x4fhe"]
 [ext_resource type="PackedScene" uid="uid://he48k77wuxff" path="res://victory_celebration.tscn" id="16_8gp8j"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_tp21d"]
-font_size = 24
 
 [node name="Main" type="Node2D"]
 
@@ -156,32 +153,7 @@ middle_mouse_paste_enabled = false
 visible = false
 layout_mode = 2
 
-[node name="StorageContainer" type="Control" parent="Game Screen"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = -216.0
-offset_top = -246.0
-offset_right = 48.0
-offset_bottom = -110.0
-
-[node name="StorageBackground" type="PanelContainer" parent="Game Screen/StorageContainer"]
-layout_mode = 0
-offset_right = 528.0
-offset_bottom = 264.0
-scale = Vector2(0.5, 0.5)
-
-[node name="Storage" type="GridContainer" parent="Game Screen/StorageContainer/StorageBackground"]
-layout_mode = 2
-columns = 4
-script = ExtResource("4_ky610")
-
-[node name="StorageLabel" type="Label" parent="Game Screen/StorageContainer"]
-layout_mode = 0
-offset_left = 64.0
-offset_top = -40.0
-offset_right = 160.0
-text = "Storage"
-label_settings = SubResource("LabelSettings_tp21d")
+[node name="StorageContainer" parent="Game Screen" instance=ExtResource("6_d81vx")]
 
 [node name="TutorialButton" type="Button" parent="Game Screen" node_paths=PackedStringArray("instructions")]
 layout_mode = 0

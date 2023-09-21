@@ -1,8 +1,8 @@
 extends TextureButton
 
 #Essense Attributes
-var value = alchemy.value_letters.pick_random()
-var my_type = alchemy.type.pick_random()
+@export_enum("A","B","C","D","E","F" ) var value :String
+@export_enum("Metal","Plant","Star","Water","Friendship") var my_type :String 
 
 
 
@@ -34,6 +34,7 @@ func _pickValue():
 	return randi() % 6 + 1
 	
 func _generateIcon():
+	
 	var type_iconpath = "res://Assets/%s.svg"
 	type_iconpath = type_iconpath % my_type
 	texture_normal = load(type_iconpath)

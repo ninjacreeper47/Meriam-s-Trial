@@ -14,6 +14,7 @@ var unsorted_index = 0
 var active = false
 var stable = true
 
+@export var practice_experiment = false
 var sorting_style = sort_none
 #make sure the option drop down matches this order oomfie
 enum {sort_none, sort_type,sort_value}
@@ -37,6 +38,12 @@ func _ready():
 		type_counts[i] = 0
 	for i in alchemy.value_letters:
 		value_counts[i] = 0
+	#only relevant if there are statically placed essences in the experiment at the scene level
+	for child in self.get_children():
+		for ess in child.get_children():
+			_add_essence(ess.value,ess.my_type)
+			ess.assigned_experiment = self
+			unsorted_index += 1
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
@@ -52,6 +59,7 @@ func _add_essence(val, type):
 		active = true
 		alchemy.active_experiments += 1
 	_check_laws()
+
 func _remove_essence(val, type):
 	type_counts[type] -= 1
 	value_counts[val] -= 1
@@ -71,7 +79,10 @@ func _check_laws():
 	if !active:
 		stable = true
 		return
-	stable =  _check_kudu() && _check_qluix() && alchemy._check_meta()
+	if practice_experiment:
+		stable =  _check_kudu() && _check_qluix()
+	else:
+		stable =  _check_kudu() && _check_qluix() && alchemy._check_meta()
 	if stable:
 		stabilized.emit()
 		
