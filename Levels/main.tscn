@@ -107,9 +107,9 @@ offset_bottom = -87.0
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "1. Can not have an equal amount of the same attribute
-2. Can not have more of one attribute than
- all the other attributes  of the same class combined
-
+2. Can not have more of one attribute than all other types 
+of the same attribute
+ 
 Alchemic laws apply separately to elements,letters and
 experiment essence counts (if meta is active)
 -Only Active experiments are subject to alchemic laws

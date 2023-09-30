@@ -1,0 +1,146 @@
+[gd_scene load_steps=5 format=3 uid="uid://cedlgc0ig8tpn"]
+
+[ext_resource type="PackedScene" uid="uid://bei423sbo6cig" path="res://storage_container.tscn" id="2_51xqy"]
+[ext_resource type="PackedScene" uid="uid://bq55k435edwi7" path="res://experiment_display.tscn" id="3_d3yfb"]
+[ext_resource type="PackedScene" uid="uid://baom7038jho5x" path="res://Essence.tscn" id="3_w7ruw"]
+[ext_resource type="PackedScene" uid="uid://qut8qjgu8hel" path="res://advance_button.tscn" id="4_o27jm"]
+
+[node name="alchemypractice1" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StorageContainer" parent="." instance=ExtResource("2_51xqy")]
+offset_left = 744.0
+offset_top = 512.0
+offset_right = 1008.0
+offset_bottom = 648.0
+metadata/_edit_group_ = true
+
+[node name="StorageBackground" parent="StorageContainer" index="0"]
+offset_right = 1008.0
+offset_bottom = 528.0
+
+[node name="Storage" parent="StorageContainer/StorageBackground" index="0"]
+columns = 5
+capacity = 20
+
+[node name="Essence" parent="StorageContainer/StorageBackground/Storage" index="0" instance=ExtResource("3_w7ruw")]
+layout_mode = 2
+value = "B"
+my_type = "Water"
+
+[node name="Essence3" parent="StorageContainer/StorageBackground/Storage" index="1" instance=ExtResource("3_w7ruw")]
+layout_mode = 2
+value = "C"
+my_type = "Star"
+
+[node name="Essence4" parent="StorageContainer/StorageBackground/Storage" index="2" instance=ExtResource("3_w7ruw")]
+layout_mode = 2
+value = "C"
+my_type = "Star"
+
+[node name="Essence5" parent="StorageContainer/StorageBackground/Storage" index="3" instance=ExtResource("3_w7ruw")]
+layout_mode = 2
+value = "D"
+my_type = "Metal"
+
+[node name="Essence6" parent="StorageContainer/StorageBackground/Storage" index="4" instance=ExtResource("3_w7ruw")]
+layout_mode = 2
+value = "D"
+my_type = "Metal"
+
+[node name="Essence2" parent="StorageContainer/StorageBackground/Storage" index="5" instance=ExtResource("3_w7ruw")]
+layout_mode = 2
+value = "D"
+my_type = "Metal"
+
+[node name="Essence7" parent="StorageContainer/StorageBackground/Storage" index="6" instance=ExtResource("3_w7ruw")]
+layout_mode = 2
+value = "E"
+
+[node name="Essence8" parent="StorageContainer/StorageBackground/Storage" index="7" instance=ExtResource("3_w7ruw")]
+layout_mode = 2
+value = "E"
+
+[node name="Essence9" parent="StorageContainer/StorageBackground/Storage" index="8" instance=ExtResource("3_w7ruw")]
+layout_mode = 2
+value = "E"
+
+[node name="ExperimentDisplay" parent="." instance=ExtResource("3_d3yfb")]
+offset_left = 88.0
+offset_top = 224.0
+offset_right = 344.0
+offset_bottom = 832.0
+
+[node name="Experiment1" parent="ExperimentDisplay/ExperimentBackground1" index="0"]
+practice_experiment = true
+
+[node name="Essence" parent="ExperimentDisplay/ExperimentBackground1/Experiment1/column1" index="0" instance=ExtResource("3_w7ruw")]
+layout_mode = 2
+my_type = "Friendship"
+
+[node name="Essence2" parent="ExperimentDisplay/ExperimentBackground1/Experiment1/column2" index="0" instance=ExtResource("3_w7ruw")]
+layout_mode = 2
+value = "B"
+my_type = "Water"
+
+[node name="Essence3" parent="ExperimentDisplay/ExperimentBackground1/Experiment1/column3" index="0" instance=ExtResource("3_w7ruw")]
+layout_mode = 2
+value = "C"
+my_type = "Star"
+
+[node name="SortChoice" parent="ExperimentDisplay" index="2"]
+visible = false
+
+[node name="EssenceCount" parent="ExperimentDisplay" index="3"]
+visible = false
+
+[node name="ExperimentDisplay2" parent="." instance=ExtResource("3_d3yfb")]
+offset_left = 424.0
+offset_top = 224.0
+offset_right = 680.0
+offset_bottom = 832.0
+
+[node name="Experiment1" parent="ExperimentDisplay2/ExperimentBackground1" index="0"]
+practice_experiment = true
+ex_num = 2
+
+[node name="Essence" parent="ExperimentDisplay2/ExperimentBackground1/Experiment1/column1" index="0" instance=ExtResource("3_w7ruw")]
+layout_mode = 2
+my_type = "Friendship"
+
+[node name="Essence2" parent="ExperimentDisplay2/ExperimentBackground1/Experiment1/column2" index="0" instance=ExtResource("3_w7ruw")]
+layout_mode = 2
+my_type = "Friendship"
+
+[node name="Essence3" parent="ExperimentDisplay2/ExperimentBackground1/Experiment1/column3" index="0" instance=ExtResource("3_w7ruw")]
+layout_mode = 2
+value = "B"
+my_type = "Water"
+
+[node name="ExStatus" parent="ExperimentDisplay2" index="1"]
+text = "2:  💤Inactive "
+status_num = "2"
+
+[node name="SortChoice" parent="ExperimentDisplay2" index="2"]
+visible = false
+
+[node name="EssenceCount" parent="ExperimentDisplay2" index="3"]
+visible = false
+
+[node name="AdvanceButton" parent="." instance=ExtResource("4_o27jm")]
+layout_mode = 0
+offset_left = 848.0
+offset_top = 352.0
+offset_right = 1136.0
+offset_bottom = 448.0
+
+[editable path="StorageContainer"]
+[editable path="ExperimentDisplay"]
+[editable path="ExperimentDisplay/ExperimentBackground1/Experiment1"]
+[editable path="ExperimentDisplay2"]
+[editable path="ExperimentDisplay2/ExperimentBackground1/Experiment1"]
