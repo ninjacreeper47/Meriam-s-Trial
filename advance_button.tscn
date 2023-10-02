@@ -6,7 +6,7 @@
 offset_right = 288.0
 offset_bottom = 80.0
 theme_override_font_sizes/font_size = 64
-text = "NEXT"
+text = "CONTINUE"
 script = ExtResource("1_jiq0v")
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

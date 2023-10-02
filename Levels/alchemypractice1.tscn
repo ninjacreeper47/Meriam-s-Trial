@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cedlgc0ig8tpn"]
+[gd_scene load_steps=6 format=3 uid="uid://cedlgc0ig8tpn"]
 
 [ext_resource type="PackedScene" uid="uid://bei423sbo6cig" path="res://storage_container.tscn" id="2_51xqy"]
 [ext_resource type="PackedScene" uid="uid://bq55k435edwi7" path="res://experiment_display.tscn" id="3_d3yfb"]
 [ext_resource type="PackedScene" uid="uid://baom7038jho5x" path="res://Essence.tscn" id="3_w7ruw"]
 [ext_resource type="PackedScene" uid="uid://qut8qjgu8hel" path="res://advance_button.tscn" id="4_o27jm"]
+[ext_resource type="Texture2D" uid="uid://bu51kkw1j8tbp" path="res://Assets/How to Play/Laws of Alchemy.png" id="5_cpjnj"]
 
 [node name="alchemypractice1" type="Control"]
 layout_mode = 3
@@ -14,15 +15,16 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="StorageContainer" parent="." instance=ExtResource("2_51xqy")]
-offset_left = 744.0
-offset_top = 512.0
-offset_right = 1008.0
-offset_bottom = 648.0
+offset_left = 544.0
+offset_top = 648.0
+offset_right = 808.0
+offset_bottom = 784.0
 metadata/_edit_group_ = true
 
 [node name="StorageBackground" parent="StorageContainer" index="0"]
-offset_right = 1008.0
-offset_bottom = 528.0
+offset_left = 6.0
+offset_right = 794.0
+offset_bottom = 260.0
 
 [node name="Storage" parent="StorageContainer/StorageBackground" index="0"]
 columns = 6
@@ -86,10 +88,11 @@ value = "D"
 my_type = "Metal"
 
 [node name="ExperimentDisplay" parent="." instance=ExtResource("3_d3yfb")]
-offset_left = 88.0
-offset_top = 224.0
-offset_right = 344.0
-offset_bottom = 832.0
+offset_left = 256.0
+offset_top = 296.0
+offset_right = 512.0
+offset_bottom = 904.0
+scale = Vector2(1.2, 1.2)
 
 [node name="Experiment1" parent="ExperimentDisplay/ExperimentBackground1" index="0"]
 practice_experiment = true
@@ -102,15 +105,38 @@ visible = false
 
 [node name="AdvanceButton" parent="." instance=ExtResource("4_o27jm")]
 layout_mode = 0
-offset_left = 848.0
-offset_top = 352.0
-offset_right = 1136.0
-offset_bottom = 448.0
+offset_left = 648.0
+offset_top = 488.0
+offset_right = 936.0
+offset_bottom = 584.0
 
-[node name="Label" type="Label" parent="."]
+[node name="ScreenTitle" type="Label" parent="."]
 layout_mode = 0
-offset_right = 1168.0
-offset_bottom = 224.0
+offset_left = 144.0
+offset_top = 8.0
+offset_right = 1207.0
+offset_bottom = 104.0
+theme_override_font_sizes/font_size = 64
+text = "Fundementals of Alchemy Tutorial"
+
+[node name="GoalLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 248.0
+offset_right = 704.0
+offset_bottom = 360.0
+theme_override_colors/font_color = Color(0.941176, 0.929412, 0.498039, 1)
+theme_override_font_sizes/font_size = 32
+text = "GOAL: Drag tiles from storage to
+Create a valid alchemical group here"
+
+[node name="AlchemyReference" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 992.0
+offset_top = 176.0
+offset_right = 1704.0
+offset_bottom = 1008.0
+texture = ExtResource("5_cpjnj")
 
 [editable path="StorageContainer"]
 [editable path="ExperimentDisplay"]

@@ -11,6 +11,8 @@ func _process(delta):
 
 func _on_pressed():
 	if get_tree().get_current_scene().get_name() == "alchemypractice1":
+		alchemy._clear_game_state()
 		get_tree().change_scene_to_file("res://Levels/alchemypractice2.tscn")
 	if get_tree().get_current_scene().get_name() == "alchemypractice2":
+		alchemy._clear_game_state()
 		get_tree().change_scene_to_file("res://Levels/main.tscn")

@@ -1,4 +1,10 @@
-[gd_scene format=3 uid="uid://cpe3m0od32ov3"]
+[gd_scene load_steps=6 format=3 uid="uid://cpe3m0od32ov3"]
+
+[ext_resource type="PackedScene" uid="uid://dvrtu5qpvhj05" path="res://practice_experiment_display.tscn" id="1_iwyd1"]
+[ext_resource type="PackedScene" uid="uid://bei423sbo6cig" path="res://storage_container.tscn" id="2_hx268"]
+[ext_resource type="Texture2D" uid="uid://bu51kkw1j8tbp" path="res://Assets/How to Play/Laws of Alchemy.png" id="3_5f0xj"]
+[ext_resource type="PackedScene" uid="uid://baom7038jho5x" path="res://Essence.tscn" id="3_vxu1m"]
+[ext_resource type="PackedScene" uid="uid://qut8qjgu8hel" path="res://advance_button.tscn" id="4_vyxpk"]
 
 [node name="alchemypractice2" type="Control"]
 layout_mode = 3
@@ -8,8 +14,121 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="."]
+[node name="ShapeLetterHint" type="Label" parent="."]
 layout_mode = 0
-offset_right = 1120.0
-offset_bottom = 288.0
-text = "Alchemical laws apply seperately to letters and shapes"
+offset_left = 40.0
+offset_top = 8.0
+offset_right = 986.0
+offset_bottom = 424.0
+theme_override_font_sizes/font_size = 36
+text = "Alchemical laws apply seperately to letters and shapes
+
+ The set of shapes and the set of letters in a group 
+must both individually satisfy all laws
+
+The minimum size rule counts objects 
+{each object has a shape and letter}
+"
+
+[node name="ExperimentDisplay" parent="." instance=ExtResource("1_iwyd1")]
+offset_left = 168.0
+offset_top = 480.0
+offset_right = 424.0
+offset_bottom = 1024.0
+
+[node name="StorageContainer" parent="." instance=ExtResource("2_hx268")]
+offset_left = 440.0
+offset_top = 640.0
+offset_right = 688.0
+offset_bottom = 776.0
+metadata/_edit_group_ = true
+
+[node name="StorageBackground" parent="StorageContainer" index="0"]
+offset_right = 544.0
+offset_bottom = 672.0
+
+[node name="Storage" parent="StorageContainer/StorageBackground" index="0"]
+columns = 3
+capacity = 16
+
+[node name="Essence" parent="StorageContainer/StorageBackground/Storage" index="0" instance=ExtResource("3_vxu1m")]
+layout_mode = 2
+
+[node name="Essence2" parent="StorageContainer/StorageBackground/Storage" index="1" instance=ExtResource("3_vxu1m")]
+layout_mode = 2
+value = "B"
+
+[node name="Essence3" parent="StorageContainer/StorageBackground/Storage" index="2" instance=ExtResource("3_vxu1m")]
+layout_mode = 2
+value = "C"
+
+[node name="Essence4" parent="StorageContainer/StorageBackground/Storage" index="3" instance=ExtResource("3_vxu1m")]
+layout_mode = 2
+value = "B"
+my_type = "Metal"
+
+[node name="Essence5" parent="StorageContainer/StorageBackground/Storage" index="4" instance=ExtResource("3_vxu1m")]
+layout_mode = 2
+value = "C"
+my_type = "Metal"
+
+[node name="Essence6" parent="StorageContainer/StorageBackground/Storage" index="5" instance=ExtResource("3_vxu1m")]
+layout_mode = 2
+value = "D"
+my_type = "Metal"
+
+[node name="Essence7" parent="StorageContainer/StorageBackground/Storage" index="6" instance=ExtResource("3_vxu1m")]
+layout_mode = 2
+my_type = "Star"
+
+[node name="Essence8" parent="StorageContainer/StorageBackground/Storage" index="7" instance=ExtResource("3_vxu1m")]
+layout_mode = 2
+value = "C"
+my_type = "Star"
+
+[node name="Essence9" parent="StorageContainer/StorageBackground/Storage" index="8" instance=ExtResource("3_vxu1m")]
+layout_mode = 2
+value = "D"
+my_type = "Star"
+
+[node name="Essence10" parent="StorageContainer/StorageBackground/Storage" index="9" instance=ExtResource("3_vxu1m")]
+layout_mode = 2
+my_type = "Friendship"
+
+[node name="Essence11" parent="StorageContainer/StorageBackground/Storage" index="10" instance=ExtResource("3_vxu1m")]
+layout_mode = 2
+value = "B"
+my_type = "Friendship"
+
+[node name="Essence12" parent="StorageContainer/StorageBackground/Storage" index="11" instance=ExtResource("3_vxu1m")]
+layout_mode = 2
+value = "D"
+my_type = "Friendship"
+
+[node name="AlchemyReference" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 992.0
+offset_top = 176.0
+offset_right = 1704.0
+offset_bottom = 1008.0
+texture = ExtResource("3_5f0xj")
+
+[node name="AdvanceButton" parent="." instance=ExtResource("4_vyxpk")]
+layout_mode = 0
+offset_left = 496.0
+offset_top = 464.0
+offset_right = 784.0
+offset_bottom = 560.0
+
+[node name="GoalLabel" type="Label" parent="."]
+layout_mode = 2
+offset_left = 8.0
+offset_top = 424.0
+offset_right = 496.0
+offset_bottom = 461.0
+theme_override_colors/font_color = Color(0.941176, 0.929412, 0.498039, 1)
+theme_override_font_sizes/font_size = 24
+text = "Goal: Create a valid alchemical group "
+
+[editable path="ExperimentDisplay"]
+[editable path="StorageContainer"]

@@ -14,6 +14,8 @@ var labatory_stable = true
 
 var game_playing = true
 var queue_reset = false
+
+var practice_environment = false
 var forced_meta_threshold = 20
 
 var debug_research_locking_disabled = false
@@ -44,6 +46,7 @@ func _clear_game_state():
 	essence_counts.clear()
 	active_type_counts.clear()
 	labatory_stable = true
+	practice_environment = false
 	essence_goal = 0
 	active_experiments = 0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -105,6 +108,8 @@ func _check_meta():
 	
 func _check_labatory_stability():
 	for i in range(1, experiment_nodes.size()):
+		if experiment_nodes[i].practice_experiment == true:
+			practice_environment = true
 		experiment_nodes[i]._check_laws()
 		if(experiment_nodes[i].stable == false && experiment_nodes[i].active == true):
 			return false
@@ -115,6 +120,8 @@ func _update_alchemic_state():
 	_check_victory()
 func _check_victory():
 	if !_check_labatory_stability():
+		return
+	if practice_environment:
 		return
 	if  _count_active_essences() >= essence_goal:
 			game_won.emit()
