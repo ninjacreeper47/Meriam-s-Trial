@@ -147,7 +147,6 @@ func _drop_data(at_position, data):
 		data.taken_from_tableau.emit(data.my_col)
 		data.in_tableau = false
 	data.assigned_experiment = self
-	
 	_add_essence(data.value,data.my_type)
 	_sort_experiment()
 	

@@ -1,6 +1,5 @@
-[gd_scene load_steps=11 format=3 uid="uid://cvya4rcawkcxg"]
+[gd_scene load_steps=10 format=3 uid="uid://cvya4rcawkcxg"]
 
-[ext_resource type="Script" path="res://screenshift.gd" id="1_tdfog"]
 [ext_resource type="PackedScene" uid="uid://xl4jsnrh5oll" path="res://research.tscn" id="2_57rww"]
 [ext_resource type="PackedScene" uid="uid://bq55k435edwi7" path="res://experiment_display.tscn" id="3_wqano"]
 [ext_resource type="PackedScene" uid="uid://bei423sbo6cig" path="res://storage_container.tscn" id="6_d81vx"]
@@ -13,10 +12,6 @@
 
 [node name="Main" type="Node2D"]
 
-[node name="MyView" type="Camera2D" parent="."]
-position = Vector2(880, 450)
-script = ExtResource("1_tdfog")
-
 [node name="Game Screen" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -27,9 +22,9 @@ offset_bottom = 490.0
 
 [node name="Research" parent="Game Screen" instance=ExtResource("2_57rww")]
 offset_left = -840.0
-offset_top = 200.0
+offset_top = 238.0
 offset_right = -800.0
-offset_bottom = 240.0
+offset_bottom = 278.0
 
 [node name="ExperimentDisplay" parent="Game Screen" instance=ExtResource("3_wqano")]
 offset_left = -752.0

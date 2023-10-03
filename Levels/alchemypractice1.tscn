@@ -23,11 +23,11 @@ metadata/_edit_group_ = true
 
 [node name="StorageBackground" parent="StorageContainer" index="0"]
 offset_left = 6.0
-offset_right = 794.0
-offset_bottom = 260.0
+offset_right = 458.0
+offset_bottom = 524.0
 
 [node name="Storage" parent="StorageContainer/StorageBackground" index="0"]
-columns = 6
+columns = 3
 capacity = 20
 
 [node name="Essence10" parent="StorageContainer/StorageBackground/Storage" index="0" instance=ExtResource("3_w7ruw")]

@@ -9,6 +9,7 @@ var my_children =[]
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	alchemy.experiment_nodes[0] = self
+	alchemy.selected_experiment = alchemy.experiment_nodes[0]
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

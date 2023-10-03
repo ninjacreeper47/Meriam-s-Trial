@@ -40,7 +40,7 @@ func _ready():
 	var	my_call = Callable(self,"_on_game_won")
 	game_won.connect(my_call)
 	_clear_game_state()
-
+	
 func _clear_game_state():
 	experiment_nodes = ["storage placeholder"]
 	essence_counts.clear()

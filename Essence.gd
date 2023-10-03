@@ -12,8 +12,10 @@ var my_col:int
 @onready var experiment_list = get_tree().get_nodes_in_group("Experiments") 
 var assigned_experiment 
 
+var preview_node = load("res://essence_preview.tscn")
+var my_texture
+var blank_placeholder = load("res://Assets/BlankSpace.png")
 signal taken_from_tableau
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -37,11 +39,14 @@ func _generateIcon():
 	
 	var type_iconpath = "res://Assets/%s.svg"
 	type_iconpath = type_iconpath % my_type
-	texture_normal = load(type_iconpath)
+	my_texture = load(type_iconpath)
+	texture_normal = my_texture
 	get_child(0).text = str(value)
 
 
 func _on_pressed():
+	if visible == false:
+		return
 	if _check_if_locked():
 		return
 	if assigned_experiment == alchemy.selected_experiment:
@@ -75,19 +80,22 @@ func _check_if_locked():
 func _get_drag_data(drag_position):
 	if  _check_if_locked():
 		return null
-	#var preview = TextureRect.new()
-	#preview.texture = load(value_iconpath)
-	#preview.scale = Vector2(0.75,0.75)
-	#preview.modulate = modulate
-	#preview.position = drag_position
-	#Centered preview work around 
-	#Thanks to u/kleonc @ https://www.reddit.com/r/godot/comments/j0o11y/how_can_i_change_the_position_of_the_drag_preview/g6tubo4/
-	#var c = Control.new()
-	#c.add_child(preview)
-	#preview.global_position = drag_position
-	#set_drag_preview(c)
+	_hide()
+	var preview = preview_node.instantiate()
+	preview.set_texture(my_texture)
+	preview.scale = Vector2(0.4,0.4)
+	preview.my_parent = self
+	preview.get_child(0).text = value  #the first child should be the text label!
+	set_drag_preview(preview)
 	return self
 	
 
-
-
+#can't simply make the node no longer visible, because then containers reorganize
+#these functions are a workaround for that :)
+func _hide():
+	texture_normal = blank_placeholder
+	get_child(0).visible = false
+	
+func _unhide():
+	texture_normal = my_texture
+	get_child(0).visible = true

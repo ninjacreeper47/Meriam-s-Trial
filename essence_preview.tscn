@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://b52ebkm0dkjgv"]
+
+[ext_resource type="Texture2D" uid="uid://bkw4b4xi8osu5" path="res://Assets/Friendship.svg" id="1_2x4kr"]
+[ext_resource type="Script" path="res://essence_preview.gd" id="2_g0ug7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ee5xk"]
+font_size = 64
+font_color = Color(0.14902, 0.14902, 0.14902, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Essence" type="TextureRect"]
+offset_right = 128.0
+offset_bottom = 128.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_2x4kr")
+script = ExtResource("2_g0ug7")
+
+[node name="value_indicator" type="Label" parent="."]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 16.0
+offset_right = 76.0
+offset_bottom = 107.0
+text = "?"
+label_settings = SubResource("LabelSettings_ee5xk")
