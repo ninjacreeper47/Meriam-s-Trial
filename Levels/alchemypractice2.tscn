@@ -25,9 +25,6 @@ text = "Alchemical laws apply seperately to letters and shapes
 
  The set of shapes and the set of letters in a group 
 must both individually satisfy all laws
-
-The minimum size rule counts objects 
-{each object has a shape and letter}
 "
 
 [node name="ExperimentDisplay" parent="." instance=ExtResource("1_iwyd1")]

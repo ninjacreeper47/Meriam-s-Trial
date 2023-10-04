@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbam0t7qtbdvy"]
+
+[ext_resource type="Texture2D" uid="uid://bsh0bafsswi66" path="res://Assets/How to Play/Instructions/Slide1.PNG" id="1_d7cv1"]
+[ext_resource type="Script" path="res://howtoplay.gd" id="2_peqyp"]
+
+[node name="Instructions" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="InstructionsDisplay" type="TextureRect" parent="." node_paths=PackedStringArray("prev_button", "next_button")]
+layout_mode = 0
+offset_top = -8.0
+offset_right = 1920.0
+offset_bottom = 1008.0
+texture = ExtResource("1_d7cv1")
+expand_mode = 1
+script = ExtResource("2_peqyp")
+slide_count = 6
+prev_button = NodePath("PreviousPage")
+next_button = NodePath("NextPage")
+
+[node name="NextPage" type="Button" parent="InstructionsDisplay"]
+layout_mode = 0
+offset_left = 1512.0
+offset_top = 888.0
+offset_right = 1600.0
+offset_bottom = 976.0
+theme_override_font_sizes/font_size = 32
+text = ">"
+
+[node name="PreviousPage" type="Button" parent="InstructionsDisplay"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 888.0
+offset_right = 184.0
+offset_bottom = 976.0
+theme_override_font_sizes/font_size = 32
+text = "<"
+
+[node name="CloseButton" type="Button" parent="InstructionsDisplay"]
+layout_mode = 0
+offset_left = 1688.0
+offset_top = 72.0
+offset_right = 1800.0
+offset_bottom = 192.0
+theme_override_font_sizes/font_size = 64
+text = "X"
+
+[connection signal="pressed" from="InstructionsDisplay/NextPage" to="InstructionsDisplay" method="_next_page"]
+[connection signal="pressed" from="InstructionsDisplay/PreviousPage" to="InstructionsDisplay" method="_prev_page"]
+[connection signal="pressed" from="InstructionsDisplay/CloseButton" to="InstructionsDisplay" method="_close"]

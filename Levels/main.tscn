@@ -1,13 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://cvya4rcawkcxg"]
+[gd_scene load_steps=9 format=3 uid="uid://cvya4rcawkcxg"]
 
 [ext_resource type="PackedScene" uid="uid://xl4jsnrh5oll" path="res://research.tscn" id="2_57rww"]
 [ext_resource type="PackedScene" uid="uid://bq55k435edwi7" path="res://experiment_display.tscn" id="3_wqano"]
 [ext_resource type="PackedScene" uid="uid://bei423sbo6cig" path="res://storage_container.tscn" id="6_d81vx"]
 [ext_resource type="PackedScene" uid="uid://sd0cyqy52ykw" path="res://meta_status.tscn" id="6_qwf21"]
+[ext_resource type="PackedScene" uid="uid://bbam0t7qtbdvy" path="res://Levels/rules.tscn" id="8_a2qqj"]
 [ext_resource type="PackedScene" uid="uid://bt0ytr2vo3k77" path="res://ingame_menu.tscn" id="11_cjw6x"]
 [ext_resource type="Script" path="res://TutorialButton.gd" id="13_uul6k"]
-[ext_resource type="Texture2D" uid="uid://bsh0bafsswi66" path="res://Assets/How to Play/Instructions/Slide1.PNG" id="14_nqlfj"]
-[ext_resource type="Script" path="res://howtoplay.gd" id="14_x4fhe"]
 [ext_resource type="PackedScene" uid="uid://he48k77wuxff" path="res://victory_celebration.tscn" id="16_8gp8j"]
 
 [node name="Main" type="Node2D"]
@@ -127,14 +126,12 @@ drag_and_drop_selection_enabled = false
 [node name="Controls" type="TextEdit" parent="Game Screen/HelpContainer"]
 visible = false
 layout_mode = 2
-text = "Move essences by dragging them to their destination
+text = "Move tiles by dragging them to their destination
 Alternate Control:   Use 1,2,3,4,5 to select an experiment
 space to select storage
-click an essence to send to selected area
+click a tile  to send to selected area
 
-Ctrl+N starts a new deal
-
-Ctrl+/- Zoom In/Out (probably unesscary unless I messed up UI scaling"
+Ctrl+N starts a new deal"
 editable = false
 context_menu_enabled = false
 shortcut_keys_enabled = false
@@ -150,59 +147,25 @@ layout_mode = 2
 
 [node name="StorageContainer" parent="Game Screen" instance=ExtResource("6_d81vx")]
 
-[node name="TutorialButton" type="Button" parent="Game Screen" node_paths=PackedStringArray("instructions")]
+[node name="TutorialButton" type="Button" parent="Game Screen"]
 layout_mode = 0
 offset_left = 664.0
 offset_top = -343.0
 offset_right = 816.0
 offset_bottom = -98.0
 theme_override_font_sizes/font_size = 48
-text = "HOW
-TO
-PLAY"
+text = "GAME
+RULES"
 script = ExtResource("13_uul6k")
-instructions = NodePath("../../Instructions")
-
-[node name="Instructions" type="Control" parent="."]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="InstructionsDisplay" type="TextureRect" parent="Instructions"]
-layout_mode = 0
-offset_right = 1496.0
-offset_bottom = 888.0
-texture = ExtResource("14_nqlfj")
-expand_mode = 1
-script = ExtResource("14_x4fhe")
-
-[node name="NextPage" type="Button" parent="Instructions/InstructionsDisplay"]
-layout_mode = 0
-offset_left = 1408.0
-offset_top = 800.0
-offset_right = 1496.0
-offset_bottom = 888.0
-theme_override_font_sizes/font_size = 32
-text = ">"
-
-[node name="PreviousPage" type="Button" parent="Instructions/InstructionsDisplay"]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 800.0
-offset_right = 96.0
-offset_bottom = 888.0
-theme_override_font_sizes/font_size = 32
-text = "<"
 
 [node name="victorycelebration" parent="." instance=ExtResource("16_8gp8j")]
 visible = false
 position = Vector2(72, -48)
 
+[node name="Instructions" parent="." instance=ExtResource("8_a2qqj")]
+visible = false
+
 [connection signal="pressed" from="Game Screen/TutorialButton" to="Game Screen/TutorialButton" method="_on_pressed"]
-[connection signal="pressed" from="Instructions/InstructionsDisplay/NextPage" to="Instructions/InstructionsDisplay" method="_next_page"]
-[connection signal="pressed" from="Instructions/InstructionsDisplay/PreviousPage" to="Instructions/InstructionsDisplay" method="_prev_page"]
 
 [editable path="Game Screen/ExperimentDisplay2"]
 [editable path="Game Screen/ExperimentDisplay3"]

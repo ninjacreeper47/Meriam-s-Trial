@@ -105,9 +105,9 @@ visible = false
 
 [node name="AdvanceButton" parent="." instance=ExtResource("4_o27jm")]
 layout_mode = 0
-offset_left = 648.0
+offset_left = 576.0
 offset_top = 488.0
-offset_right = 936.0
+offset_right = 915.0
 offset_bottom = 584.0
 
 [node name="ScreenTitle" type="Label" parent="."]
@@ -117,7 +117,7 @@ offset_top = 8.0
 offset_right = 1207.0
 offset_bottom = 104.0
 theme_override_font_sizes/font_size = 64
-text = "Fundementals of Alchemy Tutorial"
+text = "Introduction to Alchemy"
 
 [node name="GoalLabel" type="Label" parent="."]
 layout_mode = 0

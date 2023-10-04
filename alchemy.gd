@@ -18,12 +18,20 @@ var queue_reset = false
 var practice_environment = false
 var forced_meta_threshold = 20
 
+var new_player_entering = false
+
 var debug_research_locking_disabled = false
 #this should be set to true when the expert scene loads
 var expert_difficulty = false
 signal meta_breached(law_broken,ex1, ex2)
 signal game_won
 signal meta_counters_updated
+
+
+func _enter_game_from_tutorial():
+	alchemy._clear_game_state()
+	new_player_entering = true
+	get_tree().change_scene_to_file("res://Levels/main.tscn")
 
 func _reset():
 	resetting_in_progress = true
