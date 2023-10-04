@@ -11,9 +11,4 @@ func _process(delta):
 	pass
 
 func _on_pressed():
-	if !instructions.visible:
-		text = "X"
-		instructions.visible = true
-	else:
-		text = "HOW \n TO \n PLAY"
-		instructions.visible = false
+	instructions.visible = true

@@ -33,6 +33,24 @@ offset_top = 480.0
 offset_right = 424.0
 offset_bottom = 1024.0
 
+[node name="ExStatus" parent="ExperimentDisplay" index="1"]
+offset_left = 0.0
+offset_top = 54.0
+offset_right = 109.0
+offset_bottom = 80.0
+
+[node name="SortChoice" parent="ExperimentDisplay" index="2"]
+offset_left = 0.0
+offset_top = 1.0
+offset_right = 200.0
+offset_bottom = 49.0
+
+[node name="EssenceCount" parent="ExperimentDisplay" index="3"]
+offset_left = 208.0
+offset_top = 8.0
+offset_right = 252.0
+offset_bottom = 45.0
+
 [node name="StorageContainer" parent="." instance=ExtResource("2_hx268")]
 offset_left = 440.0
 offset_top = 640.0

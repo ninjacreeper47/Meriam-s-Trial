@@ -26,16 +26,16 @@ offset_right = -800.0
 offset_bottom = 278.0
 
 [node name="ExperimentDisplay" parent="Game Screen" instance=ExtResource("3_wqano")]
-offset_left = -752.0
-offset_top = -47.0
-offset_right = -496.0
-offset_bottom = 561.0
+offset_left = -196.0
+offset_top = -535.0
+offset_right = 60.0
+offset_bottom = 73.0
 
 [node name="ExperimentDisplay2" parent="Game Screen" instance=ExtResource("3_wqano")]
-offset_left = -424.0
-offset_top = -47.0
-offset_right = -168.0
-offset_bottom = 561.0
+offset_left = 268.0
+offset_top = -536.0
+offset_right = 524.0
+offset_bottom = 72.0
 
 [node name="Experiment1" parent="Game Screen/ExperimentDisplay2/ExperimentBackground1" index="0"]
 ex_num = 2
@@ -45,10 +45,10 @@ text = "2:  💤Inactive "
 status_num = "2"
 
 [node name="ExperimentDisplay3" parent="Game Screen" instance=ExtResource("3_wqano")]
-offset_left = -104.0
-offset_top = -47.0
-offset_right = 152.0
-offset_bottom = 561.0
+offset_left = -335.0
+offset_top = -72.0
+offset_right = -79.0
+offset_bottom = 536.0
 
 [node name="Experiment1" parent="Game Screen/ExperimentDisplay3/ExperimentBackground1" index="0"]
 ex_num = 3
@@ -58,10 +58,10 @@ text = "3:  💤Inactive "
 status_num = "3"
 
 [node name="ExperimentDisplay4" parent="Game Screen" instance=ExtResource("3_wqano")]
-offset_left = 208.0
-offset_top = -47.0
-offset_right = 464.0
-offset_bottom = 561.0
+offset_left = 113.0
+offset_top = -64.0
+offset_right = 369.0
+offset_bottom = 544.0
 
 [node name="Experiment1" parent="Game Screen/ExperimentDisplay4/ExperimentBackground1" index="0"]
 ex_num = 4
@@ -71,10 +71,10 @@ text = "4:  💤Inactive "
 status_num = "4"
 
 [node name="ExperimentDisplay5" parent="Game Screen" instance=ExtResource("3_wqano")]
-offset_left = 528.0
-offset_top = -47.0
-offset_right = 784.0
-offset_bottom = 561.0
+offset_left = 561.0
+offset_top = -72.0
+offset_right = 817.0
+offset_bottom = 536.0
 
 [node name="Experiment1" parent="Game Screen/ExperimentDisplay5/ExperimentBackground1" index="0"]
 ex_num = 5
@@ -85,49 +85,30 @@ status_num = "5"
 
 [node name="Meta Status" parent="Game Screen" instance=ExtResource("6_qwf21")]
 layout_mode = 0
-offset_left = -224.0
-offset_top = -391.0
-offset_right = 64.0
-offset_bottom = -295.0
+offset_left = -800.0
+offset_top = 118.0
+offset_right = -512.0
+offset_bottom = 214.0
 
 [node name="HelpContainer" type="TabContainer" parent="Game Screen"]
 layout_mode = 0
-offset_left = 80.0
-offset_top = -407.0
-offset_right = 648.0
-offset_bottom = -87.0
-
-[node name="Alchemic Laws" type="TextEdit" parent="Game Screen/HelpContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "1. Can not have an equal amount of the same attribute
-2. Can not have more of one attribute than all other types 
-of the same attribute
- 
-Alchemic laws apply separately to elements,letters and
-experiment essence counts (if meta is active)
--Only Active experiments are subject to alchemic laws
--Experiments must have at least 3 essences to be active"
-editable = false
-context_menu_enabled = false
-shortcut_keys_enabled = false
-selecting_enabled = false
-deselect_on_focus_loss_enabled = false
-drag_and_drop_selection_enabled = false
-virtual_keyboard_enabled = false
-middle_mouse_paste_enabled = false
+offset_left = 728.0
+offset_top = -394.0
+offset_right = 1008.0
+offset_bottom = 38.0
+metadata/_edit_group_ = true
 
 [node name="Notes" type="TextEdit" parent="Game Screen/HelpContainer"]
-visible = false
 layout_mode = 2
-placeholder_text = "type anything you want here (does not persist between restarts)"
+placeholder_text = "type anything you want here "
 drag_and_drop_selection_enabled = false
 
 [node name="Controls" type="TextEdit" parent="Game Screen/HelpContainer"]
 visible = false
 layout_mode = 2
-text = "Move tiles by dragging them to their destination
-Alternate Control:   Use 1,2,3,4,5 to select an experiment
+text = "Move tiles by dragging them
+Alternate Controls:   
+Use 1,2,3,4,5 to select experiments
 space to select storage
 click a tile  to send to selected area
 
@@ -140,23 +121,29 @@ deselect_on_focus_loss_enabled = false
 drag_and_drop_selection_enabled = false
 virtual_keyboard_enabled = false
 middle_mouse_paste_enabled = false
+scroll_vertical = 7.0
 
 [node name="Menu" parent="Game Screen/HelpContainer" instance=ExtResource("11_cjw6x")]
 visible = false
 layout_mode = 2
 
 [node name="StorageContainer" parent="Game Screen" instance=ExtResource("6_d81vx")]
+offset_left = -792.0
+offset_top = 278.0
+offset_right = -528.0
+offset_bottom = 414.0
 
-[node name="TutorialButton" type="Button" parent="Game Screen"]
+[node name="TutorialButton" type="Button" parent="Game Screen" node_paths=PackedStringArray("instructions")]
 layout_mode = 0
-offset_left = 664.0
-offset_top = -343.0
-offset_right = 816.0
-offset_bottom = -98.0
+offset_left = -512.0
+offset_top = 270.0
+offset_right = -358.0
+offset_bottom = 412.0
 theme_override_font_sizes/font_size = 48
 text = "GAME
 RULES"
 script = ExtResource("13_uul6k")
+instructions = NodePath("../../Instructions")
 
 [node name="victorycelebration" parent="." instance=ExtResource("16_8gp8j")]
 visible = false
