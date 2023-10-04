@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cvya4rcawkcxg"]
+[gd_scene load_steps=10 format=3 uid="uid://cvya4rcawkcxg"]
 
 [ext_resource type="PackedScene" uid="uid://xl4jsnrh5oll" path="res://research.tscn" id="2_57rww"]
 [ext_resource type="PackedScene" uid="uid://bq55k435edwi7" path="res://experiment_display.tscn" id="3_wqano"]
+[ext_resource type="Texture2D" uid="uid://bu51kkw1j8tbp" path="res://Assets/How to Play/Laws of Alchemy.png" id="4_yaiqf"]
 [ext_resource type="PackedScene" uid="uid://bei423sbo6cig" path="res://storage_container.tscn" id="6_d81vx"]
 [ext_resource type="PackedScene" uid="uid://sd0cyqy52ykw" path="res://meta_status.tscn" id="6_qwf21"]
 [ext_resource type="PackedScene" uid="uid://bbam0t7qtbdvy" path="res://Levels/rules.tscn" id="8_a2qqj"]
@@ -85,16 +86,16 @@ status_num = "5"
 
 [node name="Meta Status" parent="Game Screen" instance=ExtResource("6_qwf21")]
 layout_mode = 0
-offset_left = -800.0
-offset_top = 118.0
-offset_right = -512.0
-offset_bottom = 214.0
+offset_left = -640.0
+offset_top = 110.0
+offset_right = -352.0
+offset_bottom = 206.0
 
 [node name="HelpContainer" type="TabContainer" parent="Game Screen"]
 layout_mode = 0
 offset_left = 728.0
 offset_top = -394.0
-offset_right = 1008.0
+offset_right = 1016.0
 offset_bottom = 38.0
 metadata/_edit_group_ = true
 
@@ -123,23 +124,29 @@ virtual_keyboard_enabled = false
 middle_mouse_paste_enabled = false
 scroll_vertical = 7.0
 
+[node name="Laws" type="TextureRect" parent="Game Screen/HelpContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("4_yaiqf")
+expand_mode = 1
+
 [node name="Menu" parent="Game Screen/HelpContainer" instance=ExtResource("11_cjw6x")]
 visible = false
 layout_mode = 2
 
 [node name="StorageContainer" parent="Game Screen" instance=ExtResource("6_d81vx")]
-offset_left = -792.0
-offset_top = 278.0
-offset_right = -528.0
-offset_bottom = 414.0
+offset_left = -648.0
+offset_top = 270.0
+offset_right = -384.0
+offset_bottom = 406.0
 
 [node name="TutorialButton" type="Button" parent="Game Screen" node_paths=PackedStringArray("instructions")]
 layout_mode = 0
-offset_left = -512.0
-offset_top = 270.0
-offset_right = -358.0
-offset_bottom = 412.0
-theme_override_font_sizes/font_size = 48
+offset_left = -832.0
+offset_top = 262.0
+offset_right = -678.0
+offset_bottom = 404.0
+theme_override_font_sizes/font_size = 36
 text = "GAME
 RULES"
 script = ExtResource("13_uul6k")

@@ -10,24 +10,35 @@ script = ExtResource("1_36ssy")
 
 [node name="NewGameButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 188.0
-offset_top = 33.0
-offset_right = 442.0
-offset_bottom = 137.0
-theme_override_font_sizes/font_size = 48
+offset_left = 19.0
+offset_top = 64.0
+offset_right = 271.0
+offset_bottom = 152.0
+theme_override_font_sizes/font_size = 44
 theme_override_styles/normal = SubResource("StyleBoxFlat_0vaxm")
 text = "New Game"
 
+[node name="RedoTutorialButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 164.0
+offset_right = 271.0
+offset_bottom = 252.0
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_0vaxm")
+text = "Replay Tutorial"
+
 [node name="QuitButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 184.0
-offset_top = 177.0
-offset_right = 438.0
-offset_bottom = 281.0
-theme_override_font_sizes/font_size = 48
+offset_left = 24.0
+offset_top = 264.0
+offset_right = 272.0
+offset_bottom = 352.0
+theme_override_font_sizes/font_size = 44
 theme_override_styles/normal = SubResource("StyleBoxFlat_0vaxm")
 text = "Quit"
 
 [connection signal="pressed" from="NewGameButton" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="RedoTutorialButton" to="." method="_on_replay_tutorial_button_pressed"]
 [connection signal="mouse_exited" from="QuitButton" to="." method="_on_quit_button_mouse_exited"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_pressed"]

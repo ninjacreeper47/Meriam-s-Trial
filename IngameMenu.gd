@@ -25,3 +25,7 @@ func _on_quit_pressed():
 func _on_quit_button_mouse_exited():
 	quitting_for_realizes = false
 	$QuitButton.text = "QUIT"
+
+func _on_replay_tutorial_button_pressed():
+	alchemy._clear_game_state()
+	get_tree().change_scene_to_file("res://Levels/alchemypractice1.tscn")
