@@ -15,7 +15,7 @@ var active = false
 var stable = true
 
 @export var practice_experiment = false
-var sorting_style = sort_none
+var sorting_style = sort_type
 #make sure the option drop down matches this order oomfie
 enum {sort_none, sort_type,sort_value}
 var my_children = []
@@ -178,11 +178,13 @@ func _sort_experiment():
 	unsorted_index = 0
 	for child in my_children:
 		_assign_child(child)
-func _on_sort_choice_item_selected(index):
-	sorting_style = index
+
+func _on_sort_by_type_pressed():
+	sorting_style = sort_type
 	_sort_experiment()
-
-
+func _on_sort_by_letter_pressed():
+	sorting_style = sort_value
+	_sort_experiment()
 func _assign_new_child(incoming_ess):
 	my_children.append(incoming_ess)
 	_assign_child(incoming_ess)

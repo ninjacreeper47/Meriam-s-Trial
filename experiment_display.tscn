@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bq55k435edwi7"]
+[gd_scene load_steps=5 format=3 uid="uid://bq55k435edwi7"]
 
 [ext_resource type="PackedScene" uid="uid://dvyh1vflmrb8" path="res://experiment.tscn" id="1_ino3q"]
 [ext_resource type="PackedScene" uid="uid://bm64f1i3smn5o" path="res://ex_status.tscn" id="2_4qfhn"]
+[ext_resource type="Texture2D" uid="uid://dk8ykmswh1qwv" path="res://Assets/Triangle.svg" id="3_ae07x"]
+[ext_resource type="Script" path="res://SortStyleIndicator.gd" id="4_1e4wr"]
 
 [node name="ExperimentDisplay" type="Control"]
 layout_mode = 3
@@ -32,30 +34,6 @@ offset_right = 333.0
 offset_bottom = 34.0
 status_num = "1"
 
-[node name="SortChoice" type="OptionButton" parent="."]
-layout_mode = 0
-offset_left = 232.0
-offset_top = 64.0
-offset_right = 377.0
-offset_bottom = 112.0
-focus_mode = 1
-item_count = 3
-popup/item_0/text = "No sorting"
-popup/item_0/id = 0
-popup/item_1/text = "Sort by type"
-popup/item_1/id = 1
-popup/item_2/text = "Sort by letter"
-popup/item_2/id = 2
-
-[node name="EssenceCount" type="Label" parent="."]
-layout_mode = 0
-offset_left = 392.0
-offset_top = 72.0
-offset_right = 436.0
-offset_bottom = 109.0
-theme_override_font_sizes/font_size = 24
-text = "[0]"
-
 [node name="ErrorPanel" type="Panel" parent="."]
 layout_mode = 0
 offset_left = 232.0
@@ -70,10 +48,77 @@ offset_right = 120.0
 offset_bottom = 26.0
 text = "Errors"
 
+[node name="SortStuff" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 232.0
+offset_top = 72.0
+offset_right = 440.0
+offset_bottom = 128.0
+
+[node name="SortByType" type="Button" parent="SortStuff"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 16.0
+offset_right = 126.0
+offset_bottom = 56.0
+text = "TYPE"
+
+[node name="IndicatorPosition" type="Control" parent="SortStuff/SortByType"]
+anchors_preset = 0
+offset_left = 15.0
+offset_top = -5.0
+offset_right = 23.0
+offset_bottom = 3.0
+
+[node name="SortStyleIndicator" type="TextureRect" parent="SortStuff/SortByType/IndicatorPosition" node_paths=PackedStringArray("ByTypeIndicatorPos", "ByLetterIndicatorPos")]
+layout_mode = 0
+offset_right = 15.0
+offset_bottom = 15.0
+texture = ExtResource("3_ae07x")
+expand_mode = 1
+script = ExtResource("4_1e4wr")
+ByTypeIndicatorPos = NodePath("..")
+ByLetterIndicatorPos = NodePath("../../../SortByLetter/IndicatorPosition")
+
+[node name="SortByLetter" type="Button" parent="SortStuff"]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 16.0
+offset_right = 199.0
+offset_bottom = 56.0
+text = "LETTER"
+
+[node name="IndicatorPosition" type="Control" parent="SortStuff/SortByLetter"]
+anchors_preset = 0
+offset_left = 25.0
+offset_top = -5.0
+offset_right = 33.0
+offset_bottom = 3.0
+
+[node name="SortLabel" type="Label" parent="SortStuff"]
+layout_mode = 0
+offset_top = 24.0
+offset_right = 71.0
+offset_bottom = 53.0
+theme_override_font_sizes/font_size = 18
+text = "Sort by :"
+
+[node name="EssenceCount" type="Label" parent="."]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 48.0
+offset_right = 284.0
+offset_bottom = 85.0
+theme_override_font_sizes/font_size = 24
+text = "[0]"
+
 [connection signal="activated" from="ExperimentBackground1/Experiment1" to="ExStatus" method="_on_activated"]
 [connection signal="inactive" from="ExperimentBackground1/Experiment1" to="ExStatus" method="_on_inactive"]
 [connection signal="kudu_breached" from="ExperimentBackground1/Experiment1" to="ExStatus" method="_on_kudu_breached"]
 [connection signal="meta_breached" from="ExperimentBackground1/Experiment1" to="ExStatus" method="_on_meta_breached"]
 [connection signal="qluix_breached" from="ExperimentBackground1/Experiment1" to="ExStatus" method="_on_qluix_breached"]
 [connection signal="stabilized" from="ExperimentBackground1/Experiment1" to="ExStatus" method="_on_stablized"]
-[connection signal="item_selected" from="SortChoice" to="ExperimentBackground1/Experiment1" method="_on_sort_choice_item_selected"]
+[connection signal="pressed" from="SortStuff/SortByType" to="ExperimentBackground1/Experiment1" method="_on_sort_by_type_pressed"]
+[connection signal="pressed" from="SortStuff/SortByType" to="SortStuff/SortByType/IndicatorPosition/SortStyleIndicator" method="_on_sort_by_type_pressed"]
+[connection signal="pressed" from="SortStuff/SortByLetter" to="ExperimentBackground1/Experiment1" method="_on_sort_by_letter_pressed"]
+[connection signal="pressed" from="SortStuff/SortByLetter" to="SortStuff/SortByType/IndicatorPosition/SortStyleIndicator" method="_on_sort_by_letter_pressed"]
