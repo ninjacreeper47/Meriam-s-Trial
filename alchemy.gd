@@ -7,7 +7,7 @@ var experiment_nodes = ["storage placeholder"]
 var essence_counts = {}
 var selected_experiment
 
-var active_type_counts = {}
+var active_essence_count = 0
 var essence_goal = 0
 var resetting_in_progress = false
 var labatory_stable = true
@@ -23,7 +23,6 @@ var new_player_entering = false
 var debug_research_locking_disabled = false
 #this should be set to true when the expert scene loads
 var expert_difficulty = false
-signal meta_breached(law_broken,ex1, ex2)
 signal game_won
 signal meta_counters_updated
 
@@ -52,7 +51,7 @@ func _ready():
 func _clear_game_state():
 	experiment_nodes = ["storage placeholder"]
 	essence_counts.clear()
-	active_type_counts.clear()
+	active_essence_count = 0
 	labatory_stable = true
 	practice_environment = false
 	essence_goal = 0
@@ -86,42 +85,17 @@ func _input_checks():
 		debug_research_locking_disabled  = !debug_research_locking_disabled
 	if Input.is_action_just_pressed("debug_win"):
 		game_won.emit()
-func _check_meta():
-	
-	#meta is inactive
-	if  _count_active_essences() < forced_meta_threshold:
-		return true
-		
-	#meta-qluix
-	for count in essence_counts:
-		if essence_counts[count] == 0 || experiment_nodes[count].active == false:
-			continue
-		for innercount in essence_counts:
-			if count == innercount || experiment_nodes[innercount].active == false:
-				continue
-			if(essence_counts[count] == essence_counts[innercount]):
-				meta_breached.emit(1,count,innercount)
-				return false
-	#meta-kudu
-	var sum = 0
-	for count in essence_counts:
-		if experiment_nodes[count].active == true:
-			sum += essence_counts[count]
-	for count in essence_counts:
-		if(sum - essence_counts[count] < essence_counts[count]) && experiment_nodes[count].active == true:
-			meta_breached.emit(2,count,-1)
-			return false
-	#passed all metachecks
-	return true
+
 	
 func _check_labatory_stability():
+	var stability = true
 	for i in range(1, experiment_nodes.size()):
 		if experiment_nodes[i].practice_experiment == true:
 			practice_environment = true
 		experiment_nodes[i]._check_laws()
 		if(experiment_nodes[i].stable == false && experiment_nodes[i].active == true):
-			return false
-	return true
+			stability = false
+	return stability
 func _update_alchemic_state():
 	labatory_stable = _check_labatory_stability()
 	meta_counters_updated.emit()
@@ -131,19 +105,8 @@ func _check_victory():
 		return
 	if practice_environment:
 		return
-	if  _count_active_essences() >= essence_goal:
+	if  active_essence_count >= essence_goal:
 			game_won.emit()
 func _on_game_won():
 	game_playing = false
 
-func _count_active_essences():
-	var sum = 0
-	for i in type:
-		active_type_counts[i] = 0 
-	for i in range(1, experiment_nodes.size()):
-		for j in type:
-			if experiment_nodes[i].active == false:
-				continue
-			active_type_counts[j] += experiment_nodes[i].type_counts[j]
-			sum += experiment_nodes[i].type_counts[j]
-	return sum

@@ -14,10 +14,7 @@ var type_icons_unicode = {"Star": "★", "Plant": "⬢", "Friendship":"♥", "Me
 var associated_experiment_active = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var metacall = Callable(self,"_on_meta_breached")
-	alchemy.meta_breached.connect(metacall)
 	pass
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass

@@ -13,7 +13,7 @@ func _process(delta):
 
 func _on_meta_counters_updated():
 	
-	var es_count = alchemy._count_active_essences()
+	var es_count = alchemy.active_essence_count
 	if es_count >= 20:
 		text = "META ACTIVE"
 	else:

@@ -26,6 +26,7 @@ var value_transmutation_on = false
 #signals
 signal kudu_breached(dominant)
 signal qluix_breached(equal1,equal2)
+signal meta_breached(law_broken,ex1, ex2)
 signal stabilized
 signal inactive
 signal activated
@@ -54,10 +55,13 @@ func _add_essence(val, type):
 	num_essences+= 1
 	essence_count_label.text = "[" + str(num_essences) +"]"
 	alchemy.essence_counts[ex_num] = num_essences
+	if active:
+		alchemy.active_essence_count += 1
 	if (active == false && num_essences >= 3):
 		activated.emit()
 		active = true
 		alchemy.active_experiments += 1
+		alchemy.active_essence_count += num_essences
 	_check_laws()
 
 func _remove_essence(val, type):
@@ -66,10 +70,13 @@ func _remove_essence(val, type):
 	num_essences-= 1
 	essence_count_label.text = "[" + str(num_essences) +"]"
 	alchemy.essence_counts[ex_num] = num_essences
+	if active:
+		alchemy.active_essence_count -= 1
 	if (active == true && num_essences < 3):
 		active = false
 		inactive.emit()
 		alchemy.active_experiments -= 1
+		alchemy.active_essence_count -= num_essences
 	_check_laws()
 	
 	
@@ -82,7 +89,7 @@ func _check_laws():
 	if practice_experiment:
 		stable =  _check_kudu() && _check_qluix()
 	else:
-		stable =  _check_kudu() && _check_qluix() && alchemy._check_meta()
+		stable =  _check_kudu() && _check_qluix() && _check_meta()
 	if stable:
 		stabilized.emit()
 		
@@ -124,7 +131,23 @@ func _check_qluix():
 				qluix_breached.emit(val,innerval)
 				return false
 	return true
-
+func _check_meta():
+	#meta is inactive
+	if  alchemy.active_essence_count < alchemy.forced_meta_threshold:
+		return true
+	#meta-qluix
+	for ex in alchemy.essence_counts:
+		if  ex == ex_num || alchemy.experiment_nodes[ex].active == false:
+			continue
+		if(alchemy.essence_counts[ex] == num_essences):
+			meta_breached.emit(1,ex_num,ex)
+			return false
+	#meta-kudu
+		if(alchemy.active_essence_count - num_essences < num_essences):
+			meta_breached.emit(2,ex_num,-1)
+			return false
+#	#passed all metachecks
+	return true
 func _is_full():
 	#Currently experiments do not have any hehaviour where they are considerd full. This function only exists so that
 	#storage and experiments can elegantly use the same logic
@@ -224,3 +247,4 @@ func _on_type_trans_toggle():
 
 func _on_value_trans_toggle():
 	value_transmutation_on = !value_transmutation_on
+

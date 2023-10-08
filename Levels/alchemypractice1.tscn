@@ -15,10 +15,10 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="StorageContainer" parent="." instance=ExtResource("2_51xqy")]
-offset_left = 544.0
-offset_top = 648.0
-offset_right = 808.0
-offset_bottom = 784.0
+offset_left = 792.0
+offset_top = 656.0
+offset_right = 1056.0
+offset_bottom = 792.0
 metadata/_edit_group_ = true
 
 [node name="StorageBackground" parent="StorageContainer" index="0"]
@@ -88,10 +88,10 @@ value = "D"
 my_type = "Metal"
 
 [node name="ExperimentDisplay" parent="." instance=ExtResource("3_d3yfb")]
-offset_left = 256.0
-offset_top = 296.0
-offset_right = 512.0
-offset_bottom = 904.0
+offset_left = 181.0
+offset_top = 523.0
+offset_right = 628.0
+offset_bottom = 913.0
 scale = Vector2(1.2, 1.2)
 
 [node name="Experiment1" parent="ExperimentDisplay/ExperimentBackground1" index="0"]
@@ -105,10 +105,10 @@ visible = false
 
 [node name="AdvanceButton" parent="." instance=ExtResource("4_o27jm")]
 layout_mode = 0
-offset_left = 576.0
-offset_top = 488.0
-offset_right = 915.0
-offset_bottom = 584.0
+offset_left = 120.0
+offset_top = 360.0
+offset_right = 459.0
+offset_bottom = 456.0
 
 [node name="ScreenTitle" type="Label" parent="."]
 layout_mode = 0
@@ -132,10 +132,10 @@ Create a valid alchemical group here"
 
 [node name="AlchemyReference" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 992.0
-offset_top = 176.0
-offset_right = 1704.0
-offset_bottom = 1008.0
+offset_left = 1072.0
+offset_top = 168.0
+offset_right = 1784.0
+offset_bottom = 1000.0
 texture = ExtResource("5_cpjnj")
 
 [editable path="StorageContainer"]

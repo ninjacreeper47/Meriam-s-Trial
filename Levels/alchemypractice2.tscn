@@ -27,35 +27,11 @@ text = "Alchemical laws apply seperately to letters and shapes
 must both individually satisfy all laws
 "
 
-[node name="ExperimentDisplay" parent="." instance=ExtResource("1_iwyd1")]
-offset_left = 168.0
-offset_top = 480.0
-offset_right = 424.0
-offset_bottom = 1024.0
-
-[node name="ExStatus" parent="ExperimentDisplay" index="1"]
-offset_left = 0.0
-offset_top = 54.0
-offset_right = 109.0
-offset_bottom = 80.0
-
-[node name="SortChoice" parent="ExperimentDisplay" index="2"]
-offset_left = 0.0
-offset_top = 1.0
-offset_right = 200.0
-offset_bottom = 49.0
-
-[node name="EssenceCount" parent="ExperimentDisplay" index="3"]
-offset_left = 208.0
-offset_top = 8.0
-offset_right = 252.0
-offset_bottom = 45.0
-
 [node name="StorageContainer" parent="." instance=ExtResource("2_hx268")]
-offset_left = 440.0
-offset_top = 640.0
-offset_right = 688.0
-offset_bottom = 776.0
+offset_left = 664.0
+offset_top = 584.0
+offset_right = 912.0
+offset_bottom = 720.0
 metadata/_edit_group_ = true
 
 [node name="StorageBackground" parent="StorageContainer" index="0"]
@@ -122,28 +98,33 @@ my_type = "Friendship"
 
 [node name="AlchemyReference" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 992.0
+offset_left = 1088.0
 offset_top = 176.0
-offset_right = 1704.0
+offset_right = 1800.0
 offset_bottom = 1008.0
 texture = ExtResource("3_5f0xj")
 
 [node name="AdvanceButton" parent="." instance=ExtResource("4_vyxpk")]
 layout_mode = 0
-offset_left = 496.0
-offset_top = 464.0
-offset_right = 784.0
-offset_bottom = 560.0
+offset_left = 48.0
+offset_top = 376.0
+offset_right = 387.0
+offset_bottom = 472.0
 
 [node name="GoalLabel" type="Label" parent="."]
 layout_mode = 2
-offset_left = 8.0
-offset_top = 424.0
-offset_right = 496.0
-offset_bottom = 461.0
+offset_left = 24.0
+offset_top = 320.0
+offset_right = 512.0
+offset_bottom = 357.0
 theme_override_colors/font_color = Color(0.941176, 0.929412, 0.498039, 1)
 theme_override_font_sizes/font_size = 24
 text = "Goal: Create a valid alchemical group "
 
-[editable path="ExperimentDisplay"]
+[node name="ExperimentDisplay" parent="." instance=ExtResource("1_iwyd1")]
+offset_left = 64.0
+offset_top = 568.0
+offset_right = 512.0
+offset_bottom = 976.0
+
 [editable path="StorageContainer"]
