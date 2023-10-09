@@ -12,7 +12,7 @@ var essence_goal = 0
 var resetting_in_progress = false
 var labatory_stable = true
 
-var game_playing = true
+var game_playing = false
 var queue_reset = false
 
 var practice_environment = false

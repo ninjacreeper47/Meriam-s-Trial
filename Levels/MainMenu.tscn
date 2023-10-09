@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmxs0h8ft2eri"]
+
+[ext_resource type="Script" path="res://Levels/MainMenu.gd" id="1_c27aa"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lgod1"]
+font_size = 72
+outline_size = 36
+outline_color = Color(0.329412, 0.0666667, 0.262745, 1)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c27aa")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 304.0
+offset_top = 56.0
+offset_right = 745.0
+offset_bottom = 147.0
+text = "Meriam's Trial"
+label_settings = SubResource("LabelSettings_lgod1")
+
+[node name="TutorialButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 312.0
+offset_top = 192.0
+offset_right = 800.0
+offset_bottom = 320.0
+theme_override_font_sizes/font_size = 64
+text = "Play Tutorial"
+
+[node name="PlayGameButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 312.0
+offset_top = 376.0
+offset_right = 800.0
+offset_bottom = 504.0
+theme_override_font_sizes/font_size = 64
+text = "Play Game"
+
+[node name="QuitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 566.0
+offset_right = 808.0
+offset_bottom = 694.0
+theme_override_font_sizes/font_size = 64
+text = "Quit"
+
+[connection signal="pressed" from="TutorialButton" to="." method="_on_tutorial_button_pressed"]
+[connection signal="pressed" from="PlayGameButton" to="." method="_on_play_game_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]

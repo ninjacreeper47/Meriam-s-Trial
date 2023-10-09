@@ -8,6 +8,8 @@ func _ready():
 func _process(delta):
 	if alchemy.labatory_stable && alchemy.active_experiments == 1:
 		visible = true
+	else:
+		visible = false
 
 func _on_pressed():
 	if get_tree().get_current_scene().get_name() == "alchemypractice1":
