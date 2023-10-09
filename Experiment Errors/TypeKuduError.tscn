@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmkoh1txq45o5"]
+
+[ext_resource type="Script" path="res://Experiment Errors/TypeKuduError.gd" id="1_a5yhe"]
+[ext_resource type="Texture2D" uid="uid://bkw4b4xi8osu5" path="res://Assets/Friendship.svg" id="1_aknsa"]
+
+[node name="TypeKuduError" type="Control"]
+custom_minimum_size = Vector2(180, 40)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 3.0
+offset_right = -1420.0
+offset_bottom = -857.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a5yhe")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 176.0
+offset_bottom = 40.0
+
+[node name="DominantLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_right = 182.0
+offset_bottom = 37.0
+theme_override_font_sizes/font_size = 22
+text = "DOMINANT"
+
+[node name="DominantType" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_aknsa")
+expand_mode = 1

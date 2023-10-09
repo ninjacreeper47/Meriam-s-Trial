@@ -18,4 +18,4 @@ func _on_meta_counters_updated():
 		text = "META ACTIVE"
 	else:
 		text = "META INACTIVE"
-	get_child(0).text = str(es_count) + "/20 active essence"
+	get_child(0).text = str(es_count) + "/20 active tiles"

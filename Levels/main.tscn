@@ -21,10 +21,10 @@ offset_right = 920.0
 offset_bottom = 490.0
 
 [node name="Research" parent="Game Screen" instance=ExtResource("2_57rww")]
-offset_left = -840.0
-offset_top = 238.0
-offset_right = -800.0
-offset_bottom = 278.0
+offset_left = -856.0
+offset_top = 286.0
+offset_right = -816.0
+offset_bottom = 326.0
 
 [node name="ExperimentDisplay" parent="Game Screen" instance=ExtResource("3_wqano")]
 offset_left = -196.0

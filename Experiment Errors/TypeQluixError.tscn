@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://gbu1pkcquayh"]
+
+[ext_resource type="Script" path="res://Experiment Errors/TypeQluixError.gd" id="1_rd66g"]
+[ext_resource type="Texture2D" uid="uid://bkw4b4xi8osu5" path="res://Assets/Friendship.svg" id="2_pjkqw"]
+[ext_resource type="Texture2D" uid="uid://p3thchowpw5y" path="res://Assets/Star.svg" id="2_x1vuv"]
+
+[node name="TypeQluixError" type="Control"]
+custom_minimum_size = Vector2(180, 40)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 3.0
+offset_right = -1420.0
+offset_bottom = -857.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rd66g")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 176.0
+offset_bottom = 40.0
+
+[node name="=Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 72.0
+offset_top = -11.0
+offset_right = 99.0
+offset_bottom = 53.0
+theme_override_font_sizes/font_size = 44
+text = "="
+
+[node name="LeftType" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_right = 60.0
+offset_bottom = 40.0
+texture = ExtResource("2_pjkqw")
+expand_mode = 1
+
+[node name="LeftType2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 113.0
+offset_top = -1.0
+offset_right = 153.0
+offset_bottom = 39.0
+texture = ExtResource("2_x1vuv")
+expand_mode = 1

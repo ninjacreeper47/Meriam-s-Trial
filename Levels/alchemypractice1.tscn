@@ -97,10 +97,13 @@ scale = Vector2(1.2, 1.2)
 [node name="Experiment1" parent="ExperimentDisplay/ExperimentBackground1" index="0"]
 practice_experiment = true
 
-[node name="SortChoice" parent="ExperimentDisplay" index="2"]
+[node name="SortStuff" parent="ExperimentDisplay" index="3"]
 visible = false
 
-[node name="EssenceCount" parent="ExperimentDisplay" index="3"]
+[node name="EssenceCount" parent="ExperimentDisplay" index="4"]
+visible = false
+
+[node name="SizeLabel" parent="ExperimentDisplay" index="5"]
 visible = false
 
 [node name="AdvanceButton" parent="." instance=ExtResource("4_o27jm")]

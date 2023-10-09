@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://c65urksflt4mv"]
+
+[ext_resource type="LabelSettings" uid="uid://ceidsrgtel87v" path="res://Experiment Errors/error_letter_label-settings.tres" id="1_3jv88"]
+[ext_resource type="Script" path="res://Experiment Errors/MetaKuduError.gd" id="1_63dpj"]
+[ext_resource type="LabelSettings" uid="uid://cl8vwohypccej" path="res://Experiment Errors/error_meta_label_settings.tres" id="2_ldl6y"]
+
+[node name="MetaKuduError" type="Control"]
+custom_minimum_size = Vector2(180, 80)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_right = -1422.0
+offset_bottom = -820.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_63dpj")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 180.0
+offset_bottom = 80.0
+
+[node name="DominantLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 44.0
+offset_right = 177.0
+offset_bottom = 77.0
+theme_override_font_sizes/font_size = 21
+text = "DOMINANT"
+
+[node name="LetterLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 40.0
+offset_right = 58.0
+offset_bottom = 77.0
+theme_override_font_sizes/font_size = 26
+text = "Ex[0]"
+label_settings = ExtResource("1_3jv88")
+
+[node name="MetaLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 50.0
+offset_right = 132.0
+offset_bottom = 45.0
+text = "META"
+label_settings = ExtResource("2_ldl6y")

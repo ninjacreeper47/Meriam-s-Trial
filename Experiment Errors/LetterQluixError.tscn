@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://bq0qdqlxtmo4"]
+
+[ext_resource type="Script" path="res://Experiment Errors/LetterQluixError.gd" id="1_dirkv"]
+[ext_resource type="LabelSettings" uid="uid://ceidsrgtel87v" path="res://Experiment Errors/error_letter_label-settings.tres" id="1_j3tmh"]
+
+[node name="LetterQluixError" type="Control"]
+custom_minimum_size = Vector2(180, 40)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 3.0
+offset_right = -1420.0
+offset_bottom = -857.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dirkv")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 176.0
+offset_bottom = 40.0
+
+[node name="=Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 72.0
+offset_top = -11.0
+offset_right = 99.0
+offset_bottom = 53.0
+theme_override_font_sizes/font_size = 44
+text = "="
+
+[node name="LeftLetter" type="Label" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = -11.0
+offset_right = 52.0
+offset_bottom = 26.0
+scale = Vector2(1.75, 1.75)
+text = "A"
+label_settings = ExtResource("1_j3tmh")
+
+[node name="LeftType2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 112.0
+offset_top = -11.0
+offset_right = 128.0
+offset_bottom = 26.0
+scale = Vector2(1.75, 1.75)
+text = "B"
+label_settings = ExtResource("1_j3tmh")

@@ -20,9 +20,10 @@ offset_right = 861.0
 offset_bottom = 1512.0
 scale = Vector2(0.25, 0.25)
 
-[node name="Experiment1" parent="ExperimentBackground1" node_paths=PackedStringArray("essence_count_label") instance=ExtResource("1_ino3q")]
+[node name="Experiment1" parent="ExperimentBackground1" node_paths=PackedStringArray("error_list_node", "essence_count_label") instance=ExtResource("1_ino3q")]
 custom_minimum_size = Vector2(300, 400)
 layout_mode = 2
+error_list_node = NodePath("../../ErrorPanel/ScrollContainer/ErrorList")
 essence_count_label = NodePath("../../EssenceCount")
 ex_num = 1
 
@@ -47,6 +48,15 @@ offset_left = 72.0
 offset_right = 120.0
 offset_bottom = 26.0
 text = "Errors"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ErrorPanel"]
+layout_mode = 0
+offset_top = 24.0
+offset_right = 200.0
+offset_bottom = 248.0
+
+[node name="ErrorList" type="VBoxContainer" parent="ErrorPanel/ScrollContainer"]
+layout_mode = 2
 
 [node name="SortStuff" type="Control" parent="."]
 anchors_preset = 0
@@ -105,18 +115,24 @@ text = "Sort by :"
 
 [node name="EssenceCount" type="Label" parent="."]
 layout_mode = 0
-offset_left = 240.0
+offset_left = 272.0
 offset_top = 48.0
-offset_right = 284.0
+offset_right = 304.0
 offset_bottom = 85.0
 theme_override_font_sizes/font_size = 24
 text = "[0]"
 
+[node name="SizeLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 56.0
+offset_right = 272.0
+offset_bottom = 82.0
+text = "SIZE:"
+
 [connection signal="activated" from="ExperimentBackground1/Experiment1" to="ExStatus" method="_on_activated"]
+[connection signal="broken" from="ExperimentBackground1/Experiment1" to="ExStatus" method="_on_broken"]
 [connection signal="inactive" from="ExperimentBackground1/Experiment1" to="ExStatus" method="_on_inactive"]
-[connection signal="kudu_breached" from="ExperimentBackground1/Experiment1" to="ExStatus" method="_on_kudu_breached"]
-[connection signal="meta_breached" from="ExperimentBackground1/Experiment1" to="ExStatus" method="_on_meta_breached"]
-[connection signal="qluix_breached" from="ExperimentBackground1/Experiment1" to="ExStatus" method="_on_qluix_breached"]
 [connection signal="stabilized" from="ExperimentBackground1/Experiment1" to="ExStatus" method="_on_stablized"]
 [connection signal="pressed" from="SortStuff/SortByType" to="ExperimentBackground1/Experiment1" method="_on_sort_by_type_pressed"]
 [connection signal="pressed" from="SortStuff/SortByType" to="SortStuff/SortByType/IndicatorPosition/SortStyleIndicator" method="_on_sort_by_type_pressed"]

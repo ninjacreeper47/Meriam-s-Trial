@@ -1,5 +1,5 @@
 extends Node
-#this script is autoloaded and is used to provide "global" values to other scripts 
+#this script is autoloaded and is used to provide "global" values and logic  to other scripts 
 var type = ["Metal","Plant","Star","Water","Friendship"]
 var value_letters = ["A","B","C","D","E","F"]
 var active_experiments  = 0 #This variable should be vestgial. Not deleting it because I might decide to care about it again

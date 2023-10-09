@@ -24,5 +24,5 @@ offset_left = -8.0
 offset_top = 48.0
 offset_right = 280.0
 offset_bottom = 134.0
-text = "0/20 active essence"
+text = "0/20 active tiles"
 label_settings = SubResource("LabelSettings_q7w35")
