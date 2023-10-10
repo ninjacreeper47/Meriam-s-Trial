@@ -67,18 +67,6 @@ func _input_checks():
 	#This line only exists so that i can arbitarily trigger this breakpoint
 	if Input.is_action_just_pressed("debug"):
 		print("AYAYA")
-	if Input.is_action_just_pressed("SelectEx1"):
-		selected_experiment = experiment_nodes[1]
-	if Input.is_action_just_pressed("SelectEx2"):
-		selected_experiment = experiment_nodes[2]
-	if Input.is_action_just_pressed("SelectEx3"):
-		selected_experiment = experiment_nodes[3]
-	if Input.is_action_just_pressed("SelectEx4"):
-		selected_experiment = experiment_nodes[4]
-	if Input.is_action_just_pressed("SelectEx5"):
-		selected_experiment = experiment_nodes[5]
-	if Input.is_action_just_pressed("storage"):
-		selected_experiment = experiment_nodes[0]
 	if Input.is_action_just_pressed("restart") || queue_reset == true:
 		_reset()
 	if Input.is_action_just_pressed("debug_disable_locking"):

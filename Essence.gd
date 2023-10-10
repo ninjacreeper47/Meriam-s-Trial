@@ -24,7 +24,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass 
+	if _check_if_locked():
+		modulate = Color.DARK_GRAY
+	else:
+		modulate = Color.WHITE
 
 func _set_type(type):
 	my_type = type
@@ -73,6 +76,8 @@ func _check_if_locked():
 	if(in_tableau && alchemy._check_labatory_stability() == false):
 		return true 
 	if(in_upcoming):
+		return true
+	if(!alchemy.game_playing):
 		return true
 	return false
 
