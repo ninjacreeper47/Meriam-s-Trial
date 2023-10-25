@@ -4,7 +4,6 @@ extends TextureRect
 @export var position2 :Control
 @export var position3: Control
 @export var position4: Control
-@export var position5: Control
 @export var position0: Control
 
 var ex_x_offset = 160
@@ -40,12 +39,6 @@ func _process(delta):
 		position.x += ex_x_offset
 		position.y += ex_y_offset
 		visible = true 
-	if Input.is_action_just_pressed("SelectEx5"):
-		alchemy.selected_experiment = alchemy.experiment_nodes[5]
-		position = position5.position
-		position.x += ex_x_offset
-		position.y += ex_y_offset
-		visible = true
 	if Input.is_action_just_pressed("storage"):
 		alchemy. selected_experiment = alchemy.experiment_nodes[0]
 		position = position0.position
