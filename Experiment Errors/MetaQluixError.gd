@@ -19,8 +19,6 @@ func _is_same(right:ExError):
 func _is_error_present_in_experiment(ex):
 	if alchemy.active_essence_count < alchemy.forced_meta_threshold:
 		return false
-	if !ex.active:
-		return false
 	return alchemy.essence_counts[first_ex] == alchemy.essence_counts[second_ex]
 
 
