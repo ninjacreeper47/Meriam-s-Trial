@@ -21,8 +21,7 @@ var forced_meta_threshold = 20
 var new_player_entering = false
 
 var debug_research_locking_disabled = false
-#this should be set to true when the expert scene loads
-var expert_difficulty = false
+
 signal game_won
 signal meta_counters_updated
 
@@ -36,10 +35,7 @@ func _reset():
 	resetting_in_progress = true
 	_clear_game_state()
 	get_tree().unload_current_scene()
-	if (expert_difficulty):
-		get_tree().change_scene_to_file("res://Levels/expert_game.tscn")
-	else:
-		get_tree().change_scene_to_file("res://Levels/main.tscn")
+	get_tree().change_scene_to_file("res://Levels/main.tscn")
 	queue_reset = false
 	#$Research.get_child(0)._spawn_balanced()
 # Called when the node enters the scene tree for the first time.
