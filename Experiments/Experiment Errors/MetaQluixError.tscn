@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://nq0ur7crsddg"]
 
-[ext_resource type="Script" path="res://Experiment Errors/MetaQluixError.gd" id="1_r55qd"]
-[ext_resource type="LabelSettings" uid="uid://ceidsrgtel87v" path="res://Experiment Errors/error_letter_label-settings.tres" id="2_i8xxu"]
-[ext_resource type="LabelSettings" uid="uid://cl8vwohypccej" path="res://Experiment Errors/error_meta_label_settings.tres" id="3_n5cij"]
+[ext_resource type="Script" path="res://Experiments/Experiment Errors/MetaQluixError.gd" id="1_r55qd"]
+[ext_resource type="LabelSettings" uid="uid://ceidsrgtel87v" path="res://Experiments/Experiment Errors/error_letter_label-settings.tres" id="2_i8xxu"]
+[ext_resource type="LabelSettings" uid="uid://cl8vwohypccej" path="res://Experiments/Experiment Errors/error_meta_label_settings.tres" id="3_n5cij"]
 
 [node name="MetaQluixError" type="Control"]
 custom_minimum_size = Vector2(180, 80)

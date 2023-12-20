@@ -1,14 +1,14 @@
 [gd_scene load_steps=10 format=3 uid="uid://cvya4rcawkcxg"]
 
-[ext_resource type="PackedScene" uid="uid://xl4jsnrh5oll" path="res://research.tscn" id="2_57rww"]
-[ext_resource type="PackedScene" uid="uid://bq55k435edwi7" path="res://experiment_display.tscn" id="3_wqano"]
+[ext_resource type="PackedScene" uid="uid://xl4jsnrh5oll" path="res://Research Board/research.tscn" id="2_57rww"]
+[ext_resource type="PackedScene" uid="uid://bq55k435edwi7" path="res://Experiments/experiment_display.tscn" id="3_wqano"]
 [ext_resource type="PackedScene" uid="uid://bei423sbo6cig" path="res://storage_container.tscn" id="6_d81vx"]
 [ext_resource type="PackedScene" uid="uid://sd0cyqy52ykw" path="res://meta_status.tscn" id="6_qwf21"]
-[ext_resource type="PackedScene" uid="uid://bbam0t7qtbdvy" path="res://Levels/rules.tscn" id="8_a2qqj"]
+[ext_resource type="PackedScene" uid="uid://bbam0t7qtbdvy" path="res://Menus and Buttons/rules.tscn" id="8_a2qqj"]
 [ext_resource type="Texture2D" uid="uid://dk8ykmswh1qwv" path="res://Assets/Triangle.svg" id="10_gi6iu"]
-[ext_resource type="PackedScene" uid="uid://bt0ytr2vo3k77" path="res://ingame_menu.tscn" id="11_cjw6x"]
-[ext_resource type="Script" path="res://Levels/SelectedPointer.gd" id="11_hkk26"]
-[ext_resource type="Script" path="res://TutorialButton.gd" id="13_uul6k"]
+[ext_resource type="PackedScene" uid="uid://bt0ytr2vo3k77" path="res://Menus and Buttons/ingame_menu.tscn" id="11_cjw6x"]
+[ext_resource type="Script" path="res://Experiments/SelectedPointer.gd" id="11_hkk26"]
+[ext_resource type="Script" path="res://Menus and Buttons/TutorialButton.gd" id="13_uul6k"]
 
 [node name="Main" type="Node2D"]
 
@@ -43,7 +43,7 @@ offset_bottom = 238.0
 ex_num = 2
 
 [node name="ExStatus" parent="Game Screen/ExperimentDisplay2" index="1"]
-text = "2: Inactive"
+text = "2: Stable"
 status_num = "2"
 
 [node name="ExperimentDisplay3" parent="Game Screen" instance=ExtResource("3_wqano")]
@@ -58,7 +58,7 @@ metadata/_edit_group_ = true
 ex_num = 3
 
 [node name="ExStatus" parent="Game Screen/ExperimentDisplay3" index="1"]
-text = "3: Inactive"
+text = "3: Stable"
 status_num = "3"
 
 [node name="ExperimentDisplay4" parent="Game Screen" instance=ExtResource("3_wqano")]
@@ -73,7 +73,7 @@ metadata/_edit_group_ = true
 ex_num = 4
 
 [node name="ExStatus" parent="Game Screen/ExperimentDisplay4" index="1"]
-text = "4: Inactive"
+text = "4: Stable"
 status_num = "4"
 
 [node name="Meta Status" parent="Game Screen" instance=ExtResource("6_qwf21")]
@@ -178,7 +178,7 @@ layout_mode = 2
 offset_left = -624.0
 offset_top = 150.0
 offset_right = -360.0
-offset_bottom = 286.0
+offset_bottom = 355.0
 scale = Vector2(1.25, 1.25)
 
 [node name="TutorialButton" type="Button" parent="Game Screen" node_paths=PackedStringArray("instructions")]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dvrtu5qpvhj05"]
 
-[ext_resource type="PackedScene" uid="uid://bq55k435edwi7" path="res://experiment_display.tscn" id="1_aekkp"]
+[ext_resource type="PackedScene" uid="uid://bq55k435edwi7" path="res://Experiments/experiment_display.tscn" id="1_aekkp"]
 
 [node name="ExperimentDisplay" instance=ExtResource("1_aekkp")]
 

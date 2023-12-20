@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bvh1morm62fsn"]
 
-[ext_resource type="LabelSettings" uid="uid://ceidsrgtel87v" path="res://Experiment Errors/error_letter_label-settings.tres" id="1_2d6u3"]
-[ext_resource type="Script" path="res://Experiment Errors/LetterKuduError.gd" id="1_p0gqh"]
+[ext_resource type="LabelSettings" uid="uid://ceidsrgtel87v" path="res://Experiments/Experiment Errors/error_letter_label-settings.tres" id="1_2d6u3"]
+[ext_resource type="Script" path="res://Experiments/Experiment Errors/LetterKuduError.gd" id="1_p0gqh"]
 
 [node name="LetterKuduError" type="Control"]
 custom_minimum_size = Vector2(180, 40)

@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://cpe3m0od32ov3"]
 
-[ext_resource type="PackedScene" uid="uid://dvrtu5qpvhj05" path="res://practice_experiment_display.tscn" id="1_iwyd1"]
+[ext_resource type="PackedScene" uid="uid://dvrtu5qpvhj05" path="res://Experiments/practice_experiment_display.tscn" id="1_iwyd1"]
 [ext_resource type="PackedScene" uid="uid://bei423sbo6cig" path="res://storage_container.tscn" id="2_hx268"]
 [ext_resource type="Texture2D" uid="uid://bu51kkw1j8tbp" path="res://Assets/How to Play/Laws of Alchemy.png" id="3_5f0xj"]
-[ext_resource type="PackedScene" uid="uid://baom7038jho5x" path="res://Essence.tscn" id="3_vxu1m"]
-[ext_resource type="PackedScene" uid="uid://qut8qjgu8hel" path="res://advance_button.tscn" id="4_vyxpk"]
+[ext_resource type="PackedScene" uid="uid://baom7038jho5x" path="res://Essence/Essence.tscn" id="3_vxu1m"]
+[ext_resource type="PackedScene" uid="uid://qut8qjgu8hel" path="res://Menus and Buttons/advance_button.tscn" id="4_vyxpk"]
 
 [node name="alchemypractice2" type="Control"]
 layout_mode = 3

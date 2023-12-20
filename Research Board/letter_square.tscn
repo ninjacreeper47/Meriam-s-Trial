@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bu5nuvji7xww4"]
 
-[ext_resource type="Script" path="res://letter_square.gd" id="1_hpchc"]
+[ext_resource type="Script" path="res://Research Board/letter_square.gd" id="1_x1q0q"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kwn6p"]
 font_size = 80
@@ -11,7 +11,7 @@ offset_right = 128.0
 offset_bottom = 128.0
 scale = Vector2(0.5, 0.5)
 color = Color(0.341176, 0.129412, 0.333333, 1)
-script = ExtResource("1_hpchc")
+script = ExtResource("1_x1q0q")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0

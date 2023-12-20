@@ -1,8 +1,8 @@
 extends Control
 
-var essence = load("res://Essence.tscn") 
-var letter_square = load("res://letter_square.tscn")
-var column_clear_marker = load("res://column_clear_marker.tscn")
+var essence = load("res://Essence/Essence.tscn") 
+var letter_square = load("res://Research Board/letter_square.tscn")
+var column_clear_marker = load("res://Research Board/column_clear_marker.tscn")
 @export var tableau:Control
 
 @export var column_height = 8

@@ -22,12 +22,12 @@ var my_children = []
 
 var my_errors = []
 @export var error_list_node:VBoxContainer
-var TypeKuduErrorNode = load("res://Experiment Errors/TypeKuduError.tscn")
-var LetterKuduErrorNode = load("res://Experiment Errors/LetterKuduError.tscn")
-var MetaKuduErrorNode = load("res://Experiment Errors/MetaKuduError.tscn")
-var TypeQluixErrorNode = load("res://Experiment Errors/TypeQluixError.tscn")
-var LetterQluixErrorNode = load("res://Experiment Errors/LetterQluixError.tscn")
-var MetaQluixErrorNode = load("res://Experiment Errors/MetaQluixError.tscn")
+var TypeKuduErrorNode = load("res://Experiments/Experiment Errors/TypeKuduError.tscn")
+var LetterKuduErrorNode = load("res://Experiments/Experiment Errors/LetterKuduError.tscn")
+var MetaKuduErrorNode = load("res://Experiments/Experiment Errors/MetaKuduError.tscn")
+var TypeQluixErrorNode = load("res://Experiments/Experiment Errors/TypeQluixError.tscn")
+var LetterQluixErrorNode = load("res://Experiments/Experiment Errors/LetterQluixError.tscn")
+var MetaQluixErrorNode = load("res://Experiments/Experiment Errors/MetaQluixError.tscn")
 
 var type_transmutation_on = false
 var value_transmutation_on = false

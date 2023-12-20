@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bq0qdqlxtmo4"]
 
-[ext_resource type="Script" path="res://Experiment Errors/LetterQluixError.gd" id="1_dirkv"]
-[ext_resource type="LabelSettings" uid="uid://ceidsrgtel87v" path="res://Experiment Errors/error_letter_label-settings.tres" id="1_j3tmh"]
+[ext_resource type="Script" path="res://Experiments/Experiment Errors/LetterQluixError.gd" id="1_dirkv"]
+[ext_resource type="LabelSettings" uid="uid://ceidsrgtel87v" path="res://Experiments/Experiment Errors/error_letter_label-settings.tres" id="1_j3tmh"]
 
 [node name="LetterQluixError" type="Control"]
 custom_minimum_size = Vector2(180, 40)

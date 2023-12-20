@@ -12,7 +12,7 @@ var my_col:int
 @onready var experiment_list = get_tree().get_nodes_in_group("Experiments") 
 var assigned_experiment 
 
-var preview_node = load("res://essence_preview.tscn")
+var preview_node = load("res://Essence/essence_preview.tscn")
 var my_texture
 var blank_placeholder = load("res://Assets/BlankSpace.png")
 signal taken_from_tableau

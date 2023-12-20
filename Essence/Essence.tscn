@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://baom7038jho5x"]
 
 [ext_resource type="Texture2D" uid="uid://ckmghjoqor5x7" path="res://Assets/Plant.svg" id="1_als46"]
-[ext_resource type="Script" path="res://Essence.gd" id="3_4j6pw"]
+[ext_resource type="Script" path="res://Essence/Essence.gd" id="3_4j6pw"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ee5xk"]
 font_size = 64

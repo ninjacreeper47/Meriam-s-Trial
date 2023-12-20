@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bmkoh1txq45o5"]
 
-[ext_resource type="Script" path="res://Experiment Errors/TypeKuduError.gd" id="1_a5yhe"]
+[ext_resource type="Script" path="res://Experiments/Experiment Errors/TypeKuduError.gd" id="1_a5yhe"]
 [ext_resource type="Texture2D" uid="uid://bkw4b4xi8osu5" path="res://Assets/Friendship.svg" id="1_aknsa"]
 
 [node name="TypeKuduError" type="Control"]

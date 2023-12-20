@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://bq55k435edwi7"]
 
-[ext_resource type="PackedScene" uid="uid://dvyh1vflmrb8" path="res://experiment.tscn" id="1_ino3q"]
-[ext_resource type="Script" path="res://ex_status.gd" id="2_p85df"]
-[ext_resource type="Texture2D" uid="uid://dk8ykmswh1qwv" path="res://Assets/Triangle.svg" id="3_ae07x"]
-[ext_resource type="Texture2D" uid="uid://d1hkmrceyg446" path="res://Assets/zzz.svg" id="3_q6a82"]
-[ext_resource type="Script" path="res://SortStyleIndicator.gd" id="4_1e4wr"]
-[ext_resource type="Texture2D" uid="uid://e0hpyovnywqc" path="res://Assets/checkmark.svg" id="4_6sht0"]
-[ext_resource type="Texture2D" uid="uid://lsxrb66bxjjb" path="res://Assets/warning.svg" id="5_a681v"]
+[ext_resource type="PackedScene" uid="uid://dvyh1vflmrb8" path="res://Experiments/experiment.tscn" id="1_dufc8"]
+[ext_resource type="Script" path="res://Experiments/ex_status.gd" id="2_fkkmy"]
+[ext_resource type="Texture2D" uid="uid://d1hkmrceyg446" path="res://Assets/zzz.svg" id="3_kqjgt"]
+[ext_resource type="Texture2D" uid="uid://e0hpyovnywqc" path="res://Assets/checkmark.svg" id="4_ej5kk"]
+[ext_resource type="Texture2D" uid="uid://lsxrb66bxjjb" path="res://Assets/warning.svg" id="5_4tpcb"]
+[ext_resource type="Texture2D" uid="uid://dk8ykmswh1qwv" path="res://Assets/Triangle.svg" id="6_ti1gx"]
+[ext_resource type="Script" path="res://Experiments/SortStyleIndicator.gd" id="7_6tsdl"]
 
 [node name="ExperimentDisplay" type="Control"]
 layout_mode = 3
@@ -23,7 +23,7 @@ offset_right = 861.0
 offset_bottom = 1512.0
 scale = Vector2(0.25, 0.25)
 
-[node name="Experiment1" parent="ExperimentBackground1" node_paths=PackedStringArray("error_list_node", "essence_count_label") instance=ExtResource("1_ino3q")]
+[node name="Experiment1" parent="ExperimentBackground1" node_paths=PackedStringArray("error_list_node", "essence_count_label") instance=ExtResource("1_dufc8")]
 custom_minimum_size = Vector2(300, 400)
 layout_mode = 2
 error_list_node = NodePath("../../ErrorPanel/ScrollContainer/ErrorList")
@@ -39,19 +39,19 @@ offset_bottom = 56.0
 theme_override_font_sizes/font_size = 28
 text = "1: Stable"
 uppercase = true
-script = ExtResource("2_p85df")
+script = ExtResource("2_fkkmy")
 status_icon = NodePath("StatusIcon")
 status_num = "1"
-ZZZ_icon = ExtResource("3_q6a82")
-checkmark_icon = ExtResource("4_6sht0")
-warning_icon = ExtResource("5_a681v")
+ZZZ_icon = ExtResource("3_kqjgt")
+checkmark_icon = ExtResource("4_ej5kk")
+warning_icon = ExtResource("5_4tpcb")
 
 [node name="StatusIcon" type="TextureRect" parent="ExStatus"]
 layout_mode = 0
 offset_left = -48.0
 offset_right = -2.0
 offset_bottom = 47.0
-texture = ExtResource("4_6sht0")
+texture = ExtResource("4_ej5kk")
 expand_mode = 1
 
 [node name="ErrorPanel" type="Panel" parent="."]
@@ -103,9 +103,9 @@ offset_bottom = 3.0
 layout_mode = 0
 offset_right = 15.0
 offset_bottom = 15.0
-texture = ExtResource("3_ae07x")
+texture = ExtResource("6_ti1gx")
 expand_mode = 1
-script = ExtResource("4_1e4wr")
+script = ExtResource("7_6tsdl")
 ByTypeIndicatorPos = NodePath("..")
 ByLetterIndicatorPos = NodePath("../../../SortByLetter/IndicatorPosition")
 

@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://xl4jsnrh5oll"]
 
-[ext_resource type="PackedScene" uid="uid://i3jhroewpw33" path="res://upcoming_essence.tscn" id="1_1t6it"]
-[ext_resource type="Script" path="res://ResearchTableau.gd" id="2_pqy6i"]
-[ext_resource type="Texture2D" uid="uid://n7hqip00ci7k" path="res://Assets/padlock.svg" id="3_b1g8c"]
-[ext_resource type="Script" path="res://locked_warning.gd" id="4_k7iwp"]
+[ext_resource type="PackedScene" uid="uid://i3jhroewpw33" path="res://Research Board/upcoming_essence.tscn" id="1_vpxcx"]
+[ext_resource type="Script" path="res://Research Board/ResearchTableau.gd" id="2_oe7l2"]
+[ext_resource type="Texture2D" uid="uid://n7hqip00ci7k" path="res://Assets/padlock.svg" id="3_eekg6"]
+[ext_resource type="Script" path="res://Research Board/locked_warning.gd" id="4_rf5pn"]
 
 [node name="Research" type="Control"]
 layout_mode = 3
@@ -12,7 +12,7 @@ offset_top = -24.0
 offset_right = 40.0
 offset_bottom = 16.0
 
-[node name="UpcomingEssence" parent="." node_paths=PackedStringArray("tableau") instance=ExtResource("1_1t6it")]
+[node name="UpcomingEssence" parent="." node_paths=PackedStringArray("tableau") instance=ExtResource("1_vpxcx")]
 layout_mode = 1
 offset_left = 127.0
 offset_top = -688.0
@@ -31,7 +31,7 @@ offset_bottom = -248.0
 grow_horizontal = 2
 scale = Vector2(0.4, 0.4)
 columns = 8
-script = ExtResource("2_pqy6i")
+script = ExtResource("2_oe7l2")
 
 [node name="locked_warning" type="TextureRect" parent="."]
 layout_mode = 2
@@ -39,9 +39,9 @@ offset_left = 144.0
 offset_top = -288.0
 offset_right = 232.0
 offset_bottom = -200.0
-texture = ExtResource("3_b1g8c")
+texture = ExtResource("3_eekg6")
 expand_mode = 1
-script = ExtResource("4_k7iwp")
+script = ExtResource("4_rf5pn")
 
 [node name="LockedLabel" type="Label" parent="locked_warning"]
 layout_mode = 0

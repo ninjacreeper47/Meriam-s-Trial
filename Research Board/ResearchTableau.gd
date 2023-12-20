@@ -2,7 +2,7 @@ extends GridContainer
 
 #If you change this you have to also modify upcomming essence manually!
 var exposed_count = 8
-var essence = load("res://Essence.tscn")
+var essence = load("res://Essence/Essence.tscn")
 
 
 # Called when the node enters the scene tree for the first time.

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bbam0t7qtbdvy"]
 
 [ext_resource type="Texture2D" uid="uid://bsh0bafsswi66" path="res://Assets/How to Play/Instructions/Slide1.PNG" id="1_d7cv1"]
-[ext_resource type="Script" path="res://howtoplay.gd" id="2_peqyp"]
+[ext_resource type="Script" path="res://Menus and Buttons/howtoplay.gd" id="2_peqyp"]
 
 [node name="Instructions" type="Control"]
 layout_mode = 3
