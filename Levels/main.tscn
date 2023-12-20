@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cvya4rcawkcxg"]
+[gd_scene load_steps=10 format=3 uid="uid://cvya4rcawkcxg"]
 
 [ext_resource type="PackedScene" uid="uid://xl4jsnrh5oll" path="res://research.tscn" id="2_57rww"]
 [ext_resource type="PackedScene" uid="uid://bq55k435edwi7" path="res://experiment_display.tscn" id="3_wqano"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://bt0ytr2vo3k77" path="res://ingame_menu.tscn" id="11_cjw6x"]
 [ext_resource type="Script" path="res://Levels/SelectedPointer.gd" id="11_hkk26"]
 [ext_resource type="Script" path="res://TutorialButton.gd" id="13_uul6k"]
-[ext_resource type="PackedScene" uid="uid://he48k77wuxff" path="res://victory_celebration.tscn" id="16_8gp8j"]
 
 [node name="Main" type="Node2D"]
 
@@ -208,10 +207,6 @@ position2 = NodePath("../ExperimentDisplay2")
 position3 = NodePath("../ExperimentDisplay3")
 position4 = NodePath("../ExperimentDisplay4")
 position0 = NodePath("../StorageContainer")
-
-[node name="victorycelebration" parent="." instance=ExtResource("16_8gp8j")]
-visible = false
-position = Vector2(72, -48)
 
 [node name="Instructions" parent="." instance=ExtResource("8_a2qqj")]
 visible = false

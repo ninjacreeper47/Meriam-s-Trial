@@ -24,6 +24,7 @@ layout_mode = 2
 
 [node name="LetterSquare" parent="HBoxContainer/VBoxContainer" instance=ExtResource("2_ccpki")]
 layout_mode = 2
+my_victory_letter = "V"
 
 [node name="Label" parent="HBoxContainer/VBoxContainer/LetterSquare" index="0"]
 text = "R"
@@ -34,6 +35,7 @@ layout_mode = 2
 
 [node name="LetterSquare" parent="HBoxContainer/VBoxContainer2" instance=ExtResource("2_ccpki")]
 layout_mode = 2
+my_victory_letter = "I"
 
 [node name="Label" parent="HBoxContainer/VBoxContainer2/LetterSquare" index="0"]
 text = "E"
@@ -44,6 +46,7 @@ layout_mode = 2
 
 [node name="LetterSquare" parent="HBoxContainer/VBoxContainer3" instance=ExtResource("2_ccpki")]
 layout_mode = 2
+my_victory_letter = "C"
 
 [node name="Label" parent="HBoxContainer/VBoxContainer3/LetterSquare" index="0"]
 text = "S"
@@ -54,6 +57,7 @@ layout_mode = 2
 
 [node name="LetterSquare" parent="HBoxContainer/VBoxContainer4" instance=ExtResource("2_ccpki")]
 layout_mode = 2
+my_victory_letter = "T"
 
 [node name="Label" parent="HBoxContainer/VBoxContainer4/LetterSquare" index="0"]
 text = "E"
@@ -64,6 +68,7 @@ layout_mode = 2
 
 [node name="LetterSquare" parent="HBoxContainer/VBoxContainer5" instance=ExtResource("2_ccpki")]
 layout_mode = 2
+my_victory_letter = "O"
 
 [node name="Label" parent="HBoxContainer/VBoxContainer5/LetterSquare" index="0"]
 text = "A"
@@ -74,6 +79,7 @@ layout_mode = 2
 
 [node name="LetterSquare" parent="HBoxContainer/VBoxContainer6" instance=ExtResource("2_ccpki")]
 layout_mode = 2
+my_victory_letter = "R"
 
 [node name="Label" parent="HBoxContainer/VBoxContainer6/LetterSquare" index="0"]
 text = "R"
@@ -84,6 +90,7 @@ layout_mode = 2
 
 [node name="LetterSquare" parent="HBoxContainer/VBoxContainer7" instance=ExtResource("2_ccpki")]
 layout_mode = 2
+my_victory_letter = "Y"
 
 [node name="Label" parent="HBoxContainer/VBoxContainer7/LetterSquare" index="0"]
 text = "C"
@@ -94,6 +101,7 @@ layout_mode = 2
 
 [node name="LetterSquare" parent="HBoxContainer/VBoxContainer8" instance=ExtResource("2_ccpki")]
 layout_mode = 2
+my_victory_letter = "!"
 
 [node name="Label" parent="HBoxContainer/VBoxContainer8/LetterSquare" index="0"]
 text = "H"
