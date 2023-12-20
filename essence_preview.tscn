@@ -12,7 +12,6 @@ outline_color = Color(0, 0, 0, 1)
 [node name="Essence" type="TextureRect"]
 offset_right = 128.0
 offset_bottom = 128.0
-scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_2x4kr")
 script = ExtResource("2_g0ug7")
 

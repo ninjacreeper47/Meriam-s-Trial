@@ -6,7 +6,6 @@ func _ready():
 	var my_call = Callable(self,"_on_meta_counters_updated")
 	alchemy.meta_counters_updated.connect(my_call)
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
@@ -17,5 +16,7 @@ func _on_meta_counters_updated():
 	if es_count >= 20:
 		text = "META ACTIVE"
 	else:
+		get_child(1).value = es_count
 		text = "META INACTIVE"
 	get_child(0).text = str(es_count) + "/20 active tiles"
+	

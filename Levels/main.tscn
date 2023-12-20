@@ -1,8 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://cvya4rcawkcxg"]
+[gd_scene load_steps=11 format=3 uid="uid://cvya4rcawkcxg"]
 
 [ext_resource type="PackedScene" uid="uid://xl4jsnrh5oll" path="res://research.tscn" id="2_57rww"]
 [ext_resource type="PackedScene" uid="uid://bq55k435edwi7" path="res://experiment_display.tscn" id="3_wqano"]
-[ext_resource type="Texture2D" uid="uid://bu51kkw1j8tbp" path="res://Assets/How to Play/Laws of Alchemy.png" id="4_yaiqf"]
 [ext_resource type="PackedScene" uid="uid://bei423sbo6cig" path="res://storage_container.tscn" id="6_d81vx"]
 [ext_resource type="PackedScene" uid="uid://sd0cyqy52ykw" path="res://meta_status.tscn" id="6_qwf21"]
 [ext_resource type="PackedScene" uid="uid://bbam0t7qtbdvy" path="res://Levels/rules.tscn" id="8_a2qqj"]
@@ -23,22 +22,23 @@ offset_right = 920.0
 offset_bottom = 490.0
 
 [node name="Research" parent="Game Screen" instance=ExtResource("2_57rww")]
-offset_left = -856.0
-offset_top = 286.0
-offset_right = -816.0
-offset_bottom = 326.0
+offset_left = -976.0
+offset_top = 446.0
+offset_right = -936.0
+offset_bottom = 486.0
+scale = Vector2(1.25, 1.25)
 
 [node name="ExperimentDisplay" parent="Game Screen" instance=ExtResource("3_wqano")]
 offset_left = -280.0
-offset_top = -409.0
+offset_top = -369.0
 offset_right = -60.0
-offset_bottom = -26.0
+offset_bottom = 14.0
 
 [node name="ExperimentDisplay2" parent="Game Screen" instance=ExtResource("3_wqano")]
 offset_left = 184.0
-offset_top = -410.0
+offset_top = -370.0
 offset_right = 440.0
-offset_bottom = 198.0
+offset_bottom = 238.0
 
 [node name="Experiment1" parent="Game Screen/ExperimentDisplay2/ExperimentBackground1" index="0"]
 ex_num = 2
@@ -50,9 +50,9 @@ status_num = "2"
 [node name="ExperimentDisplay3" parent="Game Screen" instance=ExtResource("3_wqano")]
 layout_mode = 1
 offset_left = -272.0
-offset_top = 22.0
+offset_top = 62.0
 offset_right = -16.0
-offset_bottom = 630.0
+offset_bottom = 670.0
 metadata/_edit_group_ = true
 
 [node name="Experiment1" parent="Game Screen/ExperimentDisplay3/ExperimentBackground1" index="0"]
@@ -65,9 +65,9 @@ status_num = "3"
 [node name="ExperimentDisplay4" parent="Game Screen" instance=ExtResource("3_wqano")]
 layout_mode = 1
 offset_left = 192.0
-offset_top = 30.0
+offset_top = 70.0
 offset_right = 648.0
-offset_bottom = 430.0
+offset_bottom = 470.0
 metadata/_edit_group_ = true
 
 [node name="Experiment1" parent="Game Screen/ExperimentDisplay4/ExperimentBackground1" index="0"]
@@ -79,23 +79,86 @@ status_num = "4"
 
 [node name="Meta Status" parent="Game Screen" instance=ExtResource("6_qwf21")]
 layout_mode = 0
-offset_left = 696.0
-offset_top = -218.0
-offset_right = 984.0
-offset_bottom = -122.0
+offset_left = -576.0
+offset_top = 334.0
+offset_right = -296.0
+offset_bottom = 438.0
 
 [node name="HelpContainer" type="TabContainer" parent="Game Screen"]
 layout_mode = 0
-offset_left = -840.0
-offset_top = 38.0
-offset_right = -360.0
-offset_bottom = 478.0
+offset_left = 656.0
+offset_top = -434.0
+offset_right = 1136.0
+offset_bottom = 550.0
 metadata/_edit_lock_ = true
 
-[node name="Notes" type="TextEdit" parent="Game Screen/HelpContainer"]
+[node name="Laws" type="Panel" parent="Game Screen/HelpContainer"]
 layout_mode = 2
+
+[node name="Qluix" type="Label" parent="Game Screen/HelpContainer/Laws"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 65.0
+offset_right = 328.0
+offset_bottom = 114.0
+theme_override_font_sizes/font_size = 32
+text = "1. Anti-equality Law"
+
+[node name="Label" type="Label" parent="Game Screen/HelpContainer/Laws/Qluix"]
+layout_mode = 0
+offset_left = -8.0
+offset_top = 56.0
+offset_right = 384.0
+offset_bottom = 121.0
+theme_override_font_sizes/font_size = 22
+text = "A group can not contain the same amount of different elements"
+autowrap_mode = 2
+
+[node name="Kudu" type="Label" parent="Game Screen/HelpContainer/Laws"]
+offset_left = 16.0
+offset_top = 233.0
+offset_right = 367.0
+offset_bottom = 282.0
+theme_override_font_sizes/font_size = 32
+text = "2. Anti-dominance Law"
+
+[node name="Label" type="Label" parent="Game Screen/HelpContainer/Laws/Kudu"]
+layout_mode = 0
+offset_left = -8.0
+offset_top = 56.0
+offset_right = 384.0
+offset_bottom = 121.0
+theme_override_font_sizes/font_size = 22
+text = "A group can contain more of any one element than all others combined"
+autowrap_mode = 2
+
+[node name="Size" type="Label" parent="Game Screen/HelpContainer/Laws"]
+offset_left = 21.0
+offset_top = 446.0
+offset_right = 372.0
+offset_bottom = 495.0
+theme_override_font_sizes/font_size = 32
+text = "3. Minimum Size Rule"
+
+[node name="Label" type="Label" parent="Game Screen/HelpContainer/Laws/Size"]
+layout_mode = 0
+offset_left = -8.0
+offset_top = 56.0
+offset_right = 384.0
+offset_bottom = 121.0
+theme_override_font_sizes/font_size = 22
+text = "A group must have at least 3 elements to be active
+
+The laws of alchemy only apply to active groups"
+autowrap_mode = 2
+
+[node name="Notes" type="TextEdit" parent="Game Screen/HelpContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
 placeholder_text = "type anything you want here "
 drag_and_drop_selection_enabled = false
+wrap_mode = 1
 
 [node name="Controls" type="TextEdit" parent="Game Screen/HelpContainer"]
 visible = false
@@ -116,28 +179,23 @@ drag_and_drop_selection_enabled = false
 virtual_keyboard_enabled = false
 middle_mouse_paste_enabled = false
 
-[node name="Laws" type="TextureRect" parent="Game Screen/HelpContainer"]
-visible = false
-layout_mode = 2
-texture = ExtResource("4_yaiqf")
-expand_mode = 1
-
 [node name="Menu" parent="Game Screen/HelpContainer" instance=ExtResource("11_cjw6x")]
 visible = false
 layout_mode = 2
 
 [node name="StorageContainer" parent="Game Screen" instance=ExtResource("6_d81vx")]
-offset_left = 672.0
-offset_top = -58.0
-offset_right = 936.0
-offset_bottom = 78.0
+offset_left = -624.0
+offset_top = 150.0
+offset_right = -360.0
+offset_bottom = 286.0
+scale = Vector2(1.25, 1.25)
 
 [node name="TutorialButton" type="Button" parent="Game Screen" node_paths=PackedStringArray("instructions")]
 layout_mode = 0
-offset_left = 736.0
-offset_top = 166.0
-offset_right = 890.0
-offset_bottom = 308.0
+offset_left = -784.0
+offset_top = 342.0
+offset_right = -630.0
+offset_bottom = 484.0
 theme_override_font_sizes/font_size = 36
 text = "GAME
 RULES"
