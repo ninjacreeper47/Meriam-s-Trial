@@ -11,7 +11,6 @@ var smallest_value
 
 var unsorted_index = 0
 
-var active = false
 var stable = true
 
 
@@ -38,8 +37,7 @@ var value_transmutation_on = false
 #signals
 signal broken 
 signal stabilized
-signal inactive
-signal activated
+
 
 @export var ex_num = 0 
 
@@ -65,40 +63,30 @@ func _add_essence(val, type):
 	type_counts[type] += 1
 	value_counts[val] += 1
 	num_essences+= 1
+	if num_essences >= 1:
+		alchemy.active_experiments += 1
 	essence_count_label.text = "[" + str(num_essences) +"]"
 	alchemy.essence_counts[ex_num] = num_essences
-	if active:
-		alchemy.active_essence_count += 1
-	if (active == false && num_essences >= 3):
-		activated.emit()
-		active = true
-		alchemy.active_experiments += 1
-		alchemy.active_essence_count += num_essences
+	alchemy.active_essence_count += 1
+	
 	_check_laws()
 
 func _remove_essence(val, type):
 	type_counts[type] -= 1
 	value_counts[val] -= 1
 	num_essences-= 1
+	if num_essences < 1:
+		alchemy.active_experiments -= 1
 	essence_count_label.text = "[" + str(num_essences) +"]"
 	alchemy.essence_counts[ex_num] = num_essences
-	if active:
-		alchemy.active_essence_count -= 1
-	if (active == true && num_essences < 3):
-		active = false
-		inactive.emit()
-		alchemy.active_experiments -= 1
-		alchemy.active_essence_count -= num_essences
+	alchemy.active_essence_count -= 1
+	
 	_check_laws()
 	
 	
 #This should be called whenever the essences in an experiment are changed
 func _check_laws():
 	_calculate_lowest_and_greatest()
-	if !active:
-		stable = true
-		_clear_error_list()
-		return
 	if practice_experiment:
 		var kudu = _check_kudu()
 		var qluix = _check_qluix()
@@ -189,7 +177,7 @@ func _check_meta():
 	var breached = false
 	#meta-qluix
 	for ex in alchemy.essence_counts:
-		if  ex == ex_num || alchemy.experiment_nodes[ex].active == false:
+		if  ex == ex_num || alchemy.experiment_nodes[ex].num_essences == 0:
 			continue
 		if(alchemy.essence_counts[ex] == num_essences):
 			breached = true

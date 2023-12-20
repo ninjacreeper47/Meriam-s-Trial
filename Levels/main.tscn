@@ -115,6 +115,7 @@ text = "A group can not contain the same amount of different elements"
 autowrap_mode = 2
 
 [node name="Kudu" type="Label" parent="Game Screen/HelpContainer/Laws"]
+layout_mode = 0
 offset_left = 16.0
 offset_top = 233.0
 offset_right = 367.0
@@ -133,6 +134,7 @@ text = "A group can contain more of any one element than all others combined"
 autowrap_mode = 2
 
 [node name="DistinctSets" type="Label" parent="Game Screen/HelpContainer/Laws"]
+layout_mode = 0
 offset_left = 16.0
 offset_top = 449.0
 offset_right = 379.0
@@ -182,10 +184,10 @@ scale = Vector2(1.25, 1.25)
 
 [node name="TutorialButton" type="Button" parent="Game Screen" node_paths=PackedStringArray("instructions")]
 layout_mode = 0
-offset_left = -784.0
-offset_top = 342.0
-offset_right = -630.0
-offset_bottom = 484.0
+offset_left = -816.0
+offset_top = 310.0
+offset_right = -662.0
+offset_bottom = 452.0
 theme_override_font_sizes/font_size = 36
 text = "GAME
 RULES"

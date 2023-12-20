@@ -11,18 +11,19 @@ anchors_preset = 0
 offset_left = -216.0
 offset_top = -246.0
 offset_right = 112.0
-offset_bottom = -48.0
+offset_bottom = -56.0
 
 [node name="StorageBackground" type="PanelContainer" parent="."]
 layout_mode = 0
 offset_right = 528.0
-offset_bottom = 268.0
+offset_bottom = 396.0
 scale = Vector2(0.5, 0.5)
 
 [node name="Storage" type="GridContainer" parent="StorageBackground"]
 layout_mode = 2
 columns = 4
 script = ExtResource("1_ju3o0")
+capacity = 12
 
 [node name="StorageLabel" type="Label" parent="."]
 layout_mode = 0

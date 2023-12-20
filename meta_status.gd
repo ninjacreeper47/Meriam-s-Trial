@@ -13,10 +13,10 @@ func _process(delta):
 func _on_meta_counters_updated():
 	
 	var es_count = alchemy.active_essence_count
-	if es_count >= 20:
+	if es_count >= alchemy.forced_meta_threshold:
 		text = "META ACTIVE"
 	else:
 		get_child(1).value = es_count
 		text = "META INACTIVE"
-	get_child(0).text = str(es_count) + "/20 active tiles"
+	get_child(0).text = str(es_count) + "/" +str(alchemy.forced_meta_threshold)+ " active tiles"
 	

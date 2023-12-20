@@ -81,7 +81,7 @@ func _check_labatory_stability():
 		if experiment_nodes[i].practice_experiment == true:
 			practice_environment = true
 		experiment_nodes[i]._check_laws()
-		if(experiment_nodes[i].stable == false && experiment_nodes[i].active == true):
+		if(experiment_nodes[i].stable == false):
 			stability = false
 	return stability
 func _update_alchemic_state():

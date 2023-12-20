@@ -37,7 +37,7 @@ offset_top = 8.0
 offset_right = 432.0
 offset_bottom = 56.0
 theme_override_font_sizes/font_size = 28
-text = "1: Inactive"
+text = "1: Stable"
 uppercase = true
 script = ExtResource("2_p85df")
 status_icon = NodePath("StatusIcon")
@@ -51,7 +51,7 @@ layout_mode = 0
 offset_left = -48.0
 offset_right = -2.0
 offset_bottom = 47.0
-texture = ExtResource("3_q6a82")
+texture = ExtResource("4_6sht0")
 expand_mode = 1
 
 [node name="ErrorPanel" type="Panel" parent="."]
@@ -150,9 +150,7 @@ offset_bottom = 84.0
 theme_override_font_sizes/font_size = 20
 text = "SIZE:"
 
-[connection signal="activated" from="ExperimentBackground1/Experiment1" to="ExStatus" method="_on_activated"]
 [connection signal="broken" from="ExperimentBackground1/Experiment1" to="ExStatus" method="_on_broken"]
-[connection signal="inactive" from="ExperimentBackground1/Experiment1" to="ExStatus" method="_on_inactive"]
 [connection signal="stabilized" from="ExperimentBackground1/Experiment1" to="ExStatus" method="_on_stabilized"]
 [connection signal="pressed" from="SortStuff/SortByType" to="ExperimentBackground1/Experiment1" method="_on_sort_by_type_pressed"]
 [connection signal="pressed" from="SortStuff/SortByType" to="SortStuff/SortByType/IndicatorPosition/SortStyleIndicator" method="_on_sort_by_type_pressed"]
