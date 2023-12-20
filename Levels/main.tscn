@@ -93,7 +93,6 @@ offset_bottom = 478.0
 metadata/_edit_lock_ = true
 
 [node name="Notes" type="TextEdit" parent="Game Screen/HelpContainer"]
-visible = false
 layout_mode = 2
 placeholder_text = "type anything you want here "
 drag_and_drop_selection_enabled = false
@@ -124,6 +123,7 @@ texture = ExtResource("4_yaiqf")
 expand_mode = 1
 
 [node name="Menu" parent="Game Screen/HelpContainer" instance=ExtResource("11_cjw6x")]
+visible = false
 layout_mode = 2
 
 [node name="StorageContainer" parent="Game Screen" instance=ExtResource("6_d81vx")]
