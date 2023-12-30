@@ -4,7 +4,7 @@
 [ext_resource type="LabelSettings" uid="uid://ceidsrgtel87v" path="res://Experiments/Experiment Errors/error_letter_label-settings.tres" id="1_j3tmh"]
 
 [node name="LetterQluixError" type="Control"]
-custom_minimum_size = Vector2(180, 40)
+custom_minimum_size = Vector2(170, 40)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

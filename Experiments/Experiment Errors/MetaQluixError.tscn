@@ -5,7 +5,7 @@
 [ext_resource type="LabelSettings" uid="uid://cl8vwohypccej" path="res://Experiments/Experiment Errors/error_meta_label_settings.tres" id="3_n5cij"]
 
 [node name="MetaQluixError" type="Control"]
-custom_minimum_size = Vector2(180, 80)
+custom_minimum_size = Vector2(170, 80)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

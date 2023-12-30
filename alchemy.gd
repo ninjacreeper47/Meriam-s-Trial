@@ -22,6 +22,8 @@ var new_player_entering = false
 
 var debug_research_locking_disabled = false
 
+
+var student_game = false
 signal game_won
 signal meta_counters_updated
 

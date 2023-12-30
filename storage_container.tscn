@@ -1,34 +1,89 @@
 [gd_scene load_steps=3 format=3 uid="uid://bei423sbo6cig"]
 
 [ext_resource type="Script" path="res://Storage.gd" id="1_ju3o0"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_tp21d"]
-font_size = 24
+[ext_resource type="PackedScene" uid="uid://bu5nuvji7xww4" path="res://Research Board/letter_square.tscn" id="2_bam2q"]
 
 [node name="StorageContainer" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = -216.0
 offset_top = -246.0
-offset_right = 112.0
+offset_right = -16.0
 offset_bottom = -56.0
 
 [node name="StorageBackground" type="PanelContainer" parent="."]
 layout_mode = 0
-offset_right = 528.0
+offset_right = 396.0
 offset_bottom = 396.0
 scale = Vector2(0.5, 0.5)
 
 [node name="Storage" type="GridContainer" parent="StorageBackground"]
 layout_mode = 2
-columns = 4
+columns = 3
 script = ExtResource("1_ju3o0")
-capacity = 12
 
-[node name="StorageLabel" type="Label" parent="."]
+[node name="StorageLabel" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 64.0
-offset_top = -40.0
-offset_right = 160.0
-text = "Storage"
-label_settings = SubResource("LabelSettings_tp21d")
+offset_left = 5.0
+offset_top = -28.0
+offset_right = 925.0
+offset_bottom = 100.0
+scale = Vector2(0.2, 0.2)
+metadata/_edit_group_ = true
+
+[node name="LetterSquare" parent="StorageLabel" instance=ExtResource("2_bam2q")]
+layout_mode = 2
+my_victory_letter = "S"
+
+[node name="Label" parent="StorageLabel/LetterSquare" index="0"]
+text = "S"
+
+[node name="LetterSquare2" parent="StorageLabel" instance=ExtResource("2_bam2q")]
+layout_mode = 2
+my_victory_letter = "T"
+
+[node name="Label" parent="StorageLabel/LetterSquare2" index="0"]
+text = "T"
+
+[node name="LetterSquare3" parent="StorageLabel" instance=ExtResource("2_bam2q")]
+layout_mode = 2
+my_victory_letter = "O"
+
+[node name="Label" parent="StorageLabel/LetterSquare3" index="0"]
+text = "O"
+
+[node name="LetterSquare4" parent="StorageLabel" instance=ExtResource("2_bam2q")]
+layout_mode = 2
+my_victory_letter = "R"
+
+[node name="Label" parent="StorageLabel/LetterSquare4" index="0"]
+text = "R"
+
+[node name="LetterSquare5" parent="StorageLabel" instance=ExtResource("2_bam2q")]
+layout_mode = 2
+my_victory_letter = "A"
+
+[node name="Label" parent="StorageLabel/LetterSquare5" index="0"]
+text = "A"
+
+[node name="LetterSquare6" parent="StorageLabel" instance=ExtResource("2_bam2q")]
+layout_mode = 2
+my_victory_letter = "G"
+
+[node name="Label" parent="StorageLabel/LetterSquare6" index="0"]
+text = "G"
+
+[node name="LetterSquare7" parent="StorageLabel" instance=ExtResource("2_bam2q")]
+layout_mode = 2
+my_victory_letter = "E"
+
+[node name="Label" parent="StorageLabel/LetterSquare7" index="0"]
+text = "E"
+
+[editable path="StorageLabel/LetterSquare"]
+[editable path="StorageLabel/LetterSquare2"]
+[editable path="StorageLabel/LetterSquare3"]
+[editable path="StorageLabel/LetterSquare4"]
+[editable path="StorageLabel/LetterSquare5"]
+[editable path="StorageLabel/LetterSquare6"]
+[editable path="StorageLabel/LetterSquare7"]

@@ -42,6 +42,6 @@ func _process(delta):
 	if Input.is_action_just_pressed("storage"):
 		alchemy. selected_experiment = alchemy.experiment_nodes[0]
 		position = position0.position
-		position.x += 180
-		position.y += 200
+		position.x += 175
+		position.y += 315
 		visible = true

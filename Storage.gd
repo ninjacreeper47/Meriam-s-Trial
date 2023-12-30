@@ -1,6 +1,6 @@
 extends GridContainer
 
-@export var capacity = 8 
+@export var capacity = 9 
 var essence_count = 0
 
 #this variable exists for more polymorphism abuse, this is really getting out of hand and i should just refactor 

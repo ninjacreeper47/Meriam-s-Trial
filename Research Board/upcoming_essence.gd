@@ -53,6 +53,7 @@ func spawn_balanced():
 	while bag.size() > 0:
 		var instance = essence.instantiate()
 		storage_ref.add_child(instance)
+		storage_ref.essence_count += 1
 		instance._set_type(bag.pop_back())
 		instance._set_value(alchemy.value_letters.pick_random())
 	alchemy.resetting_in_progress = false
