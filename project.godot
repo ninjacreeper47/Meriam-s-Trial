@@ -14,7 +14,8 @@ config/name="Meriam's Trial"
 run/main_scene="res://Levels/main.tscn"
 config/use_custom_user_dir=true
 config/features=PackedStringArray("4.2", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://Assets/Meriam's Trial Icon-01.svg"
+config/windows_native_icon="res://Assets/Meriam's Trial Icon-01.ico"
 
 [autoload]
 
