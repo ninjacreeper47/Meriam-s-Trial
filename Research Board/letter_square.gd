@@ -14,4 +14,7 @@ func _process(delta):
 
 
 func _on_game_won():
-	get_child(0).text = my_victory_letter
+	if my_victory_letter == "#":
+		get_child(0).text = str(alchemy.win_count)
+	else:
+		get_child(0).text = my_victory_letter

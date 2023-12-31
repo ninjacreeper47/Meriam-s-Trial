@@ -6,15 +6,17 @@ extends TextureRect
 @export var position4: Control
 @export var position0: Control
 
+@export var NotesControl : Control
 var ex_x_offset = 160
 var ex_y_offset = 400
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	visible = false
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if (NotesControl != null && get_viewport().gui_get_focus_owner() == NotesControl):
+		return
 	if Input.is_action_just_pressed("SelectEx1"):
 		alchemy.selected_experiment = alchemy.experiment_nodes[1]
 		position = position1.position

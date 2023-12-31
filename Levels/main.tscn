@@ -115,7 +115,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Move tiles by dragging them
 Alternate Controls:   
-Use 1,2,3,4,5 to select experiments
+Use 1,2,3,4 to select experiments
 space to select storage
 click a tile  to send to selected area
 
@@ -128,10 +128,36 @@ deselect_on_focus_loss_enabled = false
 drag_and_drop_selection_enabled = false
 virtual_keyboard_enabled = false
 middle_mouse_paste_enabled = false
+scroll_vertical = 7.0
 
 [node name="Menu" parent="Game Screen/HelpContainer" instance=ExtResource("11_cjw6x")]
 visible = false
 layout_mode = 2
+
+[node name="Credits" type="TextEdit" parent="Game Screen/HelpContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Game by Zachary Morris
+
+Padlock icon: game-icons.net
+	https://game-icons.net/1x1/lorc/padlock.html
+by Lorc
+
+Playtesters
+
+Adam Sequoyah
+Paul VanPraag
+Luciano Casamajor
+TheQwertiest
+Billy Morris
+Man of Shadows
+Tristan Weigand
+Timothy Morris
+Lucas Schroeder
+Jeremy H.
+Tabelel
+"
 
 [node name="StorageContainer" parent="Game Screen" instance=ExtResource("6_d81vx")]
 offset_left = -665.0
@@ -140,7 +166,7 @@ offset_right = -401.0
 offset_bottom = 332.0
 scale = Vector2(1.25, 1.25)
 
-[node name="SelectedPointer" type="TextureRect" parent="Game Screen" node_paths=PackedStringArray("position1", "position2", "position3", "position4", "position0")]
+[node name="SelectedPointer" type="TextureRect" parent="Game Screen" node_paths=PackedStringArray("position1", "position2", "position3", "position4", "position0", "NotesControl")]
 layout_mode = 0
 offset_left = -39.0
 offset_top = 13.0
@@ -154,6 +180,7 @@ position2 = NodePath("../ExperimentDisplay2")
 position3 = NodePath("../ExperimentDisplay3")
 position4 = NodePath("../ExperimentDisplay4")
 position0 = NodePath("../StorageContainer")
+NotesControl = NodePath("../HelpContainer/Notes")
 
 [node name="ExperimentsLabel" type="Control" parent="Game Screen"]
 anchors_preset = 0

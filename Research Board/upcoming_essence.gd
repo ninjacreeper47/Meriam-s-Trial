@@ -56,6 +56,7 @@ func spawn_balanced():
 		storage_ref.essence_count += 1
 		instance._set_type(bag.pop_back())
 		instance._set_value(alchemy.value_letters.pick_random())
+		instance.assigned_experiment = storage_ref
 	alchemy.resetting_in_progress = false
 	alchemy.game_playing = true
 # Called every frame. 'delta' is the elapsed time since the previous frame.

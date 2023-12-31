@@ -24,6 +24,8 @@ var debug_research_locking_disabled = false
 
 
 var student_game = false
+var win_count: int
+var stats_file = ConfigFile.new()
 signal game_won
 signal meta_counters_updated
 
@@ -45,6 +47,12 @@ func _ready():
 	var	my_call = Callable(self,"_on_game_won")
 	game_won.connect(my_call)
 	_clear_game_state()
+	
+	var err = stats_file.load("user://Meriam's-Trial-stats")
+	if err == OK:
+		win_count = stats_file.get_value("stats","win_count",0)
+	else:
+		win_count = 0
 	
 func _clear_game_state():
 	experiment_nodes = ["storage placeholder"]
@@ -95,4 +103,6 @@ func _check_victory():
 			game_won.emit()
 func _on_game_won():
 	game_playing = false
-
+	win_count += 1
+	stats_file.set_value("stats","win_count",win_count)
+	stats_file.save("user://Meriam's-Trial-stats")
