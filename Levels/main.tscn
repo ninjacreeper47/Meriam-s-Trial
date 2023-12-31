@@ -21,22 +21,22 @@ offset_right = 920.0
 offset_bottom = 490.0
 
 [node name="Research" parent="Game Screen" instance=ExtResource("2_57rww")]
-offset_left = -1020.0
+offset_left = -1029.0
 offset_top = 446.0
-offset_right = -980.0
+offset_right = -989.0
 offset_bottom = 486.0
 scale = Vector2(1.25, 1.25)
 
 [node name="ExperimentDisplay" parent="Game Screen" instance=ExtResource("3_wqano")]
-offset_left = -313.0
+offset_left = -328.0
 offset_top = -317.0
-offset_right = -93.0
+offset_right = -108.0
 offset_bottom = 66.0
 
 [node name="ExperimentDisplay2" parent="Game Screen" instance=ExtResource("3_wqano")]
-offset_left = 109.0
+offset_left = 94.0
 offset_top = -318.0
-offset_right = 365.0
+offset_right = 350.0
 offset_bottom = 290.0
 
 [node name="Experiment1" parent="Game Screen/ExperimentDisplay2/ExperimentBackground1" index="0"]
@@ -48,9 +48,9 @@ status_num = "2"
 
 [node name="ExperimentDisplay3" parent="Game Screen" instance=ExtResource("3_wqano")]
 layout_mode = 1
-offset_left = -313.0
+offset_left = -328.0
 offset_top = 114.0
-offset_right = -57.0
+offset_right = -72.0
 offset_bottom = 722.0
 metadata/_edit_group_ = true
 
@@ -63,9 +63,9 @@ status_num = "3"
 
 [node name="ExperimentDisplay4" parent="Game Screen" instance=ExtResource("3_wqano")]
 layout_mode = 1
-offset_left = 109.0
+offset_left = 94.0
 offset_top = 122.0
-offset_right = 565.0
+offset_right = 550.0
 offset_bottom = 522.0
 metadata/_edit_group_ = true
 
@@ -90,9 +90,9 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 495.0
+offset_left = 480.0
 offset_top = -430.0
-offset_right = 1120.0
+offset_right = 1105.0
 offset_bottom = 595.0
 grow_horizontal = 0
 grow_vertical = 2
@@ -128,7 +128,6 @@ deselect_on_focus_loss_enabled = false
 drag_and_drop_selection_enabled = false
 virtual_keyboard_enabled = false
 middle_mouse_paste_enabled = false
-scroll_vertical = 7.0
 
 [node name="Menu" parent="Game Screen/HelpContainer" instance=ExtResource("11_cjw6x")]
 visible = false
@@ -184,10 +183,10 @@ NotesControl = NodePath("../HelpContainer/Notes")
 
 [node name="ExperimentsLabel" type="Control" parent="Game Screen"]
 anchors_preset = 0
-offset_left = -264.0
-offset_top = -412.0
-offset_right = -224.0
-offset_bottom = -372.0
+offset_left = -274.0
+offset_top = -413.0
+offset_right = -234.0
+offset_bottom = -373.0
 metadata/_edit_group_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Game Screen/ExperimentsLabel"]
