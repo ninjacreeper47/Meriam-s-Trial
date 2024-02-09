@@ -106,7 +106,7 @@ func _experiments():
 	experiments.set_text(0,"Experiments")
 	var experiments_description = create_item(experiments)
 	experiments_description.set_text(0,"Tiles can be freely moved into or out of experiments
-	Experiments are sets that subject to *alchemical laws*
+	Experiments are sets that are subject to *alchemical laws*
 	If an experiment follows all laws, then it is considered stable
 	If an experiments breaks any laws, then it is considered unstable")
 func _storage():

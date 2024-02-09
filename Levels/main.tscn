@@ -1,14 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://cvya4rcawkcxg"]
+[gd_scene load_steps=12 format=3 uid="uid://cvya4rcawkcxg"]
 
 [ext_resource type="PackedScene" uid="uid://xl4jsnrh5oll" path="res://Research Board/research.tscn" id="2_57rww"]
 [ext_resource type="PackedScene" uid="uid://bq55k435edwi7" path="res://Experiments/experiment_display.tscn" id="3_wqano"]
 [ext_resource type="PackedScene" uid="uid://dmyomjkogqqwg" path="res://Menus and Buttons/GameRules.tscn" id="4_wlvr4"]
 [ext_resource type="PackedScene" uid="uid://bei423sbo6cig" path="res://storage_container.tscn" id="6_d81vx"]
+[ext_resource type="Script" path="res://Menus and Buttons/Options.gd" id="6_nrbuq"]
 [ext_resource type="PackedScene" uid="uid://sd0cyqy52ykw" path="res://meta_status.tscn" id="6_qwf21"]
 [ext_resource type="PackedScene" uid="uid://bu5nuvji7xww4" path="res://Research Board/letter_square.tscn" id="9_wfxbk"]
 [ext_resource type="Texture2D" uid="uid://dk8ykmswh1qwv" path="res://Assets/Triangle.svg" id="10_gi6iu"]
 [ext_resource type="PackedScene" uid="uid://bt0ytr2vo3k77" path="res://Menus and Buttons/ingame_menu.tscn" id="11_cjw6x"]
 [ext_resource type="Script" path="res://Experiments/SelectedPointer.gd" id="11_hkk26"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ow52m"]
 
 [node name="Main" type="Node2D"]
 
@@ -96,9 +99,11 @@ offset_right = 1105.0
 offset_bottom = 595.0
 grow_horizontal = 0
 grow_vertical = 2
-metadata/_edit_group_ = true
+current_tab = 5
+metadata/_edit_lock_ = true
 
 [node name="Rules" parent="Game Screen/HelpContainer" instance=ExtResource("4_wlvr4")]
+visible = false
 layout_mode = 2
 
 [node name="Notes" type="TextEdit" parent="Game Screen/HelpContainer"]
@@ -157,6 +162,42 @@ Lucas Schroeder
 Jeremy H.
 Tabelel
 "
+
+[node name="Options" type="Control" parent="Game Screen/HelpContainer"]
+layout_mode = 2
+script = ExtResource("6_nrbuq")
+
+[node name="Practice" type="Panel" parent="Game Screen/HelpContainer/Options"]
+self_modulate = Color(1, 0.678431, 0.988235, 1)
+layout_mode = 2
+offset_left = 8.0
+offset_top = 209.0
+offset_right = 584.0
+offset_bottom = 369.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ow52m")
+
+[node name="Label" type="Label" parent="Game Screen/HelpContainer/Options/Practice"]
+layout_mode = 2
+offset_right = 352.0
+offset_bottom = 67.0
+theme_override_font_sizes/font_size = 48
+text = "Practice Mode"
+
+[node name="Label" type="Label" parent="Game Screen/HelpContainer/Options/Practice/Label"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 64.0
+offset_right = 324.0
+offset_bottom = 87.0
+text = "All tiles in research are always unlocked"
+
+[node name="CheckButton" type="CheckButton" parent="Game Screen/HelpContainer/Options/Practice"]
+layout_mode = 2
+offset_left = 352.0
+offset_top = 8.0
+offset_right = 396.0
+offset_bottom = 46.0
+scale = Vector2(4, 4)
 
 [node name="StorageContainer" parent="Game Screen" instance=ExtResource("6_d81vx")]
 offset_left = -665.0
@@ -271,6 +312,8 @@ my_victory_letter = "#"
 
 [node name="Label" parent="Game Screen/ExperimentsLabel/HBoxContainer/LetterSquare11" index="0"]
 text = "S"
+
+[connection signal="toggled" from="Game Screen/HelpContainer/Options/Practice/CheckButton" to="Game Screen/HelpContainer/Options" method="_on_check_button_toggled"]
 
 [editable path="Game Screen/ExperimentDisplay2"]
 [editable path="Game Screen/ExperimentDisplay3"]

@@ -15,8 +15,9 @@ var assigned_experiment
 var preview_node = load("res://Essence/essence_preview.tscn")
 var my_texture
 var blank_placeholder = load("res://Assets/BlankSpace.png")
-signal taken_from_tableau
 
+signal taken_from_tableau
+signal taken_from_upcoming
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_generateIcon()
@@ -64,7 +65,9 @@ func _on_pressed():
 	if(in_tableau):
 		taken_from_tableau.emit(my_col)
 		in_tableau = false
-	
+	if(in_upcoming):
+		taken_from_upcoming.emit(my_col,self)
+		in_upcoming = false
 	alchemy.selected_experiment._add_essence(value,my_type)
 	assigned_experiment = alchemy.selected_experiment
 	assigned_experiment._sort_experiment()
@@ -72,6 +75,8 @@ func _on_pressed():
 	
 func _check_if_locked():
 	if alchemy.debug_research_locking_disabled:
+		return false
+	if alchemy.practice_mode:
 		return false
 	if(in_tableau && alchemy._check_labatory_stability() == false):
 		return true 

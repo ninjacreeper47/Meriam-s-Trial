@@ -44,7 +44,8 @@ func spawn_balanced():
 			instance._set_value(alchemy.value_letters.pick_random())
 			var my_call = Callable(self, "_on_next_requested")
 			instance.taken_from_tableau.connect(my_call)
-			
+			my_call = Callable(self, "_on_taken_directly_from_upcoming")
+			instance.taken_from_upcoming.connect(my_call)
 			column_counts[i] += 1
 		#populate the intial tableau
 		_on_next_requested(i,false)
@@ -79,3 +80,13 @@ func _on_next_requested(column, spawn_replacement = true):
 		var replacement = column_clear_marker.instantiate()
 		column_node.add_child(replacement)
 		column_node.move_child(replacement,1)
+	
+
+func _on_taken_directly_from_upcoming(column,essence):
+	essence.in_upcoming = false
+	var column_node = get_child(0).get_child(column)
+	var replacement = column_clear_marker.instantiate()
+	column_node.add_child(replacement)
+	column_node.move_child(replacement,1)
+	column_counts[column] -= 1
+	

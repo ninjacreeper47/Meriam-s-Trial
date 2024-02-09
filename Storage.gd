@@ -48,6 +48,9 @@ func _drop_data(at_position, data):
 	if(data.in_tableau):
 		data.taken_from_tableau.emit(data.my_col)
 		data.in_tableau = false
+	if(data.in_upcoming):
+		data.taken_from_upcoming.emit(data.my_col,data)
+		data.in_upcoming = false
 	data.assigned_experiment = self
 	_add_essence(data.value,data.my_type)
 	data.reparent(self)

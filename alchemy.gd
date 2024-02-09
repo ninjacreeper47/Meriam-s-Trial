@@ -22,8 +22,11 @@ var new_player_entering = false
 
 var debug_research_locking_disabled = false
 
-
+#student game is probably depecrated.  
+#It's logic is almost entirely unimplemented by it sits in limbo until i make my decision
 var student_game = false
+
+var practice_mode = false
 var win_count: int
 var stats_file = ConfigFile.new()
 signal game_won
